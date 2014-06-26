@@ -12,7 +12,7 @@ client.posts.update
 
 # add a bookmark
 client.posts.add('http://theinternate.com', 'The Internate')
-client.posts.add('http://theinternate.com', 'The Internate', extended: 'The personal website of Nate Smith', tags: ['awesome', 'essential'])
+client.posts.add('http://theinternate.com', 'The Internate', extended: 'The personal website of Nate Smith', tags: 'awesome essential')
 
 # delete a bookmark
 client.posts.delete('http://theinternate.com')
