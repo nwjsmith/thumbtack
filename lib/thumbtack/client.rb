@@ -20,7 +20,7 @@ module Thumbtack
       @username, @token = username, token
     end
 
-    # Internal: Request some JSON from the Pinboard API.
+    # Internal: Request JSON from the Pinboard API.
     #
     # path - A String of the path to fetch from. The is relative from the root
     #        Pinboard API URL.
@@ -44,6 +44,11 @@ module Thumbtack
 
       response = Net::HTTP.get_response(uri)
       JSON.parse(response.body)
+    end
+
+    # Public: Access posts-related API calls.
+    def posts
+      Posts.new(self)
     end
   end
 end
