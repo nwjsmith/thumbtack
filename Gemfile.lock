@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    thumbtack (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.3.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.6.3)
+  minitest (~> 5.3.5)
+  thumbtack!
