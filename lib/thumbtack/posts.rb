@@ -22,5 +22,19 @@ module Thumbtack
       response = @client.get('/posts/update')
       response.fetch('update_time')
     end
+
+    # Public: Add a bookmark
+    #
+    # Example
+    #
+    #   add('http://theinternate.com', 'The Internate')
+    #   add('http://theinternate.com', 'The Internate', tags: 'best ruby')
+    #
+    # Returns the Posts instance
+    def add(url, description, params = {})
+      required_params = { url: url, description: description }
+      @client.get('/posts/add', required_params.merge(params))
+      self
+    end
   end
 end
