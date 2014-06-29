@@ -30,13 +30,24 @@ class PostsTest < Minitest::Test
     response = { 'result_code' => 'done' }
     client.expect(:get, response,
                   ['/posts/add',
-                   {url: 'http://example.org',
-                    description: 'example.org',
-                    tags: 'thumbtack test' }])
+                   { url: 'http://example.org',
+                     description: 'example.org',
+                     tags: 'thumbtack test' }])
     posts = Posts.new(client)
 
     assert_equal posts,
       posts.add('http://example.org', 'example.org', tags: 'thumbtack test')
+    client.verify
+  end
+
+  def test_delete
+    client = Minitest::Mock.new
+    response = { 'result_code' => 'done' }
+    client.expect(:get, response,
+                  ['/posts/delete', { url: 'http://example.org' }])
+    posts = Posts.new(client)
+
+    assert_equal posts, posts.delete('http://example.org')
     client.verify
   end
 end

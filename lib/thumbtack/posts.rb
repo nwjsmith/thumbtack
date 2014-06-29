@@ -36,5 +36,17 @@ module Thumbtack
       @client.get('/posts/add', required_params.merge(params))
       self
     end
+
+    # Public: Delete a bookmark
+    #
+    # Example
+    #
+    #   delete('http://delicio.us')
+    #
+    # Returns the Posts instance
+    def delete(url)
+      @client.get('/posts/delete', url: url)
+      self
+    end
   end
 end
