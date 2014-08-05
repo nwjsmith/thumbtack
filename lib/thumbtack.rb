@@ -8,6 +8,7 @@ require 'uri'
 require 'net/http'
 require 'json'
 
+require 'thumbtack/post'
 require 'thumbtack/posts'
 require 'thumbtack/client'
 require 'thumbtack/version'
