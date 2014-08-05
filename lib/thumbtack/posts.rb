@@ -28,6 +28,15 @@ module Thumbtack
     # url - A String containing the URL to be bookmarked
     # description - A String containing the title of the bookmark
     # params - The Hash params to be passed as arguments
+    #          :extended - A String containing a description of the item
+    #          :tags - A String containing a list of up to 100 tags
+    #          :dt - A String containing the creation time for this bookmark
+    #          :replace - A String indicating whether or not to replace any
+    #                     existing bookmark with this URL
+    #          :shared - A String indicating whether or not to make the bookmark
+    #                    public
+    #          :toread - A String indicating whether or not to mark the bookmark
+    #                    as unread
     #
     # Example
     #
