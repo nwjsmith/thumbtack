@@ -25,6 +25,10 @@ module Thumbtack
 
     # Public: Add a bookmark
     #
+    # url - A String containing the URL to be bookmarked
+    # description - A String containing the title of the bookmark
+    # params - The Hash params to be passed as arguments
+    #
     # Example
     #
     #   add('http://theinternate.com', 'The Internate')
@@ -39,6 +43,8 @@ module Thumbtack
 
     # Public: Delete a bookmark
     #
+    # url - A String containing the URL of the bookmark to delete
+    #
     # Example
     #
     #   delete('http://delicio.us')
@@ -47,6 +53,21 @@ module Thumbtack
     def delete(url)
       @client.get('/posts/delete', url: url)
       self
+    end
+
+    # Public: Return one or more posts on a single day matching the arguments.
+    #
+    #
+    #
+    # Example
+    #
+    #   get(tag: 'webdev', meta: 'yes')
+    #   get(url: 'http://www.pinboard.in')
+    #
+    # Returns the Posts instance
+    def get(params = {})
+      response = @client.get('/posts/get', params)
+      response.fetch('posts', []).map { |post_hash| Post.from_hash(post_hash) }
     end
   end
 end
