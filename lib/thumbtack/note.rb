@@ -27,9 +27,5 @@ module Thumbtack
         instance_variable_set "@#{attribute}", attrs.fetch(attribute)
       end
     end
-
-    def digest
-      @hash
-    end
   end
 end
