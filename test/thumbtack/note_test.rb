@@ -1,0 +1,29 @@
+# encoding: utf-8
+
+require 'test_helper'
+
+class NoteTest < Minitest::Test
+  def test_from_hash
+    hash = {
+      'id' => '8e5d6964bb810e0050b0',
+      'title' => 'StarCraft beta coming this week!',
+      'hash' => '0c9c30f60cadabd31415',
+      'created_at' => '2010-02-11 03:46:56',
+      'updated_at' => '2010-02-11 03:47:47',
+      'length' => 19,
+      'text' => 'This is a test note'
+    }
+    note = Note.from_hash(hash)
+
+    assert_equal '8e5d6964bb810e0050b0', note.id
+    assert_equal 'StarCraft beta coming this week!', note.title
+    assert_equal '2010-02-11 03:46:56', note.created_at
+    assert_equal '2010-02-11 03:47:47', note.updated_at
+    assert_equal 19, note.length
+    assert_equal 'This is a test note', note.text
+
+    # Note: the hash attribute is renamed digest in Thumbtack to avoid conflicts
+    # with Object#hash
+    assert_equal '0c9c30f60cadabd31415', note.digest
+  end
+end

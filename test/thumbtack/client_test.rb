@@ -28,4 +28,8 @@ class ClientTest < Minitest::Test
   def test_user
     assert_instance_of User, @client.user
   end
+
+  def test_notes
+    assert_instance_of Notes, @client.notes
+  end
 end

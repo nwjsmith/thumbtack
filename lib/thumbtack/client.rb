@@ -60,5 +60,10 @@ module Thumbtack
     def user
       User.new(self)
     end
+
+    # Public: Access notes-related API calls.
+    def notes
+      Notes.new(self)
+    end
   end
 end
