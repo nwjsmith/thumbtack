@@ -10,5 +10,6 @@ require 'json'
 
 require 'thumbtack/post'
 require 'thumbtack/posts'
+require 'thumbtack/tags'
 require 'thumbtack/client'
 require 'thumbtack/version'

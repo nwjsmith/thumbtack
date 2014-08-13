@@ -20,4 +20,8 @@ class ClientTest < Minitest::Test
   def test_posts
     assert_instance_of Posts, @client.posts
   end
+
+  def test_tags
+    assert_instance_of Tags, @client.tags
+  end
 end

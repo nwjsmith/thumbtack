@@ -144,7 +144,7 @@ module Thumbtack
     # and the Integer is the number of posts made on that date
     def dates(params = {})
       response = @client.get('/posts/dates', params)
-      Hash[response.fetch('dates', {}).map { |date, posts| [date, posts.to_i] }]
+      Hash[response.fetch('dates', {}).map { |date, count| [date, count.to_i] }]
     end
 
     private
