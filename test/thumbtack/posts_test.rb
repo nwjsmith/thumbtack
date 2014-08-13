@@ -78,4 +78,30 @@ class PostsTest < Minitest::Test
     assert_equal 'http://example.org', response.first.href
     client.verify
   end
+
+  def test_recent
+    client = mock_client('/posts/recent',
+                         {tag: 'webdev'},
+                         {
+                           'date' => '2014-06-29T16:57:45Z',
+                           'user' => 'nwjsmith',
+                           'posts' => [{
+                             'href' => 'http://example.org',
+                             'description' => 'example.org',
+                             'extended' => '',
+                             'meta' => '46ca40b9b92ee0ea1284785a5d2a9b38',
+                             'hash' => 'dab521de65f9250b4cca7383feef67dc',
+                             'time' => '2014-06-29T16:57:45Z',
+                             'shared' => 'yes',
+                             'toread' => 'no',
+                             'tags' => 'test123'
+                           }]
+                         })
+    posts = Posts.new(client)
+    response = posts.recent(tag: 'webdev')
+
+    assert_equal 1, response.size
+    assert_equal 'http://example.org', response.first.href
+    client.verify
+  end
 end
