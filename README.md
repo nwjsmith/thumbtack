@@ -2,6 +2,10 @@
 
 A [Pinboard API](https://pinboard.in/api) client that's as simple as Pinboard.
 
+Home - http://github.com/nwjsmith/thumbtack
+RDoc - http://docs.theinternate.com/thumbtack
+Bugs - http://github.com/nwjsmith/thumbtack/issues
+
 ## Examples
 
 ``` ruby
