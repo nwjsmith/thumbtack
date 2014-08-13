@@ -1,8 +1,9 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Public: Wraps each interaction with the Pinboard API
+  # Public: Wraps each interaction with the Pinboard API.
   class Client
+    # Public: String of base Pinboard API URL.
     BASE_URL = 'https://api.pinboard.in/v1'.freeze
 
     # Public: Returns the String username being used by the client.
@@ -35,7 +36,7 @@ module Thumbtack
     #   get('/posts/suggest', url: 'http://theinternate.com/')
     #   # => [{'popular' => []}, {'recommended' => []}]
     #
-    # Returns a Hash of the parsed JSON response from Pinboard's API
+    # Returns a parsed JSON response from Pinboard's API.
     def get(path, params = {})
       uri = URI("#{BASE_URL}#{path}")
 

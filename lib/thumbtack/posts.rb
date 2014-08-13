@@ -3,16 +3,16 @@
 module Thumbtack
   # Internal: Wraps API calls related to posts
   class Posts
-    # Internal: Creates a new Posts
+    # Internal: Initialize a Posts.
     #
-    # client - a Thumbtack::Client to communicate with the Pinboard API.
+    # client - A Thumbtack::Client to communicate with the Pinboard API.
     def initialize(client)
       @client = client
     end
 
     # Public: The most recent time a bookmark was added, updated, or deleted
     #
-    # Example
+    # Examples
     #
     #   update
     #   # => '2014-06-26T19:01:33Z'
@@ -38,7 +38,7 @@ module Thumbtack
     #          :toread - A String indicating whether or not to mark the bookmark
     #                    as unread.
     #
-    # Example
+    # Examples
     #
     #   add('http://theinternate.com', 'The Internate')
     #   add('http://theinternate.com', 'The Internate', tags: 'best ruby')
@@ -54,7 +54,7 @@ module Thumbtack
     #
     # url - A String containing the URL of the bookmark to delete.
     #
-    # Example
+    # Examples
     #
     #   delete('http://delicio.us')
     #
@@ -75,7 +75,7 @@ module Thumbtack
     #          :meta - A String indicating whether or not to include a change
     #                  detection signature.
     #
-    # Example
+    # Examples
     #
     #   get(tag: 'webdev', meta: 'yes')
     #   get(url: 'http://www.pinboard.in')
@@ -93,7 +93,7 @@ module Thumbtack
     #          :count - An Integer of the number of results to return. Default
     #                   is 15, maximum is 100.
     #
-    # Example
+    # Examples
     #
     #   recent(tag: 'webdev', count: 25)
     #
