@@ -25,5 +25,16 @@ module Thumbtack
       @client.get('/tags/delete', tag: tag)
       self
     end
+
+    # Public: Rename a tag
+    #
+    # old - A String containing the tag to be renamed.
+    # new - A String containing the new name for the tag.
+    #
+    # Returns the Tags instance.
+    def rename(old, new)
+      @client.get('/tags/rename', old: old, new: new)
+      self
+    end
   end
 end
