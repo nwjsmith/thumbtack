@@ -122,6 +122,18 @@ module Thumbtack
       results.map { |post_hash| Post.from_hash(post_hash) }
     end
 
+    # Public: Return a list of popular and recommended tags for a URL
+    #
+    # url - A String containing a URL to fetch suggested tags for
+    #
+    # Returns a Hash with two entries, :popular is a list of popular tags,
+    # :recommended is a list of recommended tags
+    def suggest(url)
+      result = @client.get('/posts/suggest', url: url)
+      {popular: result.fetch('popular'),
+       recommended: result.fetch('recommended')}
+    end
+
     private
 
     def posts_from(response)
