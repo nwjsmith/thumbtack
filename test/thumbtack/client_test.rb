@@ -24,4 +24,8 @@ class ClientTest < Minitest::Test
   def test_tags
     assert_instance_of Tags, @client.tags
   end
+
+  def test_user
+    assert_instance_of User, @client.user
+  end
 end
