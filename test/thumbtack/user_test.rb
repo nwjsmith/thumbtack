@@ -17,4 +17,13 @@ class TagsTest < Minitest::Test
 
     assert_equal '6493a84f72d86e7de130', user.secret
   end
+
+  def test_api_token
+    client = mock_client('/user/api_token',
+                         nil,
+                         { 'result' => 'XOG86E7JIYMI' })
+    user = User.new(client)
+
+    assert_equal 'XOG86E7JIYMI', user.api_token
+  end
 end

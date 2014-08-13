@@ -14,5 +14,10 @@ module Thumbtack
     def secret
       @client.get('/user/secret').fetch('result')
     end
+
+    # Public: Returns the user's API token for making calls without a password
+    def api_token
+      @client.get('/user/api_token').fetch('result')
+    end
   end
 end
