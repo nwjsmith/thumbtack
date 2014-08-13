@@ -64,18 +64,43 @@ module Thumbtack
       self
     end
 
-    # Public: Return one or more posts on a single day matching the arguments.
+    # Public: Return one or more posts matching the arguments
     #
-    #
+    # params - The Hash params to be passed as arguments
+    #          :tag - A String containing a list of up to three tags to filter
+    #                 by
+    #          :dt - A String containing the date when the results were
+    #                bookmarked
+    #          :url - A String containing the URL for the the bookmark
+    #          :meta - A String indicating whether or not to include a change
+    #                  detection signature
     #
     # Example
     #
     #   get(tag: 'webdev', meta: 'yes')
     #   get(url: 'http://www.pinboard.in')
     #
-    # Returns the Posts instance
+    # Returns a list of Post instances
     def get(params = {})
       response = @client.get('/posts/get', params)
+      response.fetch('posts', []).map { |post_hash| Post.from_hash(post_hash) }
+    end
+
+    # Public: Return a list of the most recent posts
+    #
+    # params - The Hash params to be passed as arguments
+    #          :tag - A String containing a list of up to three tags to filter
+    #                 by
+    #          :count - An Integer of the number of results to return. Default
+    #                   is 15, maximum is 100.
+    #
+    # Example
+    #
+    #   recent(tag: 'webdev', count: 25)
+    #
+    # Returns a list of Post instances
+    def recent(params = {})
+      response = @client.get('/posts/recent', params)
       response.fetch('posts', []).map { |post_hash| Post.from_hash(post_hash) }
     end
   end
