@@ -142,4 +142,37 @@ class PostsTest < Minitest::Test
     assert_equal 'weblog', response[:recommended].last
     client.verify
   end
+
+  def test_dates
+    client = mock_client('/posts/dates',
+                         {tag: 'argentina'},
+                         {
+                           'user' => 'user',
+                           'tag' => 'argentina',
+                           'dates' => {
+                              '2010-11-29' => '5',
+                              '2010-11-28' => '15',
+                              '2010-11-26' => '2',
+                              '2010-11-25' => '2',
+                              '2010-11-23' => '7',
+                              '2010-11-22' => '20',
+                              '2010-11-21' => '16',
+                              '2010-11-19' => '4'
+                           }
+                         })
+    posts = Posts.new(client)
+    response = posts.dates(tag: 'argentina')
+
+    assert_equal({
+      '2010-11-29' => 5,
+      '2010-11-28' => 15,
+      '2010-11-26' => 2,
+      '2010-11-25' => 2,
+      '2010-11-23' => 7,
+      '2010-11-22' => 20,
+      '2010-11-21' => 16,
+      '2010-11-19' => 4
+    }, response)
+    client.verify
+  end
 end
