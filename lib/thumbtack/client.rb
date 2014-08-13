@@ -50,5 +50,10 @@ module Thumbtack
     def posts
       Posts.new(self)
     end
+
+    # Public: Access tags-related API calls.
+    def tags
+      Tags.new(self)
+    end
   end
 end
