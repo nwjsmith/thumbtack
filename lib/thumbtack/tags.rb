@@ -15,5 +15,15 @@ module Thumbtack
       response = @client.get('/tags/get')
       Hash[response.map { |tag, count| [tag, count.to_i] }]
     end
+
+    # Public: Delete a tag
+    #
+    # tag - A String containing the tag to delete.
+    #
+    # Returns the Tags instance
+    def delete(tag)
+      @client.get('/tags/delete', tag: tag)
+      self
+    end
   end
 end
