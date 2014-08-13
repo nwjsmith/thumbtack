@@ -5,7 +5,7 @@ module Thumbtack
   class Posts
     # Internal: Creates a new Posts
     #
-    # client - a Thumbtack::Client to communicate with the Pinboard API
+    # client - a Thumbtack::Client to communicate with the Pinboard API.
     def initialize(client)
       @client = client
     end
@@ -28,15 +28,15 @@ module Thumbtack
     # url - A String containing the URL to be bookmarked
     # description - A String containing the title of the bookmark
     # params - The Hash params to be passed as arguments
-    #          :extended - A String containing a description of the item
-    #          :tags - A String containing a list of up to 100 tags
-    #          :dt - A String containing the creation time for this bookmark
+    #          :extended - A String containing a description of the item.
+    #          :tags - A String containing a list of up to 100 tags.
+    #          :dt - A String containing the creation time for this bookmark.
     #          :replace - A String indicating whether or not to replace any
-    #                     existing bookmark with this URL
+    #                     existing bookmark with this URL.
     #          :shared - A String indicating whether or not to make the bookmark
-    #                    public
+    #                    public.
     #          :toread - A String indicating whether or not to mark the bookmark
-    #                    as unread
+    #                    as unread.
     #
     # Example
     #
@@ -52,7 +52,7 @@ module Thumbtack
 
     # Public: Delete a bookmark
     #
-    # url - A String containing the URL of the bookmark to delete
+    # url - A String containing the URL of the bookmark to delete.
     #
     # Example
     #
@@ -68,12 +68,12 @@ module Thumbtack
     #
     # params - The Hash params to be passed as arguments
     #          :tag - A String containing a list of up to three tags to filter
-    #                 by
+    #                 by.
     #          :dt - A String containing the date when the results were
-    #                bookmarked
+    #                bookmarked.
     #          :url - A String containing the URL for the the bookmark
     #          :meta - A String indicating whether or not to include a change
-    #                  detection signature
+    #                  detection signature.
     #
     # Example
     #
@@ -82,15 +82,14 @@ module Thumbtack
     #
     # Returns a list of Post instances
     def get(params = {})
-      response = @client.get('/posts/get', params)
-      response.fetch('posts', []).map { |post_hash| Post.from_hash(post_hash) }
+      posts_from @client.get('/posts/get', params)
     end
 
     # Public: Return a list of the most recent posts
     #
     # params - The Hash params to be passed as arguments
     #          :tag - A String containing a list of up to three tags to filter
-    #                 by
+    #                 by.
     #          :count - An Integer of the number of results to return. Default
     #                   is 15, maximum is 100.
     #
@@ -100,7 +99,32 @@ module Thumbtack
     #
     # Returns a list of Post instances
     def recent(params = {})
-      response = @client.get('/posts/recent', params)
+      posts_from @client.get('/posts/recent', params)
+    end
+
+    # Public: Return all posts in the account
+    #
+    # params - The Hash params to be passed as arguments
+    #          :tag - A String containing a list of up to three tags to filter
+    #                 by.
+    #          :start - An Integer offset value. Default is 0.
+    #          :results - An Integer of the number of results to return
+    #          :fromdt - A String containing a time to filter bookmarks created
+    #                    after this time.
+    #          :todt - A String containing a time to filter bookmarks created
+    #                  before this time.
+    #          :meta - A String indicating whether or not to include a change
+    #                  detection signature.
+    #
+    # Returns a list of Posts instances
+    def all(params = {})
+      results = @client.get('/posts/all', params)
+      results.map { |post_hash| Post.from_hash(post_hash) }
+    end
+
+    private
+
+    def posts_from(response)
       response.fetch('posts', []).map { |post_hash| Post.from_hash(post_hash) }
     end
   end
