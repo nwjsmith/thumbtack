@@ -43,4 +43,14 @@ class TagsTest < Minitest::Test
     assert_equal tags, tags.delete('argentina')
     client.verify
   end
+
+  def test_rename
+    client = mock_client('/tags/rename',
+                         { old: 'argentina', new: 'evita' },
+                         { 'result_code' => 'done' })
+    tags = Tags.new(client)
+
+    assert_equal tags, tags.rename('argentina', 'evita')
+    client.verify
+  end
 end
