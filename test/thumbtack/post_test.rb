@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class PostsTest < Minitest::Test
+class PostTest < Minitest::Test
   def test_from_hash
     hash = {
       'href' => 'http://example.org',
