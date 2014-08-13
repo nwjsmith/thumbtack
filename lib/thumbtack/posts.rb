@@ -130,8 +130,8 @@ module Thumbtack
     # :recommended is a list of recommended tags
     def suggest(url)
       result = @client.get('/posts/suggest', url: url)
-      {popular: result.fetch('popular'),
-       recommended: result.fetch('recommended')}
+      { popular: result.fetch('popular'),
+        recommended: result.fetch('recommended') }
     end
 
     # Public: Return a list dates with the count of posts made at each date
