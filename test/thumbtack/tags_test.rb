@@ -33,4 +33,14 @@ class TagsTest < Minitest::Test
 
     client.verify
   end
+
+  def test_delete
+    client = mock_client('/tags/delete',
+                         { tag: 'argentina' },
+                         { 'result_code' => 'done' })
+    tags = Tags.new(client)
+
+    assert_equal tags, tags.delete('argentina')
+    client.verify
+  end
 end

@@ -134,14 +134,14 @@ module Thumbtack
        recommended: result.fetch('recommended')}
     end
 
-    # Public: Return a list dates with the number of posts at each date
+    # Public: Return a list dates with the count of posts made at each date
     #
     # params - The Hash params to be passed as arguments
     #          :tag - A String containing a list of up to three tags to filter
     #                 by.
     #
     # Returns a Hash of Strings => Integer entries. The Strings contain a date
-    # and the Integer is the number of posts made on that date
+    # and the Integer is the count of posts made on that date
     def dates(params = {})
       response = @client.get('/posts/dates', params)
       Hash[response.fetch('dates', {}).map { |date, count| [date, count.to_i] }]
