@@ -4,10 +4,22 @@
 module Thumbtack
 end
 
-require 'uri'
-require 'net/http'
+require 'date'
 require 'json'
+require 'net/http'
+require 'uri'
 
+require 'thumbtack/types'
+require 'thumbtack/types/boolean'
+require 'thumbtack/types/date'
+require 'thumbtack/types/date_time'
+require 'thumbtack/types/identity'
+require 'thumbtack/types/integer'
+require 'thumbtack/types/md5'
+require 'thumbtack/types/tags'
+require 'thumbtack/types/text'
+require 'thumbtack/types/title'
+require 'thumbtack/types/url'
 require 'thumbtack/post'
 require 'thumbtack/posts'
 require 'thumbtack/tags'
