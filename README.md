@@ -4,6 +4,8 @@ A [Pinboard API](https://pinboard.in/api) client that's as simple as Pinboard.
 
 [![Code Climate](https://codeclimate.com/github/nwjsmith/thumbtack/badges/gpa.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
 
+[![Test Coverage](https://codeclimate.com/github/nwjsmith/thumbtack/badges/coverage.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
+
 [![Build Status](https://travis-ci.org/nwjsmith/thumbtack.svg?branch=master)](https://travis-ci.org/nwjsmith/thumbtack)
 
 Home - http://github.com/nwjsmith/thumbtack
