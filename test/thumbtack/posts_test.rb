@@ -15,7 +15,7 @@ class PostsTest < Minitest::Test
                          { 'update_time' => '2014-06-26T19:01:33Z' })
     posts = Posts.new(client)
 
-    assert_equal '2014-06-26T19:01:33Z', posts.update
+    assert_equal DateTime.new(2014, 6, 26, 19, 1, 33), posts.update
     client.verify
   end
 
@@ -39,7 +39,7 @@ class PostsTest < Minitest::Test
     posts = Posts.new(client)
 
     assert_equal posts,
-      posts.add('http://example.org', 'example.org', tags: 'thumbtack test')
+      posts.add('http://example.org', 'example.org', tags: %w(thumbtack test))
     client.verify
   end
 
@@ -164,14 +164,14 @@ class PostsTest < Minitest::Test
     response = posts.dates(tag: 'argentina')
 
     assert_equal({
-      '2010-11-29' => 5,
-      '2010-11-28' => 15,
-      '2010-11-26' => 2,
-      '2010-11-25' => 2,
-      '2010-11-23' => 7,
-      '2010-11-22' => 20,
-      '2010-11-21' => 16,
-      '2010-11-19' => 4
+      Date.new(2010, 11, 29) => 5,
+      Date.new(2010, 11, 28) => 15,
+      Date.new(2010, 11, 26) => 2,
+      Date.new(2010, 11, 25) => 2,
+      Date.new(2010, 11, 23) => 7,
+      Date.new(2010, 11, 22) => 20,
+      Date.new(2010, 11, 21) => 16,
+      Date.new(2010, 11, 19) => 4
     }, response)
     client.verify
   end
