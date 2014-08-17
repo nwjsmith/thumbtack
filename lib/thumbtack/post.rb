@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Public: Represents a bookmark
+  # Public: Represents a bookmark.
   class Post
-    # Private: The attributes for a Post
+    # Private: The attributes for a Post.
     ATTRIBUTES = [
       :href,
       :description,
