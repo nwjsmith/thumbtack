@@ -27,3 +27,5 @@ desc 'Start and IRB console with Thumbtack loaded'
 task :console do
   exec 'irb -Ilib -rthumbtack'
 end
+
+task default: 'test:unit'

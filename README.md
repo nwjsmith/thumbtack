@@ -2,8 +2,12 @@
 
 A [Pinboard API](https://pinboard.in/api) client that's as simple as Pinboard.
 
+[![Code Climate](https://codeclimate.com/github/nwjsmith/thumbtack/badges/gpa.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
+
 Home - http://github.com/nwjsmith/thumbtack
+
 RDoc - http://docs.theinternate.com/thumbtack
+
 Bugs - http://github.com/nwjsmith/thumbtack/issues
 
 ## Examples
