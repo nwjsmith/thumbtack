@@ -8,6 +8,14 @@ Rake::TestTask.new(:test) do |task|
   task.test_files = FileList['test/**/*_test.rb']
 end
 
+namespace :test do
+  Rake::TestTask.new(:unit) do |task|
+    task.libs << 'test'
+    task.test_files = FileList['test/**/*_test.rb'] -
+      ['test/thumbtack/client_test.rb']
+  end
+end
+
 RDoc::Task.new do |task|
   task.main = 'README.md'
   task.markup = 'tomdoc'
