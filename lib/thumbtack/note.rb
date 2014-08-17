@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Public: Represents a note
+  # Public: Represents a note.
   class Note
-    # Private: The attributes for a Note
+    # Private: The attributes for a Note.
     ATTRIBUTES = [
       :id,
       :title,
@@ -18,7 +18,7 @@ module Thumbtack
 
     # Internal: Creates a new Note from a Hash, usually a Client#get response.
     #
-    # hash - A Hash of attributes of the note
+    # hash - A Hash of attributes of the note.
     def self.from_hash(hash)
       new(Hash[hash.map { |key, value| [key.to_sym, value] }])
     end

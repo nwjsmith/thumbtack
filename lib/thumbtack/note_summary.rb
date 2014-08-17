@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Public: Represents a note summary as returned from Notes#list
+  # Public: Represents a note summary as returned from Notes#list.
   class NoteSummary
-    # Private: The attributes for a NoteSummary
+    # Private: The attributes for a NoteSummary.
     ATTRIBUTES = [
       :id,
       :title,
@@ -18,7 +18,7 @@ module Thumbtack
     # Internal: Creates a new NoteSummary from a Hash, usually a Client#get
     # response.
     #
-    # hash - A Hash of attributes of the note
+    # hash - A Hash of attributes of the note.
     def self.from_hash(hash)
       new(Hash[hash.map { |key, value| [key.to_sym, value] }])
     end
