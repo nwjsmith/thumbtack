@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Internal: Wraps API calls related to posts
+  # Internal: Wraps API calls related to posts.
   class Posts
     # Internal: Initialize a Posts.
     #
@@ -10,47 +10,57 @@ module Thumbtack
       @client = client
     end
 
-    # Public: The most recent time a bookmark was added, updated, or deleted
+    # Public: The most recent time a bookmark was added, updated, or deleted.
     #
     # Examples
     #
     #   update
     #   # => '2014-06-26T19:01:33Z'
     #
-    # Returns a String containing timestamp in UTC
+    # Returns a DateTime in UTC.
     def update
       response = @client.get('/posts/update')
-      response.fetch('update_time')
+      Types::DateTime.from_parameter response.fetch('update_time')
     end
 
-    # Public: Add a bookmark
+    # Public: Add a bookmark.
     #
-    # url - A String containing the URL to be bookmarked
-    # description - A String containing the title of the bookmark
-    # params - The Hash params to be passed as arguments
-    #          :extended - A String containing a description of the item.
-    #          :tags - A String containing a list of up to 100 tags.
-    #          :dt - A String containing the creation time for this bookmark.
-    #          :replace - A String indicating whether or not to replace any
-    #                     existing bookmark with this URL.
-    #          :shared - A String indicating whether or not to make the bookmark
-    #                    public.
-    #          :toread - A String indicating whether or not to mark the bookmark
-    #                    as unread.
+    # url - A String containing the URL to be bookmarked.
+    # description - A String containing the title of the bookmark.
+    # options - The Hash options to be passed as arguments.
+    #           :extended - A String containing a description of the item.
+    #           :tags     - An Array containing up to 100 tags.
+    #           :dt       - A DateTime containing the creation time for this
+    #                       bookmark.
+    #           :replace  - A Boolean containing whether or not to replace any
+    #                       existing bookmark with this URL.
+    #           :shared   - A Boolean containing whether or not to make the
+    #                       bookmark public.
+    #           :toread   - A Boolean containing whether or not to mark the
+    #                       bookmark as unread.
     #
     # Examples
     #
     #   add('http://theinternate.com', 'The Internate')
-    #   add('http://theinternate.com', 'The Internate', tags: 'best ruby')
+    #   add('http://theinternate.com', 'The Internate', tags: ['best', 'ruby'])
     #
-    # Returns the Posts instance
-    def add(url, description, params = {})
-      required_params = { url: url, description: description }
-      @client.get('/posts/add', required_params.merge(params))
+    # Returns the Posts instance.
+    def add(url, description, options = {})
+      parameters = Specification.new(
+        url: Types::URL,
+        description: Types::Text,
+        extended: Types::Text,
+        tags: Types::Tags,
+        dt: Types::DateTime,
+        replace: Types::Boolean,
+        shared: Types::Boolean,
+        toread: Types::Boolean
+      ).parameters({ url: url, description: description }.merge(options))
+      @client.get('/posts/add', parameters)
       self
     end
 
-    # Public: Delete a bookmark
+    # Public: Delete a bookmark.
     #
     # url - A String containing the URL of the bookmark to delete.
     #
@@ -60,19 +70,19 @@ module Thumbtack
     #
     # Returns the Posts instance
     def delete(url)
-      @client.get('/posts/delete', url: url)
+      parameters = Specification.new(url: Types::URL).parameters(url: url)
+      @client.get('/posts/delete', parameters)
       self
     end
 
-    # Public: Return one or more posts matching the arguments
+    # Public: Return one or more posts matching the arguments.
     #
-    # params - The Hash params to be passed as arguments
-    #          :tag - A String containing a list of up to three tags to filter
-    #                 by.
-    #          :dt - A String containing the date when the results were
-    #                bookmarked.
-    #          :url - A String containing the URL for the the bookmark
-    #          :meta - A String indicating whether or not to include a change
+    # options - The Hash options to be passed as arguments.
+    #          :tag  - An Array containing a up to three tags to filter by.
+    #          :dt   - A DateTime containing the date when the results were
+    #                  bookmarked.
+    #          :url  - A String containing the URL for the the bookmark.
+    #          :meta - A Boolean indicating whether or not to include a change
     #                  detection signature.
     #
     # Examples
@@ -80,16 +90,21 @@ module Thumbtack
     #   get(tag: 'webdev', meta: 'yes')
     #   get(url: 'http://www.pinboard.in')
     #
-    # Returns a list of Post instances
-    def get(params = {})
-      posts_from @client.get('/posts/get', params)
+    # Returns a list of Post instances.
+    def get(options = {})
+      parameters = Specification.new(
+        tag: Types::Tags,
+        dt: Types::DateTime,
+        url: Types::URL,
+        meta: Types::Boolean
+      ).parameters(options)
+      posts_from @client.get('/posts/get', parameters)
     end
 
-    # Public: Return a list of the most recent posts
+    # Public: Return a list of the most recent posts.
     #
-    # params - The Hash params to be passed as arguments
-    #          :tag - A String containing a list of up to three tags to filter
-    #                 by.
+    # options - The Hash options to be passed as arguments.
+    #          :tag   - An Array containing a up to three tags to filter by.
     #          :count - An Integer of the number of results to return. Default
     #                   is 15, maximum is 100.
     #
@@ -97,54 +112,69 @@ module Thumbtack
     #
     #   recent(tag: 'webdev', count: 25)
     #
-    # Returns a list of Post instances
-    def recent(params = {})
-      posts_from @client.get('/posts/recent', params)
+    # Returns a list of Post instances.
+    def recent(options = {})
+      parameters = Specification.new(
+        tag: Types::Tags,
+        count: Types::Integer
+      ).parameters(options)
+      posts_from @client.get('/posts/recent', parameters)
     end
 
-    # Public: Return all posts in the account
+    # Public: Return all posts in the account.
     #
-    # params - The Hash params to be passed as arguments
-    #          :tag - A String containing a list of up to three tags to filter
-    #                 by.
-    #          :start - An Integer offset value. Default is 0.
-    #          :results - An Integer of the number of results to return
-    #          :fromdt - A String containing a time to filter bookmarks created
-    #                    after this time.
-    #          :todt - A String containing a time to filter bookmarks created
-    #                  before this time.
-    #          :meta - A String indicating whether or not to include a change
-    #                  detection signature.
+    # options - The Hash options to be passed as arguments.
+    #          :tag     - A String containing a list of up to three tags to
+    #                     filter by.
+    #          :start   - An Integer offset value. Default is 0.
+    #          :results - An Integer of the number of results to return.
+    #          :fromdt  - Filter results to posts created after this DateTime.
+    #          :todt    - Filter results to posts created before this DateTime.
+    #          :meta    - A Boolean containing whether or not to include a
+    #                     change detection signature.
     #
     # Returns a list of Posts instances
-    def all(params = {})
-      results = @client.get('/posts/all', params)
+    def all(options = {})
+      parameters = Specification.new(
+        tag: Types::Tags,
+        start: Types::Integer,
+        results: Types::Integer,
+        fromdt: Types::DateTime,
+        todt: Types::DateTime,
+        meta: Types::Boolean
+      ).parameters(options)
+      results = @client.get('/posts/all', parameters)
       results.map { |post_hash| Post.from_hash(post_hash) }
     end
 
-    # Public: Return a list of popular and recommended tags for a URL
+    # Public: Return a list of popular and recommended tags for a URL.
     #
-    # url - A String containing a URL to fetch suggested tags for
+    # url - A String containing a URL to fetch suggested tags for.
     #
     # Returns a Hash with two entries, :popular is a list of popular tags,
-    # :recommended is a list of recommended tags
+    # :recommended is a list of recommended tags.
     def suggest(url)
-      result = @client.get('/posts/suggest', url: url)
+      parameters = Specification.new(url: Types::URL).parameters(url: url)
+      result = @client.get('/posts/suggest', parameters)
       { popular: result.fetch('popular'),
         recommended: result.fetch('recommended') }
     end
 
-    # Public: Return a list dates with the count of posts made at each date
+    # Public: Return a list dates with the count of posts made at each date.
     #
-    # params - The Hash params to be passed as arguments
-    #          :tag - A String containing a list of up to three tags to filter
-    #                 by.
+    # options - The Hash options to be passed as arguments
+    #          :tag - An Array containing a up to three tags to filter by.
     #
     # Returns a Hash of Strings => Integer entries. The Strings contain a date
-    # and the Integer is the count of posts made on that date
-    def dates(params = {})
-      response = @client.get('/posts/dates', params)
-      Hash[response.fetch('dates', {}).map { |date, count| [date, count.to_i] }]
+    # and the Integer is the count of posts made on that date.
+    def dates(options = {})
+      parameters = Specification.new(tag: Types::Tags).parameters(options)
+      response = @client.get('/posts/dates', parameters)
+      Hash[
+        response.fetch('dates', {}).map do |date, count|
+          [Types::Date.from_parameter(date), count.to_i]
+        end
+      ]
     end
 
     private
