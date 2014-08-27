@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ClientTest < Minitest::Test
   def setup
-    @client = Client.new(username, token)
+    @client = Client.new(nil, nil)
   end
 
   def test_posts
