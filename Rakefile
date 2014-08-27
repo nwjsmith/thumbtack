@@ -12,7 +12,7 @@ namespace :test do
   Rake::TestTask.new(:unit) do |task|
     task.libs << 'test'
     task.test_files = FileList['test/**/*_test.rb'] -
-      ['test/thumbtack/client_test.rb']
+      FileList['test/thumbtack/integration/**_test.rb']
   end
 end
 
