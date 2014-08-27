@@ -7,9 +7,9 @@ module Thumbtack
     ATTRIBUTES = [
       :id,
       :title,
-      :hash,
       :created_at,
       :updated_at,
+      :digest,
       :text,
       :length
     ].freeze
@@ -20,7 +20,9 @@ module Thumbtack
     #
     # hash - A Hash of attributes of the note.
     def self.from_hash(hash)
-      new(Hash[hash.map { |key, value| [key.to_sym, value] }])
+      attrs = hash.dup
+      digest = attrs.delete('hash')
+      new(Hash[attrs.map { |k, v| [k.to_sym, v] }].merge(digest: digest))
     end
 
     # Internal: Initialize a Note.
