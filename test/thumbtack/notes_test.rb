@@ -35,7 +35,7 @@ class NotesTest < Minitest::Test
     assert_equal '8e5d6964bb810e0050b0', result[1].id
   end
 
-  def test_list
+  def test_get
     client = mock_client('/notes/8e5d6964bb810e0050b0',
                          nil,
                          {
