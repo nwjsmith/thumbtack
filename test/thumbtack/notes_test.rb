@@ -3,12 +3,6 @@
 require 'test_helper'
 
 class NotesTest < Minitest::Test
-  def mock_client(url, params, response)
-    client = Minitest::Mock.new
-    client.expect(:get, response, [url, params].compact)
-    client
-  end
-
   def test_list
     client = mock_client('/notes/list',
                          nil,
