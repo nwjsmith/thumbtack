@@ -3,6 +3,12 @@
 module Thumbtack
   # Public: Wraps each interaction with the Pinboard API.
   class Client
+    # Internal: Raised when the API rate limit has been reached.
+    class RateLimitError < StandardError; end
+
+    # Internal: The status code of rate limited responses from the Pinboard API.
+    TOO_MANY_REQUESTS_CODE = '429'.freeze
+
     # Public: String of base Pinboard API URL.
     BASE_URL = 'https://api.pinboard.in/v1'.freeze
 
@@ -44,6 +50,7 @@ module Thumbtack
       uri.query = URI.encode_www_form(params.merge(base_params))
 
       response = Net::HTTP.get_response(uri)
+      fail Client::RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
       JSON.parse(response.body)
     end
 
