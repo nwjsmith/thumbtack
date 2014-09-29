@@ -2,22 +2,28 @@
 
 module Thumbtack
   module Types
-    # Internal: An abstract type handler
+    # An abstract type handler with no conversion or validation
+    #
+    # @api private
     class Identity
 
-      # Any value passed is valid.
+      # Any value passed is valid
       #
-      # Returns nothing.
+      # @return [undefined]
       def self.validate(*)
         self
       end
 
-      # Return any value passed to this without conversion.
+      # Value is returned unconverted
+      #
+      # @return [value]
       def self.to_parameter(value)
         value
       end
 
-      # Return any value passed to this without conversion.
+      # Parameter is returned unconverted
+      #
+      # @return [parameter]
       def self.from_parameter(parameter)
         parameter
       end

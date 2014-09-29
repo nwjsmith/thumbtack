@@ -2,18 +2,23 @@
 
 module Thumbtack
   module Types
-    # Internal: Handles validation of URL values as supported by Pinboard.
+    # Handles validation of URL values as supported by Pinboard
+    #
+    # @api private
     class URL < Identity
-      # Valid URL schemes.
+      # Valid URL schemes
       VALID_SCHEMES = %w(http https javascript mailto ftp file feed).freeze
 
-      # Validate a URL.
+      # Validate a URL
       #
-      # value - A String containing the URL to validate.
+      # @param [String] value
+      #   the URL to validate
       #
-      # Returns nothing.
-      # Raises Types::ValidationError if the URL's scheme isn't one of http,
-      # https, javascript, mailto, ftp, file, or feed.
+      # @return [undefined]
+      #
+      # @raise [Types::ValidationError]
+      #   if the URL's scheme isn't one of http, https, javascript, mailto, ftp,
+      #   file, or feed
       def self.validate(value)
         unless VALID_SCHEMES.include? URI(value).scheme
           fail ValidationError,
