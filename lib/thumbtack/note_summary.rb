@@ -1,9 +1,14 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Public: Represents a note summary as returned from Notes#list.
+  # Represents a note summary as returned from Notes#list.
+  #
+  # @api public
+  # @see Notes#list
   class NoteSummary
-    # Private: The attributes for a NoteSummary.
+    # The attributes for a NoteSummary
+    #
+    # @api private
     ATTRIBUTES = [
       :id,
       :title,
@@ -13,19 +18,67 @@ module Thumbtack
       :length
     ].freeze
 
-    attr_reader(*ATTRIBUTES)
-
-    # Internal: Creates a new NoteSummary from a Hash, usually a Client#get
-    # response.
+    # The identifier for the note
     #
-    # hash - A Hash of attributes of the note.
+    # @return [String]
+    #
+    # @api public
+    attr_reader :id
+
+    # The title of the note
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :title
+
+    # The time at which the note was created
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :created_at
+
+    # The time at which the note was last updated
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :updated_at
+
+    # 20 character hexadecimal SHA1 hash of the note text
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :hash
+
+    # The length of the note text
+    #
+    # @return [Integer]
+    #
+    # @api public
+    attr_reader :length
+
+    # Creates a new NoteSummary from a Hash
+    #
+    # @param [Hash<#to_sym => Object>] hash
+    #   NoteSummary attributes
+    #
+    # @return [NoteSummary]
+    #
+    # @api private
+    # @see Client#get
     def self.from_hash(hash)
       new(Hash[hash.map { |key, value| [key.to_sym, value] }])
     end
 
-    # Internal: Initialize a NoteSummary.
+    # Initialize a NoteSummary
     #
-    # attrs - A Hash of attributes of the NoteSummary.
+    # @param [Hash] attrs
+    #   NoteSummary attributes
+    #
+    # @api private
     def initialize(attrs = EMPTY_HASH)
       ATTRIBUTES.each do |attribute|
         instance_variable_set "@#{attribute}", attrs.fetch(attribute)
