@@ -16,7 +16,7 @@ module Thumbtack
       #
       # @return [undefined]
       #
-      # @raises [Types::ValidationError]
+      # @raise [Types::ValidationError]
       #   if the value is longer than 255 characters
       def self.validate(value)
         unless value.length <= MAXIMUM_LENGTH

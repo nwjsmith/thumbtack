@@ -18,6 +18,8 @@ module Thumbtack
     # @return [String]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#user_secret
     def secret
       @client.get('/user/secret').fetch('result')
     end
@@ -27,6 +29,8 @@ module Thumbtack
     # @return [String]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#user_api_token
     def api_token
       @client.get('/user/api_token').fetch('result')
     end

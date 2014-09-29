@@ -18,6 +18,8 @@ module Thumbtack
     # @return [DateTime]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_update
     def update
       response = @client.get('/posts/update')
       Types::DateTime.from_parameter response.fetch('update_time')
@@ -47,6 +49,8 @@ module Thumbtack
     # @return [self]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_add
     def add(url, description, options = EMPTY_HASH)
       parameters = Specification.new(
         url: Types::URL,
@@ -70,6 +74,8 @@ module Thumbtack
     # @return [self]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_delete
     def delete(url)
       parameters = Specification.new(url: Types::URL).parameters(url: url)
       @client.get('/posts/delete', parameters)
@@ -92,6 +98,8 @@ module Thumbtack
     # @return [Array<Post>]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_get
     def get(options = EMPTY_HASH)
       parameters = Specification.new(
         tag: Types::Tags,
@@ -114,6 +122,8 @@ module Thumbtack
     # @return [Array<Post>]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_recent
     def recent(options = EMPTY_HASH)
       parameters = Specification.new(
         tag: Types::Tags,
@@ -142,6 +152,8 @@ module Thumbtack
     # @return [Array<Post>]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_all
     def all(options = EMPTY_HASH)
       parameters = Specification.new(
         tag: Types::Tags,
@@ -171,6 +183,8 @@ module Thumbtack
     # @todo this should return an object, not a Hash
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_suggest
     def suggest(url)
       parameters = Specification.new(url: Types::URL).parameters(url: url)
       result = @client.get('/posts/suggest', parameters)
@@ -190,6 +204,8 @@ module Thumbtack
     #   bookmarks created on that date
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#posts_dates
     def dates(options = EMPTY_HASH)
       parameters = Specification.new(tag: Types::Tags).parameters(options)
       response = @client.get('/posts/dates', parameters)
