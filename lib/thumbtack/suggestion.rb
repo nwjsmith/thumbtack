@@ -52,8 +52,8 @@ module Thumbtack
     def self.from_array(array)
       popular = array.find { |hash| hash.key?(POPULAR_KEY) }
       recommended = array.find { |hash| hash.key?(RECOMMENDED_KEY) }
-      new(popular: popular.fetch(POPULAR_KEY),
-          recommended: recommended.fetch(RECOMMENDED_KEY))
+      new(popular: popular.fetch(POPULAR_KEY, EMPTY_ARRAY),
+          recommended: recommended.fetch(RECOMMENDED_KEY, EMPTY_ARRAY))
     end
   end
 end
