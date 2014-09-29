@@ -21,9 +21,7 @@ module Thumbtack
       # @raise [Types::ValidationError]
       #   if the value is not between 0 and 2^32
       def self.validate(value)
-        unless value >= MIN && value <= MAX
-          fail ValidationError, "#{value} must be in range 0..2^32"
-        end
+        RangeValidation.validate MIN..MAX, value
         self
       end
     end

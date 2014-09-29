@@ -15,6 +15,7 @@ require 'net/http'
 require 'uri'
 
 require 'thumbtack/types'
+require 'thumbtack/types/range_validation'
 require 'thumbtack/types/boolean'
 require 'thumbtack/types/date'
 require 'thumbtack/types/date_time'
