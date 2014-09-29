@@ -16,18 +16,88 @@ module Thumbtack
       :tags
     ].freeze
 
-    attr_reader(*ATTRIBUTES)
-
-    # Internal: Creates a new post from a Hash, usually a Client#get response.
+    # The url of the post
     #
-    # hash - A Hash of attributes of the Post.
+    # @return [String]
+    #
+    # @api public
+    attr_reader :href
+
+    # The title of the post
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :description
+
+    # The description of the post
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :extended
+
+    # 32 character hexadecimal MD5 hash tag 'version' of the post
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :meta
+
+    # 32 character hexadecimal MD5 hash of the post URL
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :hash
+
+    # The time at which the post was created
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :time
+
+    # If true, this post is public
+    #
+    # @return [Boolean]
+    #
+    # @api public
+    attr_reader :shared
+
+    # If true, this post is marked unread
+    #
+    # @return [Boolean]
+    #
+    # @api public
+    attr_reader :toread
+
+    # The tags for this post, space-seperated
+    #
+    # @return [String]
+    #
+    # @api public
+    attr_reader :tags
+
+    # Creates a new Post from a Hash
+    #
+    # @param [Hash<#to_sym => Object>] hash
+    #   Post attributes
+    #
+    # @return [Post]
+    #
+    # @api private
+    # @see Client#get
     def self.from_hash(hash)
       new(Hash[hash.map { |key, value| [key.to_sym, value] }])
     end
 
-    # Internal: Initialize a Post.
+    # Initialize a Post
     #
-    # attrs - A Hash of attributes of the Post.
+    # @param [Hash] attrs
+    #   Post attributes
+    #
+    # @api private
     def initialize(attrs = EMPTY_HASH)
       ATTRIBUTES.each do |attribute|
         instance_variable_set "@#{attribute}", attrs.fetch(attribute)
