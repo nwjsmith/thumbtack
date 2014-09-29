@@ -1,76 +1,186 @@
-# Thumbtack
-
-A [Pinboard API](https://pinboard.in/api) client that's as simple as Pinboard.
+# Thumbtack - The best Pinboard API client for Ruby
 
 [![Code Climate](https://codeclimate.com/github/nwjsmith/thumbtack/badges/gpa.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
-
 [![Test Coverage](https://codeclimate.com/github/nwjsmith/thumbtack/badges/coverage.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
-
 [![Build Status](https://travis-ci.org/nwjsmith/thumbtack.svg?branch=master)](https://travis-ci.org/nwjsmith/thumbtack)
 
-Home - http://github.com/nwjsmith/thumbtack
+## DESCRIPTION
 
-API Documentation - http://theinternate.com/thumbtack
+Thumbtack is a simple Ruby client for the [Pinboard API](https://pinboard.in/api).
 
-Bugs - http://github.com/nwjsmith/thumbtack/issues
+There are other Pinboard API clients for Ruby, but there are a few things that set Thumbtack apart:
 
-## Examples
+* **Zero dependencies**  
+  Thumbtack requires only a few things from Ruby's standard library. Ain't no party like no HTTParty.
+* **Clean and consistent API**  
+  Required arguments in Pinboard's API are required arguments in Thumbtack's method calls. With only [one exception](#THE_ONE_INCONSISTENCY_BETWEEN_THUMBTACK_AND_PINBOARD), Thumbtack's API mirrors Pinboard's 1-to-1.
+* **Client-side validation**  
+  Pinboard has [clearly defined rules about data types](https://pinboard.in/api/#data) and Thumbtack enforces them.
+* **Ruby-isms**  
+  Use regular Ruby types and let Thumbtack convert it to parameters acceptable to Pinboard (i.e. use `true`/`false` instead of `'yes'`/`'no'`).
+* **Documentation**  
+  Thorough documentation of the usage and API is a top priority for Thumbtack. No question should be unanswered.
+
+## USAGE
+
+Initialize a client with your Pinboard username and API token
 
 ``` ruby
-client = Thumbtack::Client.new(user, token)
+client = Thumbtack::Client.new(username, token)
+```
 
-# the most recent time a bookmark was added, updated, or deleted
-client.posts.update
+Fetch the most recent time a bookmark was added, updated, or deleted
 
-# add a bookmark
+``` ruby
+update_time = client.posts.update
+```
+
+Add bookmarks
+
+``` ruby
 client.posts.add('http://theinternate.com', 'The Internate')
-client.posts.add('http://theinternate.com', 'The Internate', extended: 'The personal website of Nate Smith', tags: 'awesome essential')
+client.posts.add('http://theinternate.com', 'The Internate',
+  extended: 'The personal website of Nate Smith',
+  tags: ['awesome', 'essential'])
+```
 
-# delete a bookmark
+Delete them too
+
+``` ruby
 client.posts.delete('http://theinternate.com')
+```
 
-# bookmarks
-client.posts.get(tag: 'webdev')
-client.posts.get(url: 'http://www.pinboard.in')
+Retrieve bookmarks by tag or other filters
 
-# recent bookmarks
-client.posts.recent
+``` ruby
+tagged_webdev = client.posts.get(tag: 'webdev')
+tagged_webdev_and_ruby = client.posts.get(tag: ['webdev', 'ruby'])
+pinboard_bookmark = client.posts.get(url: 'http://www.pinboard.in')
+```
 
-# dates with number of posts on each date
-client.posts.dates(tag: 'argentina')
+Fetch recently added bookmarks
 
-# all bookmarks in the user's account
-client.posts.all
+``` ruby
+recent_bookmarks = client.posts.recent
+```
 
-# popular and recommended tags for a url
-client.posts.suggest('http://blog.com/')
+Get bookmark creation dates with a count of bookmarks created
 
-# all tags with usage counts
-client.tags.get
+``` ruby
+dates_with_counts = client.posts.dates(tag: 'argentina')
+```
 
-# delete a tag
+Get every bookmark from the account
+
+``` ruby
+all_bookmarks = client.posts.all
+```
+
+Fetch popular and recommended tags for a URL
+
+``` ruby
+tag_suggestions = client.posts.suggest('http://blog.com/')
+```
+
+Find every tag with their usage count
+
+``` ruby
+tags_with_counts = client.tags.get
+```
+
+Remove tags
+
+``` ruby
 client.tags.delete('api')
+```
 
-# rename tags
-client.tags.rename('api', 'ehpeeay')
+Rename them
 
-# user's secret RSS key
+``` ruby
+client.tags.rename('delicious', 'pinboard')
+```
+
+Get your secret RSS key
+
+``` ruby
 client.user.secret
+```
 
-# user's API token
+Retrieve your API key
+
+``` ruby
 client.user.api_token
+```
 
-# all notes
+Fetch summaries of all notes (no text)
+
+``` ruby
 client.notes.list
+```
 
-# an individual note
+Then fetch the full note
+
+``` ruby
 client.notes('8e5d6964bb810e0050b0')
 ```
 
-## Contributing
+## THE ONE INCONSISTENCY BETWEEN THUMBTACK AND PINBOARD
 
-In order to run the tests, create a file with your authentication token into `test/auth_token.txt`. The token can be found on [your password settings page](https://pinboard.in/settings/password) in Pinboard. The file should look something like this:
+Thumbtack tries hard to mimic the Pinboard API, *BUT*: Pinboard's notes have an attribute named `hash`. Unfortunately, this collides with a [special method in Ruby](http://ruby-doc.org/core-2.1.3/Object.html#method-i-hash). To work around this, Thumbtack renames the `hash` attribute to `digest` in the `Note` and `NoteSummary` objects returned from `Notes#list` and `Notes#get`.
+
+## REQUIREMENTS
+
+* Ruby 1.9.3+, but you're already on 2.0+, right?
+* Nothing else. No gem dependencies, nothing.
+
+## INSTALLATION
+
+The best way to install Thumbtack is with RubyGems:
 
 ```
-maciej:D41D8CD98F00B204E980
+$ [sudo] gem install thumbtack
 ```
+
+## API DOCUMENTATION
+
+I'm working on getting this up on the net. Stay tuned (it's all there if you want to generate it locally with [YARD](http://yardoc.org)).
+
+## CONTRIBUTE
+
+If you'd like to make some changes to Thumbtack, start by forking the repo on GitHub:
+
+http://github.com/nwjsmith/thumbtack
+
+The best way to get contributions merged into Thumbtack:
+
+1. Clone down your fork.
+2. Create a well-named topic branch for your change
+3. Make your change.
+4. Add tests and make sure everything passes (see the section on running the tests below).
+5. If you are adding new functionality, document it in the README.
+6. Do not change the version number.
+7. If necessary, rebase your commits into logical chunks, with no failing commits.
+8. Push the branch to GitHubb.
+9. Send a pull request to the nwjsmith/thumbtack project.
+
+## RUN THE TESTS
+
+``` bash
+$ bundle install
+
+# Run only the unit tests (no communication/authentication with Pinboard)
+$ bundle exec rake test:unit
+
+# Run the full test suite (will communicate with Pinboard)
+$ bundle exec rake test
+```
+
+**Note** to run the full test suite, copy and paste your [API Token](https://pinboard.in/settings/password) into the `test/auth_token.txt` file. It should look something like this:
+
+``` text
+maciej:C9044F4047891CEA74FE
+```
+
+## LICENSE
+
+Thumbtack is released under the [MIT License](http://opensource.org/licenses/MIT).
