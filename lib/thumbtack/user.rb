@@ -15,6 +15,9 @@ module Thumbtack
 
     # Fetch the secret RSS key for viewing private feeds
     #
+    # @example
+    #   rss_key = user.secret
+    #
     # @return [String]
     #
     # @api public
@@ -25,6 +28,9 @@ module Thumbtack
     end
 
     # Fetch the API token for making calls without a password
+    #
+    # @example
+    #   api_token = user.api_token
     #
     # @return [String]
     #

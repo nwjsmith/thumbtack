@@ -69,7 +69,7 @@ module Thumbtack
 
     # Creates a new Note from a Hash
     #
-    # @param [Hash<#to_sym => Object>] hash
+    # @param [Hash{#to_sym => Object}] hash
     #   Note attributes
     #
     # @return [Note]

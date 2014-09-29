@@ -15,6 +15,9 @@ module Thumbtack
 
     # List of summaries of the user's notes
     #
+    # @example
+    #   summaries = notes.list
+    #
     # @return [Array<NoteSummary>]
     #
     # @api public
@@ -28,6 +31,9 @@ module Thumbtack
     end
 
     # Fetch a note
+    #
+    # @example
+    #   note = notes.get(id)
     #
     # @param [#to_s] id
     #   the id of the note to fetch
