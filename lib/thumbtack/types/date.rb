@@ -22,10 +22,7 @@ module Thumbtack
       # @raise [Types::ValidationError]
       #   if the date is not between 0001-01-01 and 2100-01-01
       def self.validate(value)
-        unless value > EARLIEST && value < LATEST
-          fail ValidationError,
-               "#{value} must be between 0001-01-01 and 2100-01-01"
-        end
+        RangeValidation.validate EARLIEST..LATEST, value
         self
       end
 
