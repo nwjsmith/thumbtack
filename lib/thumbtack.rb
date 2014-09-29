@@ -2,6 +2,8 @@
 
 # A simple Pinboard API wrapper
 module Thumbtack
+  # An empty Hash to use for default options
+  EMPTY_HASH = {}.freeze
 end
 
 require 'date'
