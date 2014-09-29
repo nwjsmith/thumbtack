@@ -236,7 +236,9 @@ module Thumbtack
     private
 
     def posts_from(response)
-      response.fetch('posts', []).map { |post_hash| Post.from_hash(post_hash) }
+      response.fetch('posts', EMPTY_ARRAY).map do |post_hash|
+        Post.from_hash(post_hash)
+      end
     end
   end
 end

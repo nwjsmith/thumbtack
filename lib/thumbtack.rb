@@ -4,6 +4,9 @@
 module Thumbtack
   # An empty Hash to use for default options
   EMPTY_HASH = {}.freeze
+
+  # An empty Hash to use for `#fetch` fallbacks
+  EMPTY_ARRAY = [].freeze
 end
 
 require 'date'

@@ -25,7 +25,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#notes_list
     def list
       response = @client.get('/notes/list')
-      response.fetch('notes', []).map do |note_hash|
+      response.fetch('notes', EMPTY_ARRAY).map do |note_hash|
         NoteSummary.from_hash(note_hash)
       end
     end
