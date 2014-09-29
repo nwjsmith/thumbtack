@@ -1,21 +1,32 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Internal: Wraps API calls related to users.
+  # Wraps API calls related to users
   class User
-    # Internal: Creates a new User.
+    # Initialize a User
     #
-    # client - a Thumbtack::Client to communicate with the Pinboard API.
+    # @param [Client] client
+    #   client to communicate with the Pinboard API
+    #
+    # @api private
     def initialize(client)
       @client = client
     end
 
-    # Public: Returns the user's secret RSS key for viewing private feeds.
+    # Fetch the secret RSS key for viewing private feeds
+    #
+    # @return [String]
+    #
+    # @api public
     def secret
       @client.get('/user/secret').fetch('result')
     end
 
-    # Public: Returns the user's API token for making calls without a password.
+    # Fetch the API token for making calls without a password
+    #
+    # @return [String]
+    #
+    # @api public
     def api_token
       @client.get('/user/api_token').fetch('result')
     end
