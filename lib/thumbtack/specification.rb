@@ -6,7 +6,6 @@ module Thumbtack
   #
   # @api private
   class Specification
-
     # Initialize a Specification
     #
     # @param [Hash<Symbol, Type>] type_handlers

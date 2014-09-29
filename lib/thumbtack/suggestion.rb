@@ -50,8 +50,8 @@ module Thumbtack
     # @api private
     # @see Client#get
     def self.from_array(array)
-      popular = array.detect { |hash| hash.has_key?(POPULAR_KEY) }
-      recommended = array.detect { |hash| hash.has_key?(RECOMMENDED_KEY) }
+      popular = array.find { |hash| hash.key?(POPULAR_KEY) }
+      recommended = array.find { |hash| hash.key?(RECOMMENDED_KEY) }
       new(popular: popular.fetch(POPULAR_KEY),
           recommended: recommended.fetch(RECOMMENDED_KEY))
     end

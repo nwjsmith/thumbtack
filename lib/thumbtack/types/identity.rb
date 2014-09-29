@@ -6,7 +6,6 @@ module Thumbtack
     #
     # @api private
     class Identity
-
       # Any value passed is valid
       #
       # @return [undefined]
