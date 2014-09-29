@@ -28,7 +28,7 @@ module Thumbtack
     # Internal: Initialize a Post.
     #
     # attrs - A Hash of attributes of the Post.
-    def initialize(attrs = {})
+    def initialize(attrs = EMPTY_HASH)
       ATTRIBUTES.each do |attribute|
         instance_variable_set "@#{attribute}", attrs.fetch(attribute)
       end

@@ -26,7 +26,7 @@ module Thumbtack
     # Internal: Initialize a NoteSummary.
     #
     # attrs - A Hash of attributes of the NoteSummary.
-    def initialize(attrs = {})
+    def initialize(attrs = EMPTY_HASH)
       ATTRIBUTES.each do |attribute|
         instance_variable_set "@#{attribute}", attrs.fetch(attribute)
       end
