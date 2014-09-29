@@ -1,5 +1,0 @@
---quiet
-README.md
-lib/**/*.rb
--o .
-LICENSE
