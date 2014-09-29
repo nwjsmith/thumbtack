@@ -186,8 +186,8 @@ module Thumbtack
     #   up to three tags to filter by
     #
     # @return [Hash<Date => Integer>]
-    #   dates on which bookmarks were created, and the number of bookmarks
-    #   created on that date
+    #   dates on which bookmarks were created associated with the number of
+    #   bookmarks created on that date
     #
     # @api public
     def dates(options = EMPTY_HASH)
