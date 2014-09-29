@@ -124,16 +124,15 @@ class PostsTest < Minitest::Test
   def test_suggest
     client = mock_client('/posts/suggest',
                          {url: 'http://blog.com'},
-                         {
-                           'popular' => ['blog', 'blogs', 'people', 'writing'],
-                           'recommended' => ['blog', 'writing', 'weblog']
-                         })
+                         [
+                           { 'popular' => ['blog', 'blogs', 'people'] },
+                           { 'recommended' => ['blog', 'writing', 'weblog'] }
+                         ])
     posts = Posts.new(client)
     response = posts.suggest('http://blog.com')
 
-    assert_equal 2, response.size
-    assert_equal 'blog', response[:popular].first
-    assert_equal 'weblog', response[:recommended].last
+    assert_equal 'blog', response.popular.first
+    assert_equal 'weblog', response.recommended.last
     client.verify
   end
 
