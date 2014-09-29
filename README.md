@@ -10,7 +10,7 @@ A [Pinboard API](https://pinboard.in/api) client that's as simple as Pinboard.
 
 Home - http://github.com/nwjsmith/thumbtack
 
-API Documentation - http://nwjsmith.github.io/thumbtack
+API Documentation - http://theinternate.com/thumbtack
 
 Bugs - http://github.com/nwjsmith/thumbtack/issues
 
