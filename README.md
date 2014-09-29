@@ -130,7 +130,7 @@ Thumbtack tries hard to mimic the Pinboard API, *BUT*: Pinboard's notes have an 
 
 ## REQUIREMENTS
 
-* Ruby 1.9.3+, but you're already on 2.0+, right?
+* Ruby 1.9.2+, but you're already on 2.0+, right?
 * Nothing else. No gem dependencies, nothing.
 
 ## INSTALLATION
@@ -143,7 +143,7 @@ $ [sudo] gem install thumbtack
 
 ## API DOCUMENTATION
 
-I'm working on getting this up on the net. Stay tuned (it's all there if you want to generate it locally with [YARD](http://yardoc.org)).
+http://rubydoc.info/gems/thumbtack/frames
 
 ## CONTRIBUTE
 
