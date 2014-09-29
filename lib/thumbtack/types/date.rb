@@ -2,21 +2,25 @@
 
 module Thumbtack
   module Types
-    # Internal: Handles conversion and validation of Date types to the String
-    # parameters supported by the Pinboard API.
+    # Handles conversion and validation of Dates to parameters supported by
+    # Pinboard
+    #
+    # @api private
     class Date
       # The earliest allowable date
       EARLIEST = ::Date.new(1, 1, 1)
       # The latest allowable date
       LATEST = ::Date.new(2100, 1, 1)
 
-      # Validate a Date.
+      # Validate a date
       #
-      # value - The Date to validate.
+      # @param [Date] value
+      #   the date to validate
       #
-      # Returns nothing.
-      # Raises Types::ValidationError if the date is not between 0001-01-01 and
-      # 2100-01-01.
+      # @return [undefined]
+      #
+      # @raise [Types::ValidationError]
+      #   if the date is not between 0001-01-01 and 2100-01-01
       def self.validate(value)
         unless value > EARLIEST && value < LATEST
           fail ValidationError,
@@ -25,20 +29,23 @@ module Thumbtack
         self
       end
 
-      # Convert a Date value to a parameter acceptable to the Pinboard API.
+      # Convert a date to a parameter acceptable to Pinboard
       #
-      # value - The Date to convert.
+      # @param [Date] value
+      #   the date to convert
       #
-      # Returns a String containing the date with format yyyy-mm-dd.
+      # @return [String]
+      #   the date with format yyyy-mm-dd
       def self.to_parameter(value)
         value.xmlschema
       end
 
-      # Convert a parameter from the Pinboard API to a Ruby Date.
+      # Convert a parameter from Pinboard to a date
       #
-      # parameter - A String of the date formatted yyyy-mm-dd.
+      # @param [String] parameter
+      #   the date with format yyyy-mm-dd
       #
-      # Returns a Date.
+      # @return [Date]
       def self.from_parameter(parameter)
         ::Date.xmlschema(parameter)
       end

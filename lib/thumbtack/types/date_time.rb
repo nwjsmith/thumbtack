@@ -2,23 +2,27 @@
 
 module Thumbtack
   module Types
-    # Handles conversion and validation of DateTime types to the String
-    # parameters supported by the Pinboard API.
+    # Handles conversion and validation of DateTimes to parameters supported by
+    # Pinboard
+    #
+    # @api private
     class DateTime
       # The earliest allowable time
       EARLIEST = ::DateTime.new(1, 1, 1)
       # The latest allowable time
       LATEST = ::DateTime.new(2100, 1, 1)
-      # The date format of the Pinboard API
+      # Pinboard's date format
       FORMAT = '%Y-%m-%dT%H:%M:%SZ'.freeze
 
-      # Validate something is a valid DateTime parameter.
+      # Validate a time
       #
-      # value - The DateTime to validate.
+      # @param [DateTime] value
+      #   The time to validate
       #
-      # Returns nothing.
-      # Raises Types::ValidationError if the time is not between
-      # 0001-01-01 00:00:00 and 2100-01-01 00:00:00.
+      # @return [undefined]
+      #
+      # @raise [Types::ValidationError]
+      #   if the time is not between 0001-01-01 00:00:00 and 2100-01-01 00:00:00
       def self.validate(value)
         unless value > EARLIEST && value < LATEST
           fail ValidationError,
@@ -27,20 +31,23 @@ module Thumbtack
         self
       end
 
-      # Convert a DateTime value to a parameter acceptable to the Pinboard API.
+      # Convert a time to a parameter acceptable to Pinboard
       #
-      # value - The DateTime to convert.
+      # @param [DateTime] value
+      #   the time to convert
       #
-      # Returns a String containing the date with format yyyy-mm-ddTHH:MM:SSZ.
+      # @return [String]
+      #   the time formatted yyyy-mm-ddTHH:MM:SSZ.
       def self.to_parameter(value)
         value.strftime(FORMAT)
       end
 
-      # Convert a parameter from the Pinboard API to a Ruby DateTime.
+      # Convert a parameter from Pinboard to a datetime value
       #
-      # parameter - A String of the date formatted yyyy-mm-ddTHH:MM:SSZ.
+      # @param [String] parameter
+      #   the time formatted yyyy-mm-ddTHH:MM:SSZ
       #
-      # Returns a DateTime.
+      # @return [DateTime]
       def self.from_parameter(parameter)
         ::DateTime.strptime(parameter)
       end

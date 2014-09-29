@@ -2,15 +2,20 @@
 
 module Thumbtack
   module Types
-    # Internal: Handles conversion and validation of Boolean types to the 'yes'
-    # and 'no' parameters supported by the Pinboard API.
+    # Handles conversion and validation of Booleans to the 'yes'
+    # and 'no' parameters supported by Pinboard
+    #
+    # @api private
     class Boolean
-      # Validate something is a Boolean parameter.
+      # Validate a value is a boolean parameter
       #
-      # value - A Boolean to validate.
+      # @param [Boolean] value
+      #   the value to validate
       #
-      # Returns nothing.
-      # Raises Types::ValidationError if the value is not true or false
+      # @return [undefined]
+      #
+      # @raise [Types::ValidationError]
+      #   if the value is not true or false
       def self.validate(value)
         case value
         when TrueClass, FalseClass
@@ -20,11 +25,13 @@ module Thumbtack
         end
       end
 
-      # Convert a Boolean value to a parameter acceptable to the Pinboard API.
+      # Convert a boolean value to a parameter acceptable to Pinboard
       #
-      # value - A Boolean to convert.
+      # @param [Boolean] value
+      #   the value to convert
       #
-      # Returns 'yes' or 'no'
+      # @return [String]
+      #   'yes' if value is true, 'no' otherwise
       def self.to_parameter(value)
         case value
         when TrueClass
@@ -34,11 +41,12 @@ module Thumbtack
         end
       end
 
-      # Convert a parameter from the Pinboard API to a Ruby Boolean.
+      # Convert a parameter from Pinboard to a boolean value
       #
-      # parameter - A String containing 'yes' or 'no'.
+      # @param [String] parameter
+      #   Either 'yes' or 'no'
       #
-      # Returns true or false.
+      # @return [Boolean]
       def self.from_parameter(parameter)
         case parameter
         when 'yes'
