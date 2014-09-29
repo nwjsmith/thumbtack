@@ -1,5 +1,5 @@
 --quiet
 README.md
 lib/**/*.rb
--o html/
+-o .
 LICENSE
