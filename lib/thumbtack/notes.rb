@@ -18,6 +18,8 @@ module Thumbtack
     # @return [Array<NoteSummary>]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#notes_list
     def list
       response = @client.get('/notes/list')
       response.fetch('notes', []).map do |note_hash|
@@ -33,6 +35,8 @@ module Thumbtack
     # @return [Note]
     #
     # @api public
+    #
+    # @see https://pinboard.in/api/#notes_id
     def get(id)
       Note.from_hash @client.get("/notes/#{id}")
     end
