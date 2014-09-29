@@ -227,7 +227,7 @@ module Thumbtack
       parameters = Specification.new(tag: Types::Tags).parameters(options)
       response = @client.get('/posts/dates', parameters)
       Hash[
-        response.fetch('dates', {}).map do |date, count|
+        response.fetch('dates', EMPTY_HASH).map do |date, count|
           [Types::Date.from_parameter(date), count.to_i]
         end
       ]
