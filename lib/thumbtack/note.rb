@@ -77,9 +77,7 @@ module Thumbtack
     # @api private
     # @see Client#get
     def self.from_hash(hash)
-      attrs = hash.dup
-      digest = attrs.delete('hash')
-      new(Hash[attrs.map { |k, v| [k.to_sym, v] }].merge(digest: digest))
+      new(HashToDigest.rename(hash))
     end
 
     # Initialize a Note

@@ -19,10 +19,7 @@ module Thumbtack
       # @raise [Types::ValidationError]
       #   if the value is longer than 65536 characters
       def self.validate(value)
-        unless value.length <= MAXIMUM_LENGTH
-          fail ValidationError,
-               "#{value} cannot be greater than #{MAXIMUM_LENGTH} characters"
-        end
+        LengthValidation.validate value, MAXIMUM_LENGTH
         self
       end
     end
