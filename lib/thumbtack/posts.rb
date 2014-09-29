@@ -175,21 +175,14 @@ module Thumbtack
     # Returns a Hash with two entries, :popular is a list of popular tags,
     # :recommended is a list of recommended tags.
     #
-    # @return [Hash<Symbol => Array<String>>]
-    #   the hash has two entries:
-    #   [:popular] a list of popular tags
-    #   [:recommended] a list of recommended tags
-    #
-    # @todo this should return an object, not a Hash
+    # @return [Array<Suggestion>]
     #
     # @api public
     #
     # @see https://pinboard.in/api/#posts_suggest
     def suggest(url)
       parameters = Specification.new(url: Types::URL).parameters(url: url)
-      result = @client.get('/posts/suggest', parameters)
-      { popular: result.fetch('popular'),
-        recommended: result.fetch('recommended') }
+      Suggestion.from_array(@client.get('/posts/suggest', parameters))
     end
 
     # List dates with the number of bookmarks created on each
