@@ -15,6 +15,9 @@ module Thumbtack
 
     # Fetch the most recent time a bookmark was added, updated, or deleted
     #
+    # @example
+    #   update_time = posts.update
+    #
     # @return [DateTime]
     #
     # @api public
@@ -26,6 +29,9 @@ module Thumbtack
     end
 
     # Add a bookmark
+    #
+    # @example
+    #   posts.add(url, description, tags: ['one', 'two', 'three'])
     #
     # @param [String] url
     #   the URL of the bookmark
@@ -68,6 +74,9 @@ module Thumbtack
 
     # Delete a bookmark
     #
+    # @example
+    #   posts.delete(url)
+    #
     # @param [String] url
     #   the URL of the bookmark to delete
     #
@@ -83,6 +92,9 @@ module Thumbtack
     end
 
     # Fetch one or more bookmarks
+    #
+    # @example
+    #   bookmarks = posts.get(tag: ['one', 'two', 'three'])
     #
     # @param [Hash] options
     #   options to filter the results by
@@ -112,6 +124,9 @@ module Thumbtack
 
     # List the most recent bookmarks
     #
+    # @example
+    #   bookmarks = posts.recent(tag: ['one', 'two', 'three'], count: 25)
+    #
     # @param [Hash] options
     #   options to filter the results by
     # @option options [Array<String>] :tag
@@ -133,6 +148,9 @@ module Thumbtack
     end
 
     # List all bookmarks
+    #
+    # @example
+    #   posts.all(todt: yesterday, meta: true, tag: ['one', 'two', 'three'])
     #
     # @param [Hash] options
     #   options to filter the results by
@@ -169,6 +187,9 @@ module Thumbtack
 
     # List popular and recommended tags for a URL
     #
+    # @example
+    #   suggestion = posts.suggest(url)
+    #
     # @param [String] url
     #   URL to fetch suggested tags for
     #
@@ -187,12 +208,15 @@ module Thumbtack
 
     # List dates with the number of bookmarks created on each
     #
+    # @example
+    #   dates = posts.dates(tag: ['one', 'two', 'three'])
+    #
     # @param [Hash] options
     #   options to filter the results by
     # @option options [Array<String>] :tag
     #   up to three tags to filter by
     #
-    # @return [Hash<Date => Integer>]
+    # @return [Hash{Date => Integer}]
     #   dates on which bookmarks were created associated with the number of
     #   bookmarks created on that date
     #

@@ -28,6 +28,9 @@ module Thumbtack
 
     # Initialize a Client
     #
+    # @example
+    #   client = Client.new(username, token)
+    #
     # @param [String] username
     #   the user to authenticate with
     # @param [String] token
@@ -64,6 +67,9 @@ module Thumbtack
 
     # Access posts-related API calls
     #
+    # @example
+    #   posts = client.posts
+    #
     # @return [Posts]
     #
     # @api public
@@ -72,6 +78,9 @@ module Thumbtack
     end
 
     # Access tags-related API calls
+    #
+    # @example
+    #   tags = client.tags
     #
     # @return [Tags]
     #
@@ -82,6 +91,9 @@ module Thumbtack
 
     # Access user-related API calls
     #
+    # @example
+    #   user = client.user
+    #
     # @return [User]
     #
     # @api public
@@ -90,6 +102,9 @@ module Thumbtack
     end
 
     # Access notes-related API calls
+    #
+    # @example
+    #   notes = client.notes
     #
     # @return [Notes]
     #

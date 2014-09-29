@@ -85,7 +85,7 @@ module Thumbtack
 
     # Creates a new Post from a Hash
     #
-    # @param [Hash<#to_sym => Object>] hash
+    # @param [Hash{#to_sym => Object}] hash
     #   Post attributes
     #
     # @return [Post]

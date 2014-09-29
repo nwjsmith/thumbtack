@@ -15,7 +15,10 @@ module Thumbtack
 
     # List tags with their counts
     #
-    # @return [Hash<String => Integer>]
+    # @example
+    #   tag_counts = tags.get
+    #
+    # @return [Hash{String => Integer}]
     #   tags associated with the number of times they have been used
     #
     # @api public
@@ -27,6 +30,9 @@ module Thumbtack
     end
 
     # Delete a tag
+    #
+    # @example
+    #   tags.delete(tag)
     #
     # @param [String] tag
     #   the tag to delete
@@ -43,6 +49,9 @@ module Thumbtack
     end
 
     # Rename a tag
+    #
+    # @example
+    #   tags.rename(old, new)
     #
     # @param [String] old
     #   the tag to be renamed

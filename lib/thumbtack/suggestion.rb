@@ -42,7 +42,7 @@ module Thumbtack
 
     # Creates a new Suggestions from an Array of Hashes
     #
-    # @param [Array<Hash<String => Array<String>>>] array
+    # @param [Array<Hash{String => Array<String>}>] array
     #   Suggestions attributes
     #
     # @return [Suggestion]
