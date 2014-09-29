@@ -12,7 +12,7 @@ module Thumbtack
     ATTRIBUTES = [
       :id,
       :title,
-      :hash,
+      :digest,
       :created_at,
       :updated_at,
       :length
@@ -51,7 +51,7 @@ module Thumbtack
     # @return [String]
     #
     # @api public
-    attr_reader :hash
+    attr_reader :digest
 
     # The length of the note text
     #
@@ -70,7 +70,9 @@ module Thumbtack
     # @api private
     # @see Client#get
     def self.from_hash(hash)
-      new(Hash[hash.map { |key, value| [key.to_sym, value] }])
+      attrs = hash.dup
+      digest = attrs.delete('hash')
+      new(Hash[attrs.map { |k, v| [k.to_sym, v] }].merge(digest: digest))
     end
 
     # Initialize a NoteSummary
