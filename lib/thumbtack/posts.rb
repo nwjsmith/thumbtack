@@ -45,7 +45,7 @@ module Thumbtack
     #   add('http://theinternate.com', 'The Internate', tags: ['best', 'ruby'])
     #
     # Returns the Posts instance.
-    def add(url, description, options = {})
+    def add(url, description, options = EMPTY_HASH)
       parameters = Specification.new(
         url: Types::URL,
         description: Types::Text,
@@ -91,7 +91,7 @@ module Thumbtack
     #   get(url: 'http://www.pinboard.in')
     #
     # Returns a list of Post instances.
-    def get(options = {})
+    def get(options = EMPTY_HASH)
       parameters = Specification.new(
         tag: Types::Tags,
         dt: Types::DateTime,
@@ -113,7 +113,7 @@ module Thumbtack
     #   recent(tag: 'webdev', count: 25)
     #
     # Returns a list of Post instances.
-    def recent(options = {})
+    def recent(options = EMPTY_HASH)
       parameters = Specification.new(
         tag: Types::Tags,
         count: Types::Integer
@@ -134,7 +134,7 @@ module Thumbtack
     #                     change detection signature.
     #
     # Returns a list of Posts instances
-    def all(options = {})
+    def all(options = EMPTY_HASH)
       parameters = Specification.new(
         tag: Types::Tags,
         start: Types::Integer,
@@ -167,7 +167,7 @@ module Thumbtack
     #
     # Returns a Hash of Strings => Integer entries. The Strings contain a date
     # and the Integer is the count of posts made on that date.
-    def dates(options = {})
+    def dates(options = EMPTY_HASH)
       parameters = Specification.new(tag: Types::Tags).parameters(options)
       response = @client.get('/posts/dates', parameters)
       Hash[
