@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
   spec.name = 'thumbtack'
   spec.require_paths = ['lib']
-  spec.require_ruby_version = '>= 1.9.2'
+  spec.required_ruby_version = '>= 1.9.2'
   spec.summary = 'The best Pinboard API client'
   spec.test_files = Dir.glob('test/**/*.rb')
   spec.version = Thumbtack::VERSION
