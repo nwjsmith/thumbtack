@@ -4,7 +4,7 @@
 [![Test Coverage](https://codeclimate.com/github/nwjsmith/thumbtack/badges/coverage.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
 [![Build Status](https://travis-ci.org/nwjsmith/thumbtack.svg?branch=master)](https://travis-ci.org/nwjsmith/thumbtack)
 
-## DESCRIPTION
+## Description
 
 Thumbtack is a simple Ruby client for the [Pinboard API](https://pinboard.in/api).
 
@@ -21,7 +21,7 @@ There are other Pinboard API clients for Ruby, but there are a few things that s
 * **Documentation**  
   Thorough documentation of the usage and API is a top priority for Thumbtack. No question should be unanswered.
 
-## USAGE
+## Usage
 
 Initialize a client with your Pinboard username and API token
 
@@ -39,9 +39,7 @@ Add bookmarks
 
 ``` ruby
 client.posts.add('http://theinternate.com', 'The Internate')
-client.posts.add('http://theinternate.com', 'The Internate',
-  extended: 'The personal website of Nate Smith',
-  tags: ['awesome', 'essential'])
+client.posts.add('http://theinternate.com', 'The Internate', extended: 'The personal website of Nate Smith', tags: ['awesome', 'essential'])
 ```
 
 Delete them too
@@ -124,16 +122,16 @@ Then fetch the full note
 client.notes('8e5d6964bb810e0050b0')
 ```
 
-## THE ONE INCONSISTENCY BETWEEN THUMBTACK AND PINBOARD
+## The one inconsistency between Thumbtack and Pinboard
 
 Thumbtack tries hard to mimic the Pinboard API, *BUT*: Pinboard's notes have an attribute named `hash`. Unfortunately, this collides with a [special method in Ruby](http://ruby-doc.org/core-2.1.3/Object.html#method-i-hash). To work around this, Thumbtack renames the `hash` attribute to `digest` in the `Note` and `NoteSummary` objects returned from `Notes#list` and `Notes#get`.
 
-## REQUIREMENTS
+## Requirements
 
 * Ruby 1.9.2+, but you're already on 2.0+, right?
 * Nothing else. No gem dependencies, nothing.
 
-## INSTALLATION
+## Installation
 
 The best way to install Thumbtack is with RubyGems:
 
@@ -141,11 +139,11 @@ The best way to install Thumbtack is with RubyGems:
 $ [sudo] gem install thumbtack
 ```
 
-## API DOCUMENTATION
+## API Documentation
 
 http://rubydoc.info/gems/thumbtack/frames
 
-## CONTRIBUTE
+## Contribute
 
 If you'd like to make some changes to Thumbtack, start by forking the repo on GitHub:
 
@@ -163,7 +161,7 @@ The best way to get contributions merged into Thumbtack:
 8. Push the branch to GitHubb.
 9. Send a pull request to the nwjsmith/thumbtack project.
 
-## RUN THE TESTS
+## Run the tests
 
 ``` bash
 $ bundle install
@@ -181,6 +179,6 @@ $ bundle exec rake test
 maciej:C9044F4047891CEA74FE
 ```
 
-## LICENSE
+## License
 
 Thumbtack is released under the [MIT License](http://opensource.org/licenses/MIT).
