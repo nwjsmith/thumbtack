@@ -1,4 +1,4 @@
 html
 test/auth_token.txt
 Gemfile.lock
-doc
+.yardoc
