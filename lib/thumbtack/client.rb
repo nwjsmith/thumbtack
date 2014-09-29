@@ -1,49 +1,57 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Public: Wraps each interaction with the Pinboard API.
+  # Wraps each interaction with the Pinboard API
   class Client
-    # Internal: Raised when the API rate limit has been reached.
+    # Raised when the API rate limit has been reached
     class RateLimitError < StandardError; end
 
-    # Internal: The status code of rate limited responses from the Pinboard API.
+    # The status code for rate limited responses from the Pinboard API
     TOO_MANY_REQUESTS_CODE = '429'.freeze
 
-    # Public: String of base Pinboard API URL.
+    # The base Pinboard API URL.
     BASE_URL = 'https://api.pinboard.in/v1'.freeze
 
-    # Public: Returns the String username being used by the client.
+    # Username used by the client to make authenticated requests
+    #
+    # @return [String]
+    #
+    # @api public
     attr_reader :username
 
-    # Public: Returns the String API token being used by the client.
+    # Token used by the client to make authenticated requests
+    #
+    # @return [String]
+    #
+    # @api public
     attr_reader :token
 
-    # Public: Creates a new client.
+    # Initialize a Client
     #
-    # username - A String naming the user account to authenticate with.
-    # token - A String of the API token for the user account. Can be found on
-    #         the user's settings page.
+    # @param [String] username
+    #   the user to authenticate with
+    # @param [String] token
+    #   the API token for the user account, found on the Pinboard settings page
+    #
+    # @api public
     def initialize(username, token)
       @username, @token = username, token
     end
 
-    # Internal: Request JSON from the Pinboard API.
+    # Retrieve JSON from the Pinboard API
     #
-    # path - A String of the path to fetch from. The is relative from the root
-    #        Pinboard API URL.
-    # params - A Hash of query parameters to append to the URL for the fetch
-    #          (default: {}).
+    # @param [String] path
+    #   the path to fetch from, relative to from the base Pinboard API URL
     #
-    # Examples
+    # @param [Hash] params
+    #   query parameters to append to the URL
     #
-    #   get('/posts/update')
-    #   # => {'update_time' => '2014-06-24T15:39:46Z'}
+    # @return [Hash] the response parsed from the JSON
     #
-    #   get('/posts/suggest', url: 'http://theinternate.com/')
-    #   # => [{'popular' => []}, {'recommended' => []}]
+    # @raise [RateLimitError] if the response is rate-limited
     #
-    # Returns a parsed JSON response from Pinboard's API.
-    def get(path, params = {})
+    # @api private
+    def get(path, params = EMPTY_HASH)
       uri = URI("#{BASE_URL}#{path}")
 
       base_params = { auth_token: "#{@username}:#{@token}", format: 'json' }
@@ -54,22 +62,38 @@ module Thumbtack
       JSON.parse(response.body)
     end
 
-    # Public: Access posts-related API calls.
+    # Access posts-related API calls
+    #
+    # @return [Posts]
+    #
+    # @api public
     def posts
       Posts.new(self)
     end
 
-    # Public: Access tags-related API calls.
+    # Access tags-related API calls
+    #
+    # @return [Tags]
+    #
+    # @api public
     def tags
       Tags.new(self)
     end
 
-    # Public: Access user-related API calls.
+    # Access user-related API calls
+    #
+    # @return [User]
+    #
+    # @api public
     def user
       User.new(self)
     end
 
-    # Public: Access notes-related API calls.
+    # Access notes-related API calls
+    #
+    # @return [Notes]
+    #
+    # @api public
     def notes
       Notes.new(self)
     end
