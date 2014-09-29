@@ -1,23 +1,28 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Internal: Validates and translates user-provided parameters to their
-  # Pinboard-supported equivalents
+  # Validates and translates user-provided parameters to their Pinboard
+  # supported equivalents
+  #
+  # @api private
   class Specification
 
-    # Create a new Specification.
+    # Initialize a Specification
     #
-    # type_handlers - A Hash mapping parameter names to their type handlers.
+    # @param [Hash<Symbol, Type>] type_handlers
+    #   a map of parameter names to their type handlers
     def initialize(type_handlers)
       @type_handlers = type_handlers
     end
 
     # Validate and translate user-provided parameters to their
-    # Pinboard-supported equivalents.
+    # Pinboard-supported values
     #
-    # arguments - A Hash mapping parameter names to their user-provided values.
+    # @param [Hash<Symbol, Object>] arguments
+    #   parameter names associated with their values
     #
-    # Returns the parameters translated to their Pinboard equivalents.
+    # @return [Hash<Symbol, Object>]
+    #   parameter names associated with translations to their Pinboard values
     def parameters(arguments)
       Hash[
         arguments.map do |name, value|
