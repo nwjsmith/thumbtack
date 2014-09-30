@@ -17,12 +17,18 @@ module Thumbtack
 
     # A list of popular tags for URL
     #
+    # @example
+    #   suggestion.popular  # => ['blog', 'blogs', 'people']
+    #
     # @return [Array<String>]
     #
     # @api public
     attr_reader :popular
 
     # A list of recommended tags for the URL
+    #
+    # @example
+    #   suggestion.recommended  # => ['blog', 'blogs', 'writing'...
     #
     # @return [Array<String>]
     #
