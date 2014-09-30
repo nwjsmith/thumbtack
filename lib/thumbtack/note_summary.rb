@@ -34,17 +34,21 @@ module Thumbtack
 
     # The time at which the note was created
     #
-    # @return [String]
+    # @return [DateTime]
     #
     # @api public
-    attr_reader :created_at
+    def created_at
+      Types::DateTime.from_note_parameter(@created_at)
+    end
 
     # The time at which the note was last updated
     #
-    # @return [String]
+    # @return [DateTime]
     #
     # @api public
-    attr_reader :updated_at
+    def updated_at
+      Types::DateTime.from_note_parameter(@updated_at)
+    end
 
     # 20 character hexadecimal SHA1 hash of the note text
     #

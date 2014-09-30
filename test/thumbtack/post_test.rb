@@ -13,7 +13,7 @@ class PostTest < Minitest::Test
       'time' => '2014-06-29T16:57:45Z',
       'shared' => 'yes',
       'toread' => 'no',
-      'tags' => 'test123'
+      'tags' => 'test123 another'
     }
     post = Post.from_hash(hash)
 
@@ -22,9 +22,9 @@ class PostTest < Minitest::Test
     assert_equal '', post.extended
     assert_equal '46ca40b9b92ee0ea1284785a5d2a9b38', post.meta
     assert_equal 'dab521de65f9250b4cca7383feef67dc', post.hash
-    assert_equal '2014-06-29T16:57:45Z', post.time
-    assert_equal 'yes', post.shared
-    assert_equal 'no', post.toread
-    assert_equal 'test123', post.tags
+    assert_equal DateTime.new(2014, 6, 29, 16, 57, 45), post.time
+    assert_equal true, post.shared
+    assert_equal false, post.toread
+    assert_equal ['test123', 'another'], post.tags
   end
 end

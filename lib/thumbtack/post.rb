@@ -57,31 +57,39 @@ module Thumbtack
 
     # The time at which the post was created
     #
-    # @return [String]
+    # @return [DateTime]
     #
     # @api public
-    attr_reader :time
+    def time
+      Types::DateTime.from_parameter(@time)
+    end
 
     # If true, this post is public
     #
     # @return [Boolean]
     #
     # @api public
-    attr_reader :shared
+    def shared
+      Types::Boolean.from_parameter(@shared)
+    end
 
     # If true, this post is marked unread
     #
     # @return [Boolean]
     #
     # @api public
-    attr_reader :toread
+    def toread
+      Types::Boolean.from_parameter(@toread)
+    end
 
     # The tags for this post, space-seperated
     #
-    # @return [String]
+    # @return [Array<String>]
     #
     # @api public
-    attr_reader :tags
+    def tags
+      Types::Tags.from_parameter(@tags)
+    end
 
     # Creates a new Post from a Hash
     #

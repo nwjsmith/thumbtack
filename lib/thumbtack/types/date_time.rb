@@ -48,6 +48,16 @@ module Thumbtack
       def self.from_parameter(parameter)
         ::DateTime.strptime(parameter)
       end
+
+      # Convert a parameter from Pinboard's notes to a datetime value
+      #
+      # @param [String] parameter
+      #   the time formatted yyyy-mm-dd HH:MM:SS
+      #
+      # @return [DateTime]
+      def self.from_note_parameter(parameter)
+        ::DateTime.strptime(parameter, '%Y-%m-%d %H:%M:%S')
+      end
     end
   end
 end
