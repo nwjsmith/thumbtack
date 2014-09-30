@@ -6,7 +6,10 @@ module Thumbtack
 
     # Rename any attribute called hash to digest
     #
-    # @param [Hash{#to_sym => Object}]
+    # @example
+    #   HashToDigest.rename('hash' => '1234')  # => { :digest => '1234' }
+    #
+    # @param [Hash{String => Object}]
     #   reponse hash
     #
     # @return [Hash{Symbol => Object}]
