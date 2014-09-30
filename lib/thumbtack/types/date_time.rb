@@ -24,7 +24,7 @@ module Thumbtack
       # @raise [Types::ValidationError]
       #   if the time is not between 0001-01-01 00:00:00 and 2100-01-01 00:00:00
       def self.validate(value)
-        RangeValidation.validate EARLIEST..LATEST, value
+        RangeValidation.validate value, EARLIEST..LATEST
         self
       end
 
