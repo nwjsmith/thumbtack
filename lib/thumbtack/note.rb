@@ -20,6 +20,9 @@ module Thumbtack
 
     # The identifier for the note
     #
+    # @example
+    #   note.id  # => '8e5d6964bb810e0050b0'
+    #
     # @return [String]
     #
     # @api public
@@ -27,12 +30,18 @@ module Thumbtack
 
     # The title of the note
     #
+    # @example
+    #   note.title  # => 'StarCraft beta coming this week!'
+    #
     # @return [String]
     #
     # @api public
     attr_reader :title
 
     # The time at which the note was created
+    #
+    # @example
+    #   note.created_at  # => #<DateTime: 2014-08-13T19:53:16+00:00...
     #
     # @return [DateTime]
     #
@@ -43,6 +52,9 @@ module Thumbtack
 
     # The time at which the note was last updated
     #
+    # @example
+    #   note.updated_at  # => #<DateTime: 2014-08-13T19:53:16+00:00...
+    #
     # @return [DateTime]
     #
     # @api public
@@ -52,6 +64,9 @@ module Thumbtack
 
     # 20 character hexadecimal SHA1 hash of the note text
     #
+    # @example
+    #   note.digest  # => '0c9c30f60cadabd31415'
+    #
     # @return [String]
     #
     # @api public
@@ -59,12 +74,18 @@ module Thumbtack
 
     # The text of the note
     #
+    # @example
+    #   note.text  # => 'It was clear that readers showing up...
+    #
     # @return [String]
     #
     # @api public
     attr_reader :text
 
     # The length of the note text
+    #
+    # @example
+    #   note.length  # => 153
     #
     # @return [Integer]
     #

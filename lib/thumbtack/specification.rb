@@ -14,8 +14,7 @@ module Thumbtack
       @type_handlers = type_handlers
     end
 
-    # Validate and translate user-provided parameters to their
-    # Pinboard-supported values
+    # Validate and translate client parameters to their Pinboard values
     #
     # @param [Hash{Symbol => Object}] arguments
     #   parameter names associated with their values

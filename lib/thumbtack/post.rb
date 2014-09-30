@@ -13,7 +13,7 @@ module Thumbtack
       :description,
       :extended,
       :meta,
-      :hash,
+      :digest,
       :time,
       :shared,
       :toread,
@@ -22,12 +22,18 @@ module Thumbtack
 
     # The url of the post
     #
+    # @example
+    #   post.href  # => 'http://pinboard.in'
+    #
     # @return [String]
     #
     # @api public
     attr_reader :href
 
     # The title of the post
+    #
+    # @example
+    #   post.description  # => 'Pinboard'
     #
     # @return [String]
     #
@@ -36,12 +42,18 @@ module Thumbtack
 
     # The description of the post
     #
+    # @example
+    #   post.extended  # => 'antisocial bookmarking'
+    #
     # @return [String]
     #
     # @api public
     attr_reader :extended
 
-    # 32 character hexadecimal MD5 hash tag 'version' of the post
+    # 32 character hexadecimal MD5 hash change signature for the post
+    #
+    # @example
+    #   post.meta  # => '92959a96fd69146c5fe7cbde6e5720f2'
     #
     # @return [String]
     #
@@ -50,12 +62,18 @@ module Thumbtack
 
     # 32 character hexadecimal MD5 hash of the post URL
     #
+    # @example
+    #   post.digest  # => '92959a96fd69146c5fe7cbde6e5720f2'
+    #
     # @return [String]
     #
     # @api public
-    attr_reader :hash
+    attr_reader :digest
 
     # The time at which the post was created
+    #
+    # @example
+    #   post.time  # => #<DateTime: 2014-09-17T13:45:27+00:00...
     #
     # @return [DateTime]
     #
@@ -66,6 +84,9 @@ module Thumbtack
 
     # If true, this post is public
     #
+    # @example
+    #   post.shared  # => true
+    #
     # @return [Boolean]
     #
     # @api public
@@ -75,6 +96,9 @@ module Thumbtack
 
     # If true, this post is marked unread
     #
+    # @example
+    #   post.toread  # => false
+    #
     # @return [Boolean]
     #
     # @api public
@@ -83,6 +107,9 @@ module Thumbtack
     end
 
     # The tags for this post, space-seperated
+    #
+    # @example
+    #   post.tags  # => ['bookmarks', 'tools']
     #
     # @return [Array<String>]
     #
@@ -101,7 +128,7 @@ module Thumbtack
     # @api private
     # @see Client#get
     def self.from_hash(hash)
-      new(Hash[hash.map { |key, value| [key.to_sym, value] }])
+      new(HashToDigest.rename(hash))
     end
 
     # Initialize a Post

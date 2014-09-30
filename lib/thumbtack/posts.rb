@@ -235,6 +235,11 @@ module Thumbtack
 
     private
 
+    # Create Post objects from posts response
+    #
+    # @return [Array<Post>]
+    #
+    # @api private
     def posts_from(response)
       response.fetch('posts', EMPTY_ARRAY).map do |post_hash|
         Post.from_hash(post_hash)

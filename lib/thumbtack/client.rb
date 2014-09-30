@@ -14,12 +14,18 @@ module Thumbtack
 
     # Username used by the client to make authenticated requests
     #
+    # @example
+    #   client.username  # => 'maciej'
+    #
     # @return [String]
     #
     # @api public
     attr_reader :username
 
     # Token used by the client to make authenticated requests
+    #
+    # @example
+    #   client.token  # => 'C9044F4047891CEA74FE'
     #
     # @return [String]
     #
