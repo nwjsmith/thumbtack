@@ -17,8 +17,8 @@ class NoteSummaryTest < Minitest::Test
     assert_equal '8e5d6964bb810e0050b0', note.id
     assert_equal 'StarCraft beta coming this week!', note.title
     assert_equal '0c9c30f60cadabd31415', note.digest
-    assert_equal '2010-02-11 03:46:56', note.created_at
-    assert_equal '2010-02-11 03:47:47', note.updated_at
+    assert_equal DateTime.new(2010, 2, 11, 3, 46, 56), note.created_at
+    assert_equal DateTime.new(2010, 2, 11, 3, 47, 47), note.updated_at
     assert_equal 19, note.length
   end
 end
