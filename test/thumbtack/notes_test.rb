@@ -4,7 +4,7 @@ require 'test_helper'
 
 class NotesTest < Minitest::Test
   def test_list
-    client = mock_client('/notes/list',
+    client = mock_client_get('/notes/list',
                          nil,
                          {
                            'count' => 2,
@@ -36,7 +36,7 @@ class NotesTest < Minitest::Test
   end
 
   def test_get
-    client = mock_client('/notes/8e5d6964bb810e0050b0',
+    client = mock_client_get('/notes/8e5d6964bb810e0050b0',
                          nil,
                          {
                            'id' => '8e5d6964bb810e0050b0',

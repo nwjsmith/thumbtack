@@ -44,7 +44,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#tags_delete
     def delete(tag)
       parameters = Specification.new(tag: Types::Tags).parameters(tag: tag)
-      @client.get('/tags/delete', parameters)
+      @client.action('/tags/delete', parameters)
       self
     end
 
@@ -68,7 +68,7 @@ module Thumbtack
         old: Types::Tags,
         new: Types::Tags
       ).parameters(old: old, new: new)
-      @client.get('/tags/rename', parameters)
+      @client.action('/tags/rename', parameters)
       self
     end
   end

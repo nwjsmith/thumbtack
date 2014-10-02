@@ -4,7 +4,7 @@ require 'test_helper'
 
 class TagsTest < Minitest::Test
   def test_update
-    client = mock_client('/tags/get',
+    client = mock_client_get('/tags/get',
                          nil,
                          {
                            'activedesktop' => '1',
@@ -29,7 +29,7 @@ class TagsTest < Minitest::Test
   end
 
   def test_delete
-    client = mock_client('/tags/delete',
+    client = mock_client_action('/tags/delete',
                          { tag: 'argentina' },
                          { 'result_code' => 'done' })
     tags = Tags.new(client)
@@ -39,7 +39,7 @@ class TagsTest < Minitest::Test
   end
 
   def test_rename
-    client = mock_client('/tags/rename',
+    client = mock_client_action('/tags/rename',
                          { old: 'argentina', new: 'evita' },
                          { 'result_code' => 'done' })
     tags = Tags.new(client)

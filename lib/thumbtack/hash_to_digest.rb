@@ -3,7 +3,6 @@ module Thumbtack
   #
   # @api private
   class HashToDigest
-
     # Rename any attribute called hash to digest
     #
     # @example

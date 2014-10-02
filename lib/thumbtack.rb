@@ -8,6 +8,11 @@ module Thumbtack
   # Raised when given an invalid parameter
   class ValidationError < StandardError; end
 
+  # Raised when given an error from a Pinboard result code
+  #
+  # @see https://pinboard.in/api/#errors
+  class ResultError < StandardError; end
+
   # An empty Hash to use for default options
   EMPTY_HASH = {}.freeze
 

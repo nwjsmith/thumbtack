@@ -68,7 +68,7 @@ module Thumbtack
         shared: Types::Boolean,
         toread: Types::Boolean
       ).parameters({ url: url, description: description }.merge(options))
-      @client.get('/posts/add', parameters)
+      @client.action('/posts/add', parameters)
       self
     end
 
@@ -87,7 +87,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#posts_delete
     def delete(url)
       parameters = Specification.new(url: Types::URL).parameters(url: url)
-      @client.get('/posts/delete', parameters)
+      @client.action('/posts/delete', parameters)
       self
     end
 
