@@ -17,8 +17,13 @@ module Integration
     end
 
     def test_request_query_parameters
-      response = @client.get('/tags/delete', tag: 'thumbtack-test-query-params')
-      assert_equal({ 'result' => 'done' }, response)
+      response = @client.get('/posts/recent', tag: 'thumbtack-test-query-params')
+      assert_equal([] , response['posts'])
+    end
+
+    def test_action_command_method
+      response = @client.action('/tags/delete', tag: 'thumbtack-test-command')
+      assert_equal(@client, response)
     end
   end
 end

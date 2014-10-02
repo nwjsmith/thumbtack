@@ -4,7 +4,7 @@ require 'test_helper'
 
 class UserTest < Minitest::Test
   def test_secret
-    client = mock_client('/user/secret',
+    client = mock_client_get('/user/secret',
                          nil,
                          { 'result' => '6493a84f72d86e7de130' })
     user = User.new(client)
@@ -13,7 +13,7 @@ class UserTest < Minitest::Test
   end
 
   def test_api_token
-    client = mock_client('/user/api_token',
+    client = mock_client_get('/user/api_token',
                          nil,
                          { 'result' => 'XOG86E7JIYMI' })
     user = User.new(client)

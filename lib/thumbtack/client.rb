@@ -64,8 +64,29 @@ module Thumbtack
       uri.query = URI.encode_www_form(params.merge(base_params))
 
       response = Net::HTTP.get_response(uri)
-      fail Client::RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
+      fail RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
       JSON.parse(response.body)
+    end
+
+    # Perform an action request against the Pinboard API
+    #
+    # @param [String] path
+    #   the path to fetch from, relative to from the base Pinboard API URL
+    #
+    # @param [Hash] params
+    #   query parameters to append to the URL
+    #
+    # @return [Hash] the response parsed from the JSON
+    #
+    # @raise [RateLimitError] if the response is rate-limited
+    # @raise [ResultError] if the result code isn't "done"
+    #
+    # @api private
+    # @see https://pinboard.in/api/#errors
+    def action(path, params = EMPTY_HASH)
+      response = get(path, params)
+      fail ResultError, response['result'] unless response['result'] == 'done'
+      self
     end
 
     # Access posts-related API calls

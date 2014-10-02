@@ -4,7 +4,7 @@ require 'test_helper'
 
 class PostsTest < Minitest::Test
   def test_update
-    client = mock_client('/posts/update',
+    client = mock_client_get('/posts/update',
                          nil,
                          { 'update_time' => '2014-06-26T19:01:33Z' })
     posts = Posts.new(client)
@@ -14,7 +14,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_add
-    client = mock_client('/posts/add',
+    client = mock_client_action('/posts/add',
                          { url: 'http://example.org',
                            description: 'example.org' },
                          { 'result_code' => 'done' })
@@ -25,7 +25,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_add_with_tags
-    client = mock_client('/posts/add',
+    client = mock_client_action('/posts/add',
                          { url: 'http://example.org',
                            description: 'example.org',
                            tags: 'thumbtack test' },
@@ -38,7 +38,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_delete
-    client = mock_client('/posts/delete',
+    client = mock_client_action('/posts/delete',
                          { url: 'http://example.org' },
                          { 'result_code' => 'done' })
     posts = Posts.new(client)
@@ -48,7 +48,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_get
-    client = mock_client('/posts/get',
+    client = mock_client_get('/posts/get',
                          { url: 'http://example.org' },
                          {
                            'date' => '2014-06-29T16:57:45Z',
@@ -74,7 +74,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_recent
-    client = mock_client('/posts/recent',
+    client = mock_client_get('/posts/recent',
                          {tag: 'webdev'},
                          {
                            'date' => '2014-06-29T16:57:45Z',
@@ -100,7 +100,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_all
-    client = mock_client('/posts/all',
+    client = mock_client_get('/posts/all',
                          {tag: 'webdev'},
                          [{
                            'href' => 'http://example.org',
@@ -122,7 +122,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_suggest
-    client = mock_client('/posts/suggest',
+    client = mock_client_get('/posts/suggest',
                          {url: 'http://blog.com'},
                          [
                            { 'popular' => ['blog', 'blogs', 'people'] },
@@ -137,7 +137,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_dates
-    client = mock_client('/posts/dates',
+    client = mock_client_get('/posts/dates',
                          {tag: 'argentina'},
                          {
                            'user' => 'user',
