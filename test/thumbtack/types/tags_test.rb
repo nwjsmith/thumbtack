@@ -8,11 +8,11 @@ class TagsTest < Minitest::Test
     assert_equal Types::Tags, Types::Tags.validate(['argentina'])
     assert_equal Types::Tags, Types::Tags.validate(['.private'])
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Tags.validate [('x' * 256)]
     end
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Tags.validate ['comma,']
     end
   end

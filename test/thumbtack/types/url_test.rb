@@ -6,7 +6,7 @@ class URLTest < Minitest::Test
   def test_validate
     assert_equal Types::URL, Types::URL.validate('http://pinboard.in')
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::URL.validate('scp://pinboard.in')
     end
   end

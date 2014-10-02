@@ -7,7 +7,7 @@ class TextTest < Minitest::Test
     assert_equal Types::Text, Types::Text.validate('')
     assert_equal Types::Text, Types::Text.validate('x' * 65536)
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Text.validate('x' * 65537)
     end
   end

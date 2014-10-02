@@ -6,11 +6,11 @@ class DateTest < Minitest::Test
   def test_validate
     assert_equal Types::Date, Types::Date.validate(::Date.today)
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Date.validate ::Date.new(0, 1, 1)
     end
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Date.validate ::Date.new(2101, 1, 1)
     end
   end

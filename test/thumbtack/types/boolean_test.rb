@@ -7,11 +7,11 @@ class BooleanTest < Minitest::Test
     assert_equal Types::Boolean, Types::Boolean.validate(true)
     assert_equal Types::Boolean, Types::Boolean.validate(false)
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Boolean.validate('nope')
     end
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Boolean.validate(nil)
     end
   end

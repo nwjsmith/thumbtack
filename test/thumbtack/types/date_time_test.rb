@@ -6,11 +6,11 @@ class DateTimeTest < Minitest::Test
   def test_validate
     assert_equal Types::DateTime, Types::DateTime.validate(::DateTime.now)
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::DateTime.validate ::DateTime.new(0, 1, 1)
     end
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::DateTime.validate ::DateTime.new(2101, 1, 1)
     end
   end

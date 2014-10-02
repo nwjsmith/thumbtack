@@ -7,11 +7,11 @@ class MD5Test < Minitest::Test
     assert_equal Types::MD5,
       Types::MD5.validate('437b930db84b8079c2dd804a71936b5f')
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::MD5.validate('0' * 33)
     end
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::MD5.validate('gggggggggggggggggggggggggggggggg')
     end
   end
