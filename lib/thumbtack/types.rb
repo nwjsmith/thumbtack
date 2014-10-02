@@ -5,7 +5,5 @@ module Thumbtack
   #
   # @see https://pinboard.in/api/#data
   module Types
-    # Raised when given an argument that does not satisfy the type constraints
-    class ValidationError < StandardError; end
   end
 end

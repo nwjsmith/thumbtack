@@ -7,7 +7,7 @@ class TitleTest < Minitest::Test
     assert_equal Types::Title, Types::Title.validate('')
     assert_equal Types::Title, Types::Title.validate('x' * 255)
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Title.validate('x' * 256)
     end
   end

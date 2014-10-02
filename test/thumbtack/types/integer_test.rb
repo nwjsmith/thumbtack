@@ -7,11 +7,11 @@ class IntegerTest < Minitest::Test
     assert_equal Types::Integer, Types::Integer.validate(0)
     assert_equal Types::Integer, Types::Integer.validate(2**32)
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Integer.validate(-1)
     end
 
-    assert_raises(Types::ValidationError) do
+    assert_raises(ValidationError) do
       Types::Integer.validate(2**32 + 1)
     end
   end

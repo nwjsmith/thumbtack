@@ -2,6 +2,12 @@
 
 # A simple Pinboard API wrapper
 module Thumbtack
+  # Raised when the API rate limit has been reached
+  class RateLimitError < StandardError; end
+
+  # Raised when given an invalid parameter
+  class ValidationError < StandardError; end
+
   # An empty Hash to use for default options
   EMPTY_HASH = {}.freeze
 

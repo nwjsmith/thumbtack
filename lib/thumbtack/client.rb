@@ -3,9 +3,6 @@
 module Thumbtack
   # Wraps each interaction with the Pinboard API
   class Client
-    # Raised when the API rate limit has been reached
-    class RateLimitError < StandardError; end
-
     # The status code for rate limited responses from the Pinboard API
     TOO_MANY_REQUESTS_CODE = '429'.freeze
 
