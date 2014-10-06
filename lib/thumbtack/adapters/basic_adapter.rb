@@ -1,5 +1,8 @@
+# encoding: utf-8
+
 module Thumbtack
   module Adapters
+    # A basic adapter using Ruby's builtin HTTP and JSON parsing libraries
     class BasicAdapter
       # The status code for rate limited responses from the Pinboard API
       TOO_MANY_REQUESTS_CODE = '429'.freeze
@@ -15,7 +18,7 @@ module Thumbtack
       # @param [String] username
       #   the user to authenticate with
       # @param [String] token
-      #   the API token for the user account, found on the Pinboard settings page
+      #   the API token for the user, found on the Pinboard settings page
       #
       # @api public
       def initialize(username, token)
