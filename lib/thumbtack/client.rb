@@ -3,12 +3,6 @@
 module Thumbtack
   # Wraps each interaction with the Pinboard API
   class Client
-    # The status code for rate limited responses from the Pinboard API
-    TOO_MANY_REQUESTS_CODE = '429'.freeze
-
-    # The base Pinboard API URL.
-    BASE_URL = 'https://api.pinboard.in/v1'.freeze
-
     # Username used by the client to make authenticated requests
     #
     # @example
@@ -40,8 +34,11 @@ module Thumbtack
     #   the API token for the user account, found on the Pinboard settings page
     #
     # @api public
-    def initialize(username, token)
+    def initialize(username, token, options = EMPTY_HASH)
       @username, @token = username, token
+      @adapter = options.fetch(:adapter) do
+        Adapters::BasicAdapter.new(@username, @token)
+      end
     end
 
     # Retrieve JSON from the Pinboard API
@@ -58,14 +55,7 @@ module Thumbtack
     #
     # @api private
     def get(path, params = EMPTY_HASH)
-      uri = URI("#{BASE_URL}#{path}")
-
-      base_params = { auth_token: "#{@username}:#{@token}", format: 'json' }
-      uri.query = URI.encode_www_form(params.merge(base_params))
-
-      response = Net::HTTP.get_response(uri)
-      fail RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
-      JSON.parse(response.body)
+      @adapter.get(path, params)
     end
 
     # Perform an action request against the Pinboard API
@@ -83,8 +73,8 @@ module Thumbtack
     #
     # @api private
     # @see https://pinboard.in/api/#errors
-    def action(path, params = EMPTY_HASH)
-      response = get(path, params)
+    def action(path, params)
+      response = @adapter.get(path, params)
       fail ResultError, response['result'] unless response['result'] == 'done'
       self
     end
