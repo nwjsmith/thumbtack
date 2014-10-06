@@ -8,7 +8,8 @@ class SpecificationTest < Minitest::Test
     type_handler.expect(:validate, type_handler, ['value'])
     type_handler.expect(:to_parameter, 'parameterized', ['value'])
 
-    assert_equal({ key: 'parameterized' },
+    assert_equal(
+      { key: 'parameterized' },
       Specification.new(key: type_handler).parameters(key: 'value'))
     type_handler.verify
   end

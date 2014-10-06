@@ -10,7 +10,7 @@ class NoteSummaryTest < Minitest::Test
       'hash' => '0c9c30f60cadabd31415',
       'created_at' => '2010-02-11 03:46:56',
       'updated_at' => '2010-02-11 03:47:47',
-      'length' => 19,
+      'length' => 19
     }
     note = NoteSummary.from_hash(hash)
 

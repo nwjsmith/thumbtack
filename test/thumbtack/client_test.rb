@@ -30,8 +30,8 @@ class ClientTest < Minitest::Test
 
   def test_get
     @adapter.expect(:get,
-                    {'posts' => []},
-                    ['/posts/recent', {tag: 'thumbtack'}])
+                    { 'posts' => [] },
+                    ['/posts/recent', { tag: 'thumbtack' }])
     @client.get('/posts/recent', tag: 'thumbtack')
     @adapter.verify
   end

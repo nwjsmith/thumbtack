@@ -5,10 +5,10 @@ require 'test_helper'
 class TextTest < Minitest::Test
   def test_validate
     assert_equal Types::Text, Types::Text.validate('')
-    assert_equal Types::Text, Types::Text.validate('x' * 65536)
+    assert_equal Types::Text, Types::Text.validate('x' * 65_536)
 
     assert_raises(ValidationError) do
-      Types::Text.validate('x' * 65537)
+      Types::Text.validate('x' * 65_537)
     end
   end
 

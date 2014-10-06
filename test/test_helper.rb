@@ -11,9 +11,9 @@ def mock_client_get(url, params, response)
   client
 end
 
-def mock_client_action(url, params, response)
+def mock_client_action(url, params)
   client = Minitest::Mock.new
-  client.expect(:action, response, [url, params].compact)
+  client.expect(:action, { 'result' => 'done' }, [url, params].compact)
   client
 end
 

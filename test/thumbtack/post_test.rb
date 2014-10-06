@@ -25,6 +25,6 @@ class PostTest < Minitest::Test
     assert_equal DateTime.new(2014, 6, 29, 16, 57, 45), post.time
     assert_equal true, post.shared
     assert_equal false, post.toread
-    assert_equal ['test123', 'another'], post.tags
+    assert_equal %w(test123 another), post.tags
   end
 end
