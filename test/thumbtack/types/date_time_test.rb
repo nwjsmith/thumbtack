@@ -17,16 +17,17 @@ class DateTimeTest < Minitest::Test
 
   def test_to_parameter
     assert_equal '2010-12-11T19:48:02Z',
-      Types::DateTime.to_parameter(::DateTime.new(2010, 12, 11, 19, 48, 2))
+                 Types::DateTime.to_parameter(
+                   ::DateTime.new(2010, 12, 11, 19, 48, 2))
   end
 
   def test_from_parameter
     assert_equal ::DateTime.new(2010, 12, 11, 19, 48, 2),
-      Types::DateTime.from_parameter('2010-12-11T19:48:02Z')
+                 Types::DateTime.from_parameter('2010-12-11T19:48:02Z')
   end
 
   def test_from_note_parameter
     assert_equal ::DateTime.new(2010, 12, 11, 19, 48, 2),
-      Types::DateTime.from_note_parameter('2010-12-11 19:48:02')
+                 Types::DateTime.from_note_parameter('2010-12-11 19:48:02')
   end
 end

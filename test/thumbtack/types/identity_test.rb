@@ -13,6 +13,6 @@ class IdentityTest < Minitest::Test
 
   def test_from_parameter
     assert_equal 'any parameter',
-      Types::Identity.from_parameter('any parameter')
+                 Types::Identity.from_parameter('any parameter')
   end
 end

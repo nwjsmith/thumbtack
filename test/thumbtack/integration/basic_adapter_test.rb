@@ -18,7 +18,7 @@ module Integration
 
     def test_request_query_parameters
       response = @adapter.get('/posts/recent', tag: 'thumbtack-test-xyz123')
-      assert_equal([] , response['posts'])
+      assert_equal([], response['posts'])
     end
   end
 end

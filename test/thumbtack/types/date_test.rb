@@ -17,11 +17,11 @@ class DateTest < Minitest::Test
 
   def test_to_parameter
     assert_equal '2010-12-11',
-      Types::Date.to_parameter(::Date.new(2010, 12, 11))
+                 Types::Date.to_parameter(::Date.new(2010, 12, 11))
   end
 
   def test_from_parameter
     assert_equal ::Date.new(2010, 12, 11),
-      Types::Date.from_parameter('2010-12-11')
+                 Types::Date.from_parameter('2010-12-11')
   end
 end
