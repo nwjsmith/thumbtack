@@ -23,6 +23,16 @@ module Thumbtack
     # @api public
     attr_reader :token
 
+    # Token used by the client to make authenticated requests
+    #
+    # @example
+    #   client.adapter  # => #<Thumbtack::Adapters::BasicAdapter...
+    #
+    # @return [Adapter]
+    #
+    # @api public
+    attr_reader :adapter
+
     # Initialize a Client
     #
     # @example
