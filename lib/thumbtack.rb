@@ -25,7 +25,6 @@ require 'json'
 require 'net/http'
 require 'uri'
 
-require 'thumbtack/types'
 require 'thumbtack/types/range_validation'
 require 'thumbtack/types/length_validation'
 require 'thumbtack/types/boolean'
