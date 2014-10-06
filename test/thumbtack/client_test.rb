@@ -24,6 +24,10 @@ class ClientTest < Minitest::Test
     assert_instance_of Notes, @client.notes
   end
 
+  def test_default_adapter
+    assert_kind_of Adapters::BasicAdapter, Client.new(nil, nil).adapter
+  end
+
   def test_get
     @adapter.expect(:get,
                     {'posts' => []},
