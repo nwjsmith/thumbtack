@@ -142,7 +142,7 @@ $ [sudo] gem install thumbtack
 
 ## API Documentation
 
-http://rubydoc.info/gems/thumbtack/frames
+http://theinternate.com/thumbtack
 
 ## Contribute
 
