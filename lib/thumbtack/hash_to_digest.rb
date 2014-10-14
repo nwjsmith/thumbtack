@@ -8,8 +8,8 @@ module Thumbtack
     # @example
     #   HashToDigest.rename('hash' => '1234')  # => { :digest => '1234' }
     #
-    # @param [Hash{String => Object}]
-    #   reponse hash
+    # @param [Hash{String => Object}] hash
+    #   the response hash
     #
     # @return [Hash{Symbol => Object}]
     #   a hash with any key named hash renamed to digest
