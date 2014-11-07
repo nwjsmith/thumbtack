@@ -226,11 +226,7 @@ module Thumbtack
     def dates(options = EMPTY_HASH)
       parameters = Specification.new(tag: Types::Tags).parameters(options)
       response = @client.get('/posts/dates', parameters)
-      Hash[
-        response.fetch('dates', EMPTY_HASH).map do |date, count|
-          [Types::Date.from_parameter(date), count.to_i]
-        end
-      ]
+      dates_with_counts_from(response)
     end
 
     private
@@ -244,6 +240,18 @@ module Thumbtack
       response.fetch('posts', EMPTY_ARRAY).map do |post_hash|
         Post.from_hash(post_hash)
       end
+    end
+
+    # Create Hash of dates to counts from dates response
+    #
+    # @return [Hash{Date => Integer}]
+    #
+    # @api private
+    def dates_with_counts_from(response)
+      entries = response.fetch('dates', EMPTY_HASH).map do |date, count|
+        [Types::Date.from_parameter(date), count.to_i]
+      end
+      Hash[entries]
     end
   end
 end

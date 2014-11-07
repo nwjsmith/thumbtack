@@ -3,6 +3,9 @@ module Thumbtack
   #
   # @api private
   class HashToDigest
+    HASH = 'hash'.freeze
+    DIGEST = 'digest'.freeze
+
     # Rename any attribute called hash to digest
     #
     # @example
@@ -15,8 +18,8 @@ module Thumbtack
     #   a hash with any key named hash renamed to digest
     def self.rename(hash)
       attrs = hash.dup
-      digest = attrs.delete('hash')
-      Hash[attrs.map { |k, v| [k.to_sym, v] }].merge(digest: digest)
+      digest = attrs.delete(HASH)
+      attrs.merge(DIGEST => digest)
     end
   end
 end

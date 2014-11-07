@@ -56,10 +56,24 @@ module Thumbtack
     # @api private
     # @see Client#get
     def self.from_array(array)
-      popular = array.find { |hash| hash.key?(POPULAR_KEY) }
-      recommended = array.find { |hash| hash.key?(RECOMMENDED_KEY) }
-      new(popular: popular.fetch(POPULAR_KEY, EMPTY_ARRAY),
-          recommended: recommended.fetch(RECOMMENDED_KEY, EMPTY_ARRAY))
+      new(popular: entries_for(POPULAR_KEY, array),
+          recommended: entries_for(RECOMMENDED_KEY, array))
     end
+
+    # Extracts the entries for a given key in an array of hashes
+    #
+    # @param [String] key
+    #   A key from which to extract the entries
+    #
+    # @param [Array<Hash{String => Array<String>}>] array
+    #   An array of strings associated with the key
+    #
+    # @return [Array[String]]
+    #
+    # @api private
+    def self.entries_for(key, array)
+      array.find { |hash| hash.key?(key) }.fetch(key, EMPTY_ARRAY)
+    end
+    private_class_method :entries_for
   end
 end
