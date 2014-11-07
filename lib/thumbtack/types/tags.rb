@@ -25,7 +25,7 @@ module Thumbtack
       #   if any tag contains commas or are longer than 255 characters
       def self.validate(value)
         Array(value).each do |tag|
-          unless tag.length < MAXIMUM_LENGTH && !tag.include?(INVALID_CHARACTER)
+          unless tag_valid?(tag)
             fail ValidationError,
                  "#{tag} cannot contain commas or be longer than 255 characters"
           end
@@ -53,6 +53,19 @@ module Thumbtack
       def self.from_parameter(parameter)
         parameter.split(SEPARATOR)
       end
+
+      # If true, the tag is valid
+      #
+      # @param [String] tag
+      #   a tag to validate
+      #
+      # @return [Boolean]
+      #
+      # @api private
+      def self.tag_valid?(tag)
+        tag.length < MAXIMUM_LENGTH && !tag.include?(INVALID_CHARACTER)
+      end
+      private_class_method :tag_valid?
     end
   end
 end

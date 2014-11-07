@@ -6,6 +6,7 @@ module Thumbtack
     class BasicAdapter
       # The status code for rate limited responses from the Pinboard API
       TOO_MANY_REQUESTS_CODE = '429'.freeze
+      RESPONSE_FORMAT = 'json'.freeze
 
       # The base Pinboard API URL.
       BASE_URL = 'https://api.pinboard.in/v1'.freeze
@@ -40,13 +41,39 @@ module Thumbtack
       # @api private
       def get(path, params = EMPTY_HASH)
         uri = URI("#{BASE_URL}#{path}")
+        uri.query = extend_parameters(params)
+        JSON.parse(http_response(uri).body)
+      end
 
-        base_params = { auth_token: "#{@username}:#{@token}", format: 'json' }
-        uri.query = URI.encode_www_form(params.merge(base_params))
+      private
 
-        response = Net::HTTP.get_response(uri)
-        fail RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
-        JSON.parse(response.body)
+      # Retrieve HTTP response from a URI
+      #
+      # @param [URI] uri
+      #   the uri to fetch from
+      # @return [Net::HTTPResponse]
+      #   the response
+      #
+      # @api private
+      # @raise [RateLimitError] if the response is rate-limited
+      def http_response(uri)
+        Net::HTTP.get_response(uri).tap do |response|
+          fail RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
+        end
+      end
+
+      # Extend parameters with authentication and format parameters
+      #
+      # @param [Hash{#to_s => #to_s}] parameters
+      #   the parameters to extend
+      # @return [Hash{#to_s => #to_s}]
+      #   the extended parameters
+      #
+      # @api private
+      def extend_parameters(parameters)
+        base_params = { auth_token: "#{@username}:#{@token}",
+                        format: RESPONSE_FORMAT }
+        URI.encode_www_form(parameters.merge(base_params))
       end
     end
   end
