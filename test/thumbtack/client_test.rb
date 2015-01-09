@@ -37,14 +37,16 @@ class ClientTest < Minitest::Test
   end
 
   def test_action
-    @adapter.expect(:get, { 'result' => 'done' }, ['/posts/update', {}])
+    @adapter.expect(:get, { 'result_code' => 'done' }, ['/posts/update', {}])
     @client.action('/posts/update', {})
     @adapter.verify
   end
 
   def test_action_result_error
     assert_raises ResultError do
-      @adapter.expect(:get, { 'result' => 'notdone' }, ['/posts/update', {}])
+      @adapter.expect(:get,
+                      { 'result_code' => 'notdone' },
+                      ['/posts/update', {}])
       @client.action('/posts/update', {})
     end
   end

@@ -85,7 +85,9 @@ module Thumbtack
     # @see https://pinboard.in/api/#errors
     def action(path, params)
       response = @adapter.get(path, params)
-      fail ResultError, response['result'] unless response['result'] == 'done'
+      unless response['result_code'] == 'done'
+        fail ResultError, response['result_code']
+      end
       self
     end
 
