@@ -129,7 +129,7 @@ Thumbtack tries hard to mimic the Pinboard API, *BUT*: Pinboard's notes have an 
 
 ## Requirements
 
-* Ruby 1.9.2+, but you're already on 2.0+, right?
+* Ruby 1.9.3+, but you're already on 2.2+, right?
 * Nothing else. No gem dependencies, nothing.
 
 ## Installation
