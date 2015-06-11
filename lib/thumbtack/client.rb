@@ -45,7 +45,8 @@ module Thumbtack
     #
     # @api public
     def initialize(username, token, options = EMPTY_HASH)
-      @username, @token = username, token
+      @username = username
+      @token = token
       @adapter = options.fetch(:adapter) do
         Adapters::BasicAdapter.new(@username, @token)
       end

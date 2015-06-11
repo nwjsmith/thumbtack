@@ -23,7 +23,8 @@ module Thumbtack
       #
       # @api public
       def initialize(username, token)
-        @username, @token = username, token
+        @username = username
+        @token = token
       end
 
       # Retrieve JSON from the Pinboard API
