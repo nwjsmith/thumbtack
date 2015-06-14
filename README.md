@@ -12,7 +12,7 @@ Thumbtack is a simple Ruby client for the [Pinboard API](https://pinboard.in/api
 There are other Pinboard API clients for Ruby, but there are a few things that set Thumbtack apart:
 
 * **Zero dependencies**  
-  Thumbtack requires only a few things from Ruby's standard library. Ain't no party like no HTTParty.
+  Thumbtack requires only a few things from Ruby's standard library.
 * **Clean and consistent API**  
   Required arguments in Pinboard's API are required arguments in Thumbtack's method calls. With only one exception, Thumbtack's API mirrors Pinboard's 1-to-1.
 * **Client-side validation**  
