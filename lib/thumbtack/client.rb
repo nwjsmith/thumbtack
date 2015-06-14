@@ -42,6 +42,10 @@ module Thumbtack
     #   the user to authenticate with
     # @param [String] token
     #   the API token for the user account, found on the Pinboard settings page
+    # @param [Hash] options
+    #   options for the construction of the client
+    # @option options [BasicAdapter] :adapter
+    #   an adapter to use for communicating with the Pinboard API
     #
     # @api public
     def initialize(username, token, options = EMPTY_HASH)
