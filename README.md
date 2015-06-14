@@ -14,7 +14,7 @@ There are other Pinboard API clients for Ruby, but there are a few things that s
 * **Zero dependencies**  
   Thumbtack requires only a few things from Ruby's standard library. Ain't no party like no HTTParty.
 * **Clean and consistent API**  
-  Required arguments in Pinboard's API are required arguments in Thumbtack's method calls. With only [one exception](#the_one_inconsistency_between_thumbtack_and_pinboard), Thumbtack's API mirrors Pinboard's 1-to-1.
+  Required arguments in Pinboard's API are required arguments in Thumbtack's method calls. With only one exception, Thumbtack's API mirrors Pinboard's 1-to-1.
 * **Client-side validation**  
   Pinboard has [clearly defined rules about data types](https://pinboard.in/api/#data) and Thumbtack enforces them.
 * **Ruby-isms**  

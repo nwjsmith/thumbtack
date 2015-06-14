@@ -14,7 +14,7 @@ module Thumbtack
       # @param [String] value
       #   the URL to validate
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
       #   if the URL's scheme isn't one of http, https, javascript, mailto, ftp,

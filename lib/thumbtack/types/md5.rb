@@ -16,7 +16,7 @@ module Thumbtack
       # @param [String] value
       #   the MD5 to validate
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
       #   if the value is not a 32 character hexadecimal MD5 hash

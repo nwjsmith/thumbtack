@@ -16,7 +16,7 @@ module Thumbtack
       # @param [Integer] value
       #   the integer to validate
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
       #   if the value is not between 0 and 2^32
