@@ -8,7 +8,7 @@ module Thumbtack
     class Identity
       # Any value passed is valid
       #
-      # @return [undefined]
+      # @return [self]
       def self.validate(*)
         self
       end

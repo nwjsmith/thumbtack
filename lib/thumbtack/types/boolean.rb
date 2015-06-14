@@ -12,7 +12,7 @@ module Thumbtack
       # @param [Boolean] value
       #   the value to validate
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
       #   if the value is not true or false

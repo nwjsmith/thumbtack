@@ -19,10 +19,10 @@ module Thumbtack
       # @param [String, Array<String>] value
       #   a single tag or an array of many tags
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
-      #   if any tag contains commas or are longer than 255 characters
+      #   if any tags contain commas or are longer than 255 characters
       def self.validate(value)
         Array(value).each do |tag|
           unless tag_valid?(tag)

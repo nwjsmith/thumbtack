@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Thumbtack
   # Handles converting string keys to symbols in a response hash
   #
@@ -6,7 +8,7 @@ module Thumbtack
     # Convert any keys to symbols
     #
     # @example
-    #   SymbolizeKeys.symbolize('digest' => '1234')  # => { 'digest' => '1234' }
+    #   SymbolizeKeys.symbolize('digest' => '1234')  # => { :digest => '1234' }
     #
     # @param [Hash{#to_sym => Object}] hash
     #   the response hash

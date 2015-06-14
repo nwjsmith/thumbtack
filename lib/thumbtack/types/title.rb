@@ -14,7 +14,7 @@ module Thumbtack
       # @param [String] value
       #   the title to validate
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
       #   if the value is longer than 255 characters

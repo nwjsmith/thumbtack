@@ -6,6 +6,8 @@ module Thumbtack
     class BasicAdapter
       # The status code for rate limited responses from the Pinboard API
       TOO_MANY_REQUESTS_CODE = '429'.freeze
+
+      # The response format requested from the Pinboard API
       RESPONSE_FORMAT = 'json'.freeze
 
       # The base Pinboard API URL.
@@ -14,7 +16,7 @@ module Thumbtack
       # Initialize a BasicAdapter
       #
       # @example
-      #   client = BasicAdapter.new(username, token)
+      #   adapter = BasicAdapter.new(username, token)
       #
       # @param [String] username
       #   the user to authenticate with
@@ -30,7 +32,7 @@ module Thumbtack
       # Retrieve JSON from the Pinboard API
       #
       # @param [String] path
-      #   the path to fetch from, relative to from the base Pinboard API URL
+      #   the path to fetch from, relative to the base Pinboard API URL
       #
       # @param [Hash] params
       #   query parameters to append to the URL

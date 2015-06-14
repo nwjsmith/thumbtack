@@ -19,7 +19,7 @@ module Thumbtack
       # @param [DateTime] value
       #   The time to validate
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
       #   if the time is not between 0001-01-01 00:00:00 and 2100-01-01 00:00:00

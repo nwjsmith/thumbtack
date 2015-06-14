@@ -17,7 +17,7 @@ module Thumbtack
       # @param [Date] value
       #   the date to validate
       #
-      # @return [undefined]
+      # @return [self]
       #
       # @raise [Types::ValidationError]
       #   if the date is not between 0001-01-01 and 2100-01-01
