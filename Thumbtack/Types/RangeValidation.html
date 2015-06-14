@@ -6,7 +6,7 @@
 <title>
   Class: Thumbtack::Types::RangeValidation
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -106,7 +106,7 @@
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
 
-<p>Handles validation of values within a certain range Pinboard</p>
+<p>Handles validation of values within a certain range</p>
 
 
   </div>
@@ -132,7 +132,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#validate-class_method" title="validate (class method)">+ (undefined) <strong>validate</strong>(value, range) </a>
+      <a href="#validate-class_method" title="validate (class method)">+ (self) <strong>validate</strong>(value, range) </a>
     
 
     
@@ -165,7 +165,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="validate-class_method">
   
-    + (<tt>undefined</tt>) <strong>validate</strong>(value, range) 
+    + (<tt>self</tt>) <strong>validate</strong>(value, range) 
   
 
   
@@ -235,7 +235,7 @@
     <li>
       
       
-        <span class='type'>(<tt>undefined</tt>)</span>
+        <span class='type'>(<tt>self</tt>)</span>
       
       
       
@@ -254,7 +254,7 @@
       
         &mdash;
         <div class='inline'>
-<p>if the value is not between 0001-01-01 and 2100-01-01</p>
+<p>if the value is not within the range</p>
 </div>
       
     </li>
@@ -267,21 +267,23 @@
       <pre class="lines">
 
 
-22
 23
 24
 25
 26
-27</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/thumbtack/types/range_validation.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/types/range_validation.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_range'>range</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='id identifier rubyid_range'>range</span><span class='period'>.</span><span class='id identifier rubyid_cover?'>cover?</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_fail'>fail</span> <span class='const'>ValidationError</span><span class='comma'>,</span>
          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='embexpr_end'>}</span><span class='tstring_content'> must be between </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_range'>range</span><span class='period'>.</span><span class='id identifier rubyid_begin'>begin</span><span class='embexpr_end'>}</span><span class='tstring_content'> and </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_range'>range</span><span class='period'>.</span><span class='id identifier rubyid_end'>end</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -293,9 +295,9 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Oct 14 13:15:55 2014 by
+  Generated on Sun Jun 14 17:05:20 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.1).
+  0.8.7.6 (ruby-2.2.0).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Class: Thumbtack::Note
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -904,7 +904,7 @@
       <pre class="code"><span class="info file"># File 'lib/thumbtack/note.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_hash'>from_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>HashToDigest</span><span class='period'>.</span><span class='id identifier rubyid_rename'>rename</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>SymbolizeKeys</span><span class='period'>.</span><span class='id identifier rubyid_symbolize'>symbolize</span><span class='lparen'>(</span><span class='const'>HashToDigest</span><span class='period'>.</span><span class='id identifier rubyid_rename'>rename</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1046,9 +1046,9 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Oct 14 13:15:54 2014 by
+  Generated on Sun Jun 14 17:05:19 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.1).
+  0.8.7.6 (ruby-2.2.0).
 </div>
 
   </body>
