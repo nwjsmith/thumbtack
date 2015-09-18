@@ -25,7 +25,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#posts_update
     def update
       response = @client.get('/posts/update')
-      Types::DateTime.from_parameter response.fetch('update_time')
+      Types::DateTime.deserialize response.fetch('update_time')
     end
 
     # Add a bookmark
@@ -249,7 +249,7 @@ module Thumbtack
     # @api private
     def dates_with_counts_from(response)
       entries = response.fetch('dates', EMPTY_HASH).map do |date, count|
-        [Types::Date.from_parameter(date), count.to_i]
+        [Types::Date.deserialize(date), count.to_i]
       end
       Hash[entries]
     end

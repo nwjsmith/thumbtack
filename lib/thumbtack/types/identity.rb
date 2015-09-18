@@ -19,7 +19,7 @@ module Thumbtack
       #   the value to return
       #
       # @return [value]
-      def self.to_parameter(value)
+      def self.serialize(value)
         value
       end
 
@@ -29,7 +29,7 @@ module Thumbtack
       #   the parameter to return
       #
       # @return [parameter]
-      def self.from_parameter(parameter)
+      def self.deserialize(parameter)
         parameter
       end
     end

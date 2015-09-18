@@ -17,13 +17,13 @@ class TagsTest < Minitest::Test
     end
   end
 
-  def test_to_parameter
-    assert_equal 'one', Types::Tags.to_parameter('one')
-    assert_equal 'one two', Types::Tags.to_parameter(%w(one two))
-    assert_equal 'padding', Types::Tags.to_parameter([' padding '])
+  def test_serialize
+    assert_equal 'one', Types::Tags.serialize('one')
+    assert_equal 'one two', Types::Tags.serialize(%w(one two))
+    assert_equal 'padding', Types::Tags.serialize([' padding '])
   end
 
-  def test_from_parameter
-    assert_equal %w(one two), Types::Tags.from_parameter('one two')
+  def test_deserialize
+    assert_equal %w(one two), Types::Tags.deserialize('one two')
   end
 end

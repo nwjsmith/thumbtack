@@ -16,13 +16,13 @@ class MD5Test < Minitest::Test
     end
   end
 
-  def test_to_parameter
+  def test_serialize
     assert_equal '437b930db84b8079c2dd804a71936b5f',
-                 Types::MD5.to_parameter('437b930db84b8079c2dd804a71936b5f')
+                 Types::MD5.serialize('437b930db84b8079c2dd804a71936b5f')
   end
 
-  def test_from_parameter
+  def test_deserialize
     assert_equal '437b930db84b8079c2dd804a71936b5f',
-                 Types::MD5.from_parameter('437b930db84b8079c2dd804a71936b5f')
+                 Types::MD5.deserialize('437b930db84b8079c2dd804a71936b5f')
   end
 end

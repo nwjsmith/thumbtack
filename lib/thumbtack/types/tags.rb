@@ -40,7 +40,7 @@ module Thumbtack
       #
       # @return [String]
       #   space-separated list of tags
-      def self.to_parameter(value)
+      def self.serialize(value)
         Array(value).map(&:strip).join(SEPARATOR)
       end
 
@@ -50,7 +50,7 @@ module Thumbtack
       #   space-separated list of tags
       #
       # @return [Array<String>]
-      def self.from_parameter(parameter)
+      def self.deserialize(parameter)
         parameter.split(SEPARATOR)
       end
 

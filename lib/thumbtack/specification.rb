@@ -26,7 +26,7 @@ module Thumbtack
         arguments.map do |name, value|
           type_handler = @type_handlers.fetch(name)
           type_handler.validate(value)
-          [name, type_handler.to_parameter(value)]
+          [name, type_handler.serialize(value)]
         end
       ]
     end

@@ -79,7 +79,7 @@ module Thumbtack
     #
     # @api public
     def time
-      Types::DateTime.from_parameter(@time)
+      Types::DateTime.deserialize(@time)
     end
 
     # If true, this post is public
@@ -91,7 +91,7 @@ module Thumbtack
     #
     # @api public
     def shared
-      Types::Boolean.from_parameter(@shared)
+      Types::Boolean.deserialize(@shared)
     end
 
     # If true, this post is marked unread
@@ -103,7 +103,7 @@ module Thumbtack
     #
     # @api public
     def toread
-      Types::Boolean.from_parameter(@toread)
+      Types::Boolean.deserialize(@toread)
     end
 
     # The tags for this post, space-seperated
@@ -115,7 +115,7 @@ module Thumbtack
     #
     # @api public
     def tags
-      Types::Tags.from_parameter(@tags)
+      Types::Tags.deserialize(@tags)
     end
 
     # Creates a new Post from a Hash

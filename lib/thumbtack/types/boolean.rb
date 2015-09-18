@@ -32,7 +32,7 @@ module Thumbtack
       #
       # @return [String]
       #   'yes' if value is true, 'no' otherwise
-      def self.to_parameter(value)
+      def self.serialize(value)
         case value
         when TrueClass
           'yes'
@@ -47,7 +47,7 @@ module Thumbtack
       #   Either 'yes' or 'no'
       #
       # @return [Boolean]
-      def self.from_parameter(parameter)
+      def self.deserialize(parameter)
         case parameter
         when 'yes'
           true

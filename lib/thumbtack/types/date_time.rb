@@ -35,7 +35,7 @@ module Thumbtack
       #
       # @return [String]
       #   the time formatted yyyy-mm-ddTHH:MM:SSZ.
-      def self.to_parameter(value)
+      def self.serialize(value)
         value.strftime(FORMAT)
       end
 
@@ -45,7 +45,7 @@ module Thumbtack
       #   the time formatted yyyy-mm-ddTHH:MM:SSZ
       #
       # @return [DateTime]
-      def self.from_parameter(parameter)
+      def self.deserialize(parameter)
         ::DateTime.strptime(parameter)
       end
 

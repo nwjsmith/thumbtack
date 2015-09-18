@@ -15,13 +15,13 @@ class DateTest < Minitest::Test
     end
   end
 
-  def test_to_parameter
+  def test_serialize
     assert_equal '2010-12-11',
-                 Types::Date.to_parameter(::Date.new(2010, 12, 11))
+                 Types::Date.serialize(::Date.new(2010, 12, 11))
   end
 
-  def test_from_parameter
+  def test_deserialize
     assert_equal ::Date.new(2010, 12, 11),
-                 Types::Date.from_parameter('2010-12-11')
+                 Types::Date.deserialize('2010-12-11')
   end
 end

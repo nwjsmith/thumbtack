@@ -16,11 +16,11 @@ class IntegerTest < Minitest::Test
     end
   end
 
-  def test_to_parameter
-    assert_equal 42, Types::Integer.to_parameter(42)
+  def test_serialize
+    assert_equal 42, Types::Integer.serialize(42)
   end
 
-  def test_from_parameter
-    assert_equal 42, Types::Integer.from_parameter(42)
+  def test_deserialize
+    assert_equal 42, Types::Integer.deserialize(42)
   end
 end

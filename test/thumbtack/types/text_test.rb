@@ -12,11 +12,11 @@ class TextTest < Minitest::Test
     end
   end
 
-  def test_to_parameter
-    assert_equal 'text', Types::Text.to_parameter('text')
+  def test_serialize
+    assert_equal 'text', Types::Text.serialize('text')
   end
 
-  def test_from_parameter
-    assert_equal 'text', Types::Text.from_parameter('text')
+  def test_deserialize
+    assert_equal 'text', Types::Text.deserialize('text')
   end
 end

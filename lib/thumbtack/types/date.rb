@@ -33,7 +33,7 @@ module Thumbtack
       #
       # @return [String]
       #   the date with format yyyy-mm-dd
-      def self.to_parameter(value)
+      def self.serialize(value)
         value.xmlschema
       end
 
@@ -43,7 +43,7 @@ module Thumbtack
       #   the date with format yyyy-mm-dd
       #
       # @return [Date]
-      def self.from_parameter(parameter)
+      def self.deserialize(parameter)
         ::Date.xmlschema(parameter)
       end
     end

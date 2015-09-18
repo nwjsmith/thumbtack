@@ -11,13 +11,13 @@ class URLTest < Minitest::Test
     end
   end
 
-  def test_to_parameter
+  def test_serialize
     value = 'http://pinboard.in'
-    assert_equal value, Types::URL.to_parameter(value)
+    assert_equal value, Types::URL.serialize(value)
   end
 
-  def test_from_parameter
+  def test_deserialize
     value = 'http://pinboard.in'
-    assert_equal value, Types::URL.from_parameter(value)
+    assert_equal value, Types::URL.deserialize(value)
   end
 end

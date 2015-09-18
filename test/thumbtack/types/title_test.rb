@@ -12,11 +12,11 @@ class TitleTest < Minitest::Test
     end
   end
 
-  def test_to_parameter
-    assert_equal 'title', Types::Title.to_parameter('title')
+  def test_serialize
+    assert_equal 'title', Types::Title.serialize('title')
   end
 
-  def test_from_parameter
-    assert_equal 'title', Types::Title.from_parameter('title')
+  def test_deserialize
+    assert_equal 'title', Types::Title.deserialize('title')
   end
 end

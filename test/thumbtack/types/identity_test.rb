@@ -7,12 +7,12 @@ class IdentityTest < Minitest::Test
     assert_equal Types::Identity, Types::Identity.validate('any value')
   end
 
-  def test_to_parameter
-    assert_equal 'any value', Types::Identity.to_parameter('any value')
+  def test_serialize
+    assert_equal 'any value', Types::Identity.serialize('any value')
   end
 
-  def test_from_parameter
+  def test_deserialize
     assert_equal 'any parameter',
-                 Types::Identity.from_parameter('any parameter')
+                 Types::Identity.deserialize('any parameter')
   end
 end

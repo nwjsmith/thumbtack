@@ -6,7 +6,7 @@ class SpecificationTest < Minitest::Test
   def test_parameters
     type_handler = Minitest::Mock.new
     type_handler.expect(:validate, type_handler, ['value'])
-    type_handler.expect(:to_parameter, 'parameterized', ['value'])
+    type_handler.expect(:serialize, 'parameterized', ['value'])
 
     assert_equal(
       { key: 'parameterized' },

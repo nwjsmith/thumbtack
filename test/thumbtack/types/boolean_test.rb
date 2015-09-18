@@ -16,13 +16,13 @@ class BooleanTest < Minitest::Test
     end
   end
 
-  def test_to_parameter
-    assert_equal 'yes', Types::Boolean.to_parameter(true)
-    assert_equal 'no', Types::Boolean.to_parameter(false)
+  def test_serialize
+    assert_equal 'yes', Types::Boolean.serialize(true)
+    assert_equal 'no', Types::Boolean.serialize(false)
   end
 
-  def test_from_parameter
-    assert_equal true, Types::Boolean.from_parameter('yes')
-    assert_equal false, Types::Boolean.from_parameter('no')
+  def test_deserialize
+    assert_equal true, Types::Boolean.deserialize('yes')
+    assert_equal false, Types::Boolean.deserialize('no')
   end
 end
