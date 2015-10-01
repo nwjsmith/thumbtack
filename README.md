@@ -159,7 +159,7 @@ The best way to get contributions merged into Thumbtack:
 5. If you are adding new functionality, document it in the README.
 6. Do not change the version number.
 7. If necessary, rebase your commits into logical chunks, with no failing commits.
-8. Push the branch to GitHubb.
+8. Push the branch to GitHub.
 9. Send a pull request to the nwjsmith/thumbtack project.
 
 ## Run the tests
