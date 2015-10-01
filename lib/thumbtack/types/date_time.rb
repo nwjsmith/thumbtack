@@ -11,8 +11,10 @@ module Thumbtack
       EARLIEST = ::DateTime.new(1, 1, 1)
       # The latest allowable time
       LATEST = ::DateTime.new(2100, 1, 1)
-      # Pinboard's date format
+      # Pinboard's date time format
       FORMAT = '%Y-%m-%dT%H:%M:%SZ'.freeze
+      # Pinboard's date time format for notes
+      NOTE_FORMAT = '%Y-%m-%d %H:%M:%S'.freeze
 
       # Validate a time
       #
@@ -55,8 +57,8 @@ module Thumbtack
       #   the time formatted yyyy-mm-dd HH:MM:SS
       #
       # @return [DateTime]
-      def self.from_note_parameter(parameter)
-        ::DateTime.strptime(parameter, '%Y-%m-%d %H:%M:%S')
+      def self.deserialize_from_note(parameter)
+        ::DateTime.strptime(parameter, NOTE_FORMAT)
       end
     end
   end

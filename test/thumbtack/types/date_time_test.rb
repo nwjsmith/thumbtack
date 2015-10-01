@@ -26,8 +26,8 @@ class DateTimeTest < Minitest::Test
                  Types::DateTime.deserialize('2010-12-11T19:48:02Z')
   end
 
-  def test_from_note_parameter
+  def test_deserialize_from_note
     assert_equal ::DateTime.new(2010, 12, 11, 19, 48, 2),
-                 Types::DateTime.from_note_parameter('2010-12-11 19:48:02')
+                 Types::DateTime.deserialize_from_note('2010-12-11 19:48:02')
   end
 end
