@@ -3,7 +3,6 @@
 [![Code Climate](https://codeclimate.com/github/nwjsmith/thumbtack/badges/gpa.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
 [![Test Coverage](https://codeclimate.com/github/nwjsmith/thumbtack/badges/coverage.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
 [![Inline Docs](http://inch-ci.org/github/nwjsmith/thumbtack.svg?branch=master)](http://inch-ci.org/github/nwjsmith/thumbtack)
-[![Build Status](https://travis-ci.org/nwjsmith/thumbtack.svg?branch=master)](https://travis-ci.org/nwjsmith/thumbtack)
 
 ## Description
 
