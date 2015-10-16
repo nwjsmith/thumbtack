@@ -2,7 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org).
 
-## [Unreleased][unreleased]
+## [Unreleased]
+
+## [1.1.1] - 2015-10-15
+### Changed
+- Minor renames and typo fixes
+- Moved to CircleCI, testing on Ruby 2.2.3
 
 ## [1.1.0] - 2015-06-14
 ### Added
@@ -25,5 +30,6 @@ This project adheres to [Semantic Versioning](http://semver.org).
 
 ## 1.0.0 - 2015-10-02
 
-[unreleased]: https://github.com/nwjsmith/thumbtack/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/nwjsmith/thumbtack/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/nwjsmith/thumbtack/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/nwjsmith/thumbtack/compare/v1.0.0...v1.1.0
