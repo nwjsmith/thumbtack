@@ -13,6 +13,12 @@ module Thumbtack
       # The base Pinboard API URL.
       BASE_URL = 'https://api.pinboard.in/v1'.freeze
 
+      # A secure version of SSL
+      SSL_VERSION = 'TLSv1_2'.freeze
+
+      # Secure cipher list
+      SSL_CIPHERS = 'TLSv1.2:!aNULL:!eNULL'.freeze
+
       # Initialize a BasicAdapter
       #
       # @example
@@ -60,8 +66,27 @@ module Thumbtack
       # @api private
       # @raise [RateLimitError] if the response is rate-limited
       def http_response(uri)
-        Net::HTTP.get_response(uri).tap do |response|
+        request = Net::HTTP::Get.new(uri)
+        connection(uri.host, uri.port).request(request).tap do |response|
           fail RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
+        end
+      end
+
+      # Construct a secure HTTP connection to the Pinboard API
+      #
+      # @param [String] host
+      #   the Pinboard API host
+      # @param [Fixnum] port
+      #   the Pinboard API port
+      # @return [Net::HTTP]
+      #   the connection
+      #
+      # @api private
+      def connection(host, port)
+        Net::HTTP.new(host, port).tap do |connection|
+          connection.use_ssl = true
+          connection.ssl_version = SSL_VERSION
+          connection.ciphers = SSL_CIPHERS
         end
       end
 

@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org).
 
 ## [Unreleased]
 
+### Changed
+- Ensure secure connection is used to the Pinboard API
+
 ## [1.1.1] - 2015-10-15
 ### Changed
 - Minor renames and typo fixes
