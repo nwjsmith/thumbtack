@@ -4,4 +4,4 @@ machine:
 
 test:
   override:
-    - rake test:unit
+    - bundle exec rake test:unit
