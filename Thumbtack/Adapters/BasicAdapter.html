@@ -163,6 +163,38 @@
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://api.pinboard.in/v1</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
+        <dt id="SSL_VERSION-constant" class="">SSL_VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>A secure version of SSL</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLSv1_2</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="SSL_CIPHERS-constant" class="">SSL_CIPHERS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Secure cipher list</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLSv1.2:!aNULL:!eNULL</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
     </dl>
   
 
@@ -306,13 +338,13 @@
       <pre class="lines">
 
 
-27
-28
-29
-30</pre>
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/thumbtack/adapters/basic_adapter.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/adapters/basic_adapter.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
   <span class='ivar'>@username</span> <span class='op'>=</span> <span class='id identifier rubyid_username'>username</span>
@@ -434,14 +466,14 @@
       <pre class="lines">
 
 
-45
-46
-47
-48
-49</pre>
+51
+52
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/thumbtack/adapters/basic_adapter.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/adapters/basic_adapter.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>EMPTY_HASH</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>BASE_URL</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -458,9 +490,9 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Jun 14 17:05:20 2015 by
+  Generated on Tue Oct  4 13:45:11 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>

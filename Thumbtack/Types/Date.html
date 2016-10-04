@@ -180,7 +180,7 @@ Pinboard</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#from_parameter-class_method" title="from_parameter (class method)">+ (Date) <strong>from_parameter</strong>(parameter) </a>
+      <a href="#deserialize-class_method" title="deserialize (class method)">+ (Date) <strong>deserialize</strong>(parameter) </a>
     
 
     
@@ -204,7 +204,7 @@ Pinboard</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_parameter-class_method" title="to_parameter (class method)">+ (String) <strong>to_parameter</strong>(value) </a>
+      <a href="#serialize-class_method" title="serialize (class method)">+ (String) <strong>serialize</strong>(value) </a>
     
 
     
@@ -259,9 +259,9 @@ Pinboard</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="from_parameter-class_method">
+  <h3 class="signature first" id="deserialize-class_method">
   
-    + (<tt><span class='object_link'><a href="" title="Thumbtack::Types::Date (class)">Date</a></span></tt>) <strong>from_parameter</strong>(parameter) 
+    + (<tt><span class='object_link'><a href="" title="Thumbtack::Types::Date (class)">Date</a></span></tt>) <strong>deserialize</strong>(parameter) 
   
 
   
@@ -328,7 +328,7 @@ Pinboard</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/thumbtack/types/date.rb', line 46</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_parameter'>from_parameter</span><span class='lparen'>(</span><span class='id identifier rubyid_parameter'>parameter</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_deserialize'>deserialize</span><span class='lparen'>(</span><span class='id identifier rubyid_parameter'>parameter</span><span class='rparen'>)</span>
   <span class='op'>::</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_xmlschema'>xmlschema</span><span class='lparen'>(</span><span class='id identifier rubyid_parameter'>parameter</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -337,9 +337,9 @@ Pinboard</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="to_parameter-class_method">
+  <h3 class="signature " id="serialize-class_method">
   
-    + (<tt>String</tt>) <strong>to_parameter</strong>(value) 
+    + (<tt>String</tt>) <strong>serialize</strong>(value) 
   
 
   
@@ -411,7 +411,7 @@ Pinboard</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/thumbtack/types/date.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_parameter'>to_parameter</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_serialize'>serialize</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_xmlschema'>xmlschema</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -522,9 +522,9 @@ Pinboard</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Jun 14 17:05:20 2015 by
+  Generated on Tue Oct  4 13:45:10 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>
