@@ -1,7 +1,8 @@
 # encoding: utf-8
 
 module Thumbtack
-  # Handles renaming the hash attribute to digest from response hashes.
+  # Handles renaming the hash attribute to digest from response hashes. This is
+  # required in order to avoid collisions with the `Object#hash` method.
   #
   # @api private
   class HashToDigest
