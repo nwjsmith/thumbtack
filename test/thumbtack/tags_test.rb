@@ -8,10 +8,6 @@ class TagsTest < Minitest::Test
       '/tags/get',
       nil,
       'activedesktop' => '1',
-      'business' => '1',
-      'radio' => '3',
-      'xml' => '5',
-      'xp' => '1',
       'xpi' => '1'
     )
     tags = Tags.new(client)
@@ -19,10 +15,6 @@ class TagsTest < Minitest::Test
     assert_equal(
       {
         'activedesktop' => 1,
-        'business' => 1,
-        'radio' => 3,
-        'xml' => 5,
-        'xp' => 1,
         'xpi' => 1
       },
       tags.get

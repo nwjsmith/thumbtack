@@ -62,17 +62,7 @@ class PostsTest < Minitest::Test
       { url: 'http://example.org' },
       'date' => '2014-06-29T16:57:45Z',
       'user' => 'nwjsmith',
-      'posts' => [{
-        'href' => 'http://example.org',
-        'description' => 'example.org',
-        'extended' => '',
-        'meta' => '46ca40b9b92ee0ea1284785a5d2a9b38',
-        'hash' => 'dab521de65f9250b4cca7383feef67dc',
-        'time' => '2014-06-29T16:57:45Z',
-        'shared' => 'yes',
-        'toread' => 'no',
-        'tags' => 'test123'
-      }]
+      'posts' => [example_post_hash]
     )
     posts = Posts.new(client)
     response = posts.get(url: 'http://example.org')
@@ -88,17 +78,7 @@ class PostsTest < Minitest::Test
       { tag: 'webdev' },
       'date' => '2014-06-29T16:57:45Z',
       'user' => 'nwjsmith',
-      'posts' => [{
-        'href' => 'http://example.org',
-        'description' => 'example.org',
-        'extended' => '',
-        'meta' => '46ca40b9b92ee0ea1284785a5d2a9b38',
-        'hash' => 'dab521de65f9250b4cca7383feef67dc',
-        'time' => '2014-06-29T16:57:45Z',
-        'shared' => 'yes',
-        'toread' => 'no',
-        'tags' => 'webdev'
-      }]
+      'posts' => [example_post_hash]
     )
     posts = Posts.new(client)
     response = posts.recent(tag: 'webdev')
@@ -109,23 +89,7 @@ class PostsTest < Minitest::Test
   end
 
   def test_all
-    client = mock_client_get(
-      '/posts/all',
-      { tag: 'webdev' },
-      [
-        {
-          'href' => 'http://example.org',
-          'description' => 'example.org',
-          'extended' => '',
-          'meta' => '46ca40b9b92ee0ea1284785a5d2a9b38',
-          'hash' => 'dab521de65f9250b4cca7383feef67dc',
-          'time' => '2014-06-29T16:57:45Z',
-          'shared' => 'yes',
-          'toread' => 'no',
-          'tags' => 'webdev'
-        }
-      ]
-    )
+    client = mock_client_get('/posts/all', { tag: 'webdev' }, [example_post_hash])
     posts = Posts.new(client)
     response = posts.all(tag: 'webdev')
 
@@ -160,7 +124,6 @@ class PostsTest < Minitest::Test
       'dates' => {
         '2010-11-29' => '5',
         '2010-11-28' => '15',
-        '2010-11-26' => '2',
         '2010-11-25' => '2',
         '2010-11-23' => '7',
         '2010-11-22' => '20',
@@ -175,7 +138,6 @@ class PostsTest < Minitest::Test
       {
         Date.new(2010, 11, 29) => 5,
         Date.new(2010, 11, 28) => 15,
-        Date.new(2010, 11, 26) => 2,
         Date.new(2010, 11, 25) => 2,
         Date.new(2010, 11, 23) => 7,
         Date.new(2010, 11, 22) => 20,
@@ -185,5 +147,21 @@ class PostsTest < Minitest::Test
       response
     )
     client.verify
+  end
+
+  private
+
+  def example_post_hash
+    {
+      'href' => 'http://example.org',
+      'description' => 'example.org',
+      'extended' => '',
+      'meta' => '46ca40b9b92ee0ea1284785a5d2a9b38',
+      'hash' => 'dab521de65f9250b4cca7383feef67dc',
+      'time' => '2014-06-29T16:57:45Z',
+      'shared' => 'yes',
+      'toread' => 'no',
+      'tags' => 'webdev'
+    }
   end
 end
