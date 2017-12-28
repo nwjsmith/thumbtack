@@ -1,9 +1,11 @@
 # encoding: utf-8
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
-
 require 'thumbtack'
 require 'minitest/autorun'
+
+if ENV.fetch('COVERAGE', false)
+  require 'simplecov'
+  SimpleCov.start
+end
 
 def mock_client_get(url, params, response)
   client = Minitest::Mock.new
