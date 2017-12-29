@@ -1,11 +1,11 @@
 # encoding: utf-8
-require 'thumbtack'
-require 'minitest/autorun'
-
 if ENV.fetch('COVERAGE', false)
   require 'simplecov'
-  SimpleCov.start
+  SimpleCov.start { add_filter 'test/' }
 end
+
+require 'thumbtack'
+require 'minitest/autorun'
 
 def mock_client_get(url, params, response)
   client = Minitest::Mock.new
