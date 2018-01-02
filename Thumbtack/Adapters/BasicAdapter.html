@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: Thumbtack::Adapters::BasicAdapter
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Thumbtack::Adapters::BasicAdapter";
   relpath = '../../';
-  framesUrl = "../../frames.html#!Thumbtack/Adapters/BasicAdapter.html";
 </script>
 
 
@@ -28,51 +27,48 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="../../_index.html">Index (B)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Thumbtack.html" title="Thumbtack (module)">Thumbtack</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Adapters.html" title="Thumbtack::Adapters (module)">Adapters</a></span></span>
      &raquo; 
     <span class="title">BasicAdapter</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="../../class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="../../method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="../../file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Class: Thumbtack::Adapters::BasicAdapter
+      <div id="content"><h1>Class: Thumbtack::Adapters::BasicAdapter
   
   
   
 </h1>
-
-<dl class="box">
+<div class="box_info">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
       <span class="inheritName">Object</span>
       
         <ul class="fullTree">
@@ -83,21 +79,25 @@
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
       
-      </dd>
-    
+    </dd>
+  </dl>
   
-  
-    
-  
-    
+
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/thumbtack/adapters/basic_adapter.rb</dd>
   
-</dl>
-<div class="clear"></div>
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/thumbtack/adapters/basic_adapter.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -112,11 +112,10 @@
 
 </div>
   <h2>Constant Summary</h2>
-  
-    <dl class="constants">
-      
-        <dt id="TOO_MANY_REQUESTS_CODE-constant" class="">TOO_MANY_REQUESTS_CODE =
-          <div class="docstring">
+  <dl class="constants">
+    
+      <dt id="TOO_MANY_REQUESTS_CODE-constant" class="">TOO_MANY_REQUESTS_CODE =
+        <div class="docstring">
   <div class="discussion">
     
 <p>The status code for rate limited responses from the Pinboard API</p>
@@ -128,11 +127,11 @@
   
 
 </div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>429</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-        <dt id="RESPONSE_FORMAT-constant" class="">RESPONSE_FORMAT =
-          <div class="docstring">
+      </dt>
+      <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>429</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+    
+      <dt id="RESPONSE_FORMAT-constant" class="">RESPONSE_FORMAT =
+        <div class="docstring">
   <div class="discussion">
     
 <p>The response format requested from the Pinboard API</p>
@@ -144,11 +143,11 @@
   
 
 </div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>json</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-        <dt id="BASE_URL-constant" class="">BASE_URL =
-          <div class="docstring">
+      </dt>
+      <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>json</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+    
+      <dt id="BASE_URL-constant" class="">BASE_URL =
+        <div class="docstring">
   <div class="discussion">
     
 <p>The base Pinboard API URL.</p>
@@ -160,11 +159,11 @@
   
 
 </div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://api.pinboard.in/v1</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-        <dt id="SSL_VERSION-constant" class="">SSL_VERSION =
-          <div class="docstring">
+      </dt>
+      <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://api.pinboard.in/v1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+    
+      <dt id="SSL_VERSION-constant" class="">SSL_VERSION =
+        <div class="docstring">
   <div class="discussion">
     
 <p>A secure version of SSL</p>
@@ -176,11 +175,11 @@
   
 
 </div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLSv1_2</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-        <dt id="SSL_CIPHERS-constant" class="">SSL_CIPHERS =
-          <div class="docstring">
+      </dt>
+      <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLSv1_2</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+    
+      <dt id="SSL_CIPHERS-constant" class="">SSL_CIPHERS =
+        <div class="docstring">
   <div class="discussion">
     
 <p>Secure cipher list</p>
@@ -192,11 +191,10 @@
   
 
 </div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLSv1.2:!aNULL:!eNULL</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-    </dl>
-  
+      </dt>
+      <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>TLSv1.2:!aNULL:!eNULL</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+    
+  </dl>
 
 
 
@@ -207,7 +205,7 @@
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -215,7 +213,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get-instance_method" title="#get (instance method)">- (Hash) <strong>get</strong>(path, params = EMPTY_HASH) </a>
+      <a href="#get-instance_method" title="#get (instance method)">#<strong>get</strong>(path, params = EMPTY_HASH)  &#x21d2; Hash </a>
     
 
     
@@ -239,7 +237,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (BasicAdapter) <strong>initialize</strong>(username, token) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(username, token)  &#x21d2; BasicAdapter </a>
     
 
     
@@ -271,7 +269,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Thumbtack::Adapters::BasicAdapter (class)">BasicAdapter</a></span></tt>) <strong>initialize</strong>(username, token) 
+    #<strong>initialize</strong>(username, token)  &#x21d2; <tt><span class='object_link'><a href="" title="Thumbtack::Adapters::BasicAdapter (class)">BasicAdapter</a></span></tt> 
   
 
   
@@ -291,7 +289,7 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_adapter'>adapter</span> <span class='op'>=</span> <span class='const'>BasicAdapter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><code><span class='id identifier rubyid_adapter'>adapter</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="" title="Thumbtack::Adapters::BasicAdapter (class)">BasicAdapter</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -365,7 +363,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="get-instance_method">
   
-    - (<tt>Hash</tt>) <strong>get</strong>(path, params = EMPTY_HASH) 
+    #<strong>get</strong>(path, params = EMPTY_HASH)  &#x21d2; <tt>Hash</tt> 
   
 
   
@@ -475,8 +473,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/thumbtack/adapters/basic_adapter.rb', line 51</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'>EMPTY_HASH</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>BASE_URL</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../Thumbtack.html#EMPTY_HASH-constant" title="Thumbtack::EMPTY_HASH (constant)">EMPTY_HASH</a></span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#BASE_URL-constant" title="Thumbtack::Adapters::BasicAdapter::BASE_URL (constant)">BASE_URL</a></span></span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span><span class='period'>.</span><span class='id identifier rubyid_query'>query</span> <span class='op'>=</span> <span class='id identifier rubyid_extend_parameters'>extend_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
   <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_http_response'>http_response</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -489,11 +487,12 @@
 
 </div>
 
-    <div id="footer">
-  Generated on Tue Oct  4 13:45:11 2016 by
+      <div id="footer">
+  Generated on Tue Jan  2 11:48:29 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.9.12 (ruby-2.4.1).
 </div>
 
+    </div>
   </body>
 </html>

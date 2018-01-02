@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "README";
   relpath = '';
-  framesUrl = "frames.html#!file.README.html";
 </script>
 
 
@@ -28,70 +27,81 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="_index.html">Index</a> &raquo; 
     <span class="title">File: README</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Thumbtack+-+The+best+Pinboard+API+client+for+Ruby">Thumbtack - The best Pinboard API client for Ruby</h1>
 
-    <div id="content"><div id='filecontents'><h1>Thumbtack - The best Pinboard API client for Ruby</h1>
+<p><a href="https://circleci.com/gh/nwjsmith/thumbtack"><img
+src="https://circleci.com/gh/nwjsmith/thumbtack.svg?style=svg"></a> <a
+href="https://codeclimate.com/github/nwjsmith/thumbtack"><img
+src="https://codeclimate.com/github/nwjsmith/thumbtack/badges/gpa.svg"></a>
+<a href="https://codeclimate.com/github/nwjsmith/thumbtack"><img
+src="https://codeclimate.com/github/nwjsmith/thumbtack/badges/coverage.svg"></a>
+<a href="http://inch-ci.org/github/nwjsmith/thumbtack"><img
+src="http://inch-ci.org/github/nwjsmith/thumbtack.svg?branch=master"></a></p>
 
-<p><a href="https://circleci.com/gh/nwjsmith/thumbtack"><img src="https://circleci.com/gh/nwjsmith/thumbtack.svg?style=svg" alt="Circle CI"></a>
-<a href="https://codeclimate.com/github/nwjsmith/thumbtack"><img src="https://codeclimate.com/github/nwjsmith/thumbtack/badges/gpa.svg" alt="Code Climate"></a>
-<a href="https://codeclimate.com/github/nwjsmith/thumbtack"><img src="https://codeclimate.com/github/nwjsmith/thumbtack/badges/coverage.svg" alt="Test Coverage"></a>
-<a href="http://inch-ci.org/github/nwjsmith/thumbtack"><img src="http://inch-ci.org/github/nwjsmith/thumbtack.svg?branch=master" alt="Inline Docs"></a></p>
+<h2 id="label-Description">Description</h2>
 
-<h2>Description</h2>
+<p>Thumbtack is a simple Ruby client for the <a
+href="https://pinboard.in/api">Pinboard API</a>.</p>
 
-<p>Thumbtack is a simple Ruby client for the <a href="https://pinboard.in/api">Pinboard API</a>.</p>
+<p>There are other Pinboard API clients for Ruby, but there are a few things
+that set Thumbtack apart:</p>
+<ul><li>
+<p><strong>Zero dependencies</strong><br>  Thumbtack requires only a few
+things from Ruby&#39;s standard library.</p>
+</li><li>
+<p><strong>Clean and consistent API</strong><br>  Required arguments in
+Pinboard&#39;s API are required arguments in Thumbtack&#39;s method calls.
+With only one exception, Thumbtack&#39;s API mirrors Pinboard&#39;s 1-to-1.</p>
+</li><li>
+<p><strong>Client-side validation</strong><br>  Pinboard has <a
+href="https://pinboard.in/api/#data">clearly defined rules about data
+types</a> and Thumbtack enforces them.</p>
+</li><li>
+<p><strong>Ruby-isms</strong><br>  Use regular Ruby types and let Thumbtack
+convert it to parameters acceptable to Pinboard (i.e. use
+<code>true</code>/<code>false</code> instead of
+<code>&#39;yes&#39;</code>/<code>&#39;no&#39;</code>).</p>
+</li><li>
+<p><strong>Documentation</strong><br>  Thorough documentation of the usage and
+API is a top priority for Thumbtack. No question should be unanswered.</p>
+</li></ul>
 
-<p>There are other Pinboard API clients for Ruby, but there are a few things that set Thumbtack apart:</p>
-
-<ul>
-<li><strong>Zero dependencies</strong><br>
-Thumbtack requires only a few things from Ruby&#39;s standard library.</li>
-<li><strong>Clean and consistent API</strong><br>
-Required arguments in Pinboard&#39;s API are required arguments in Thumbtack&#39;s method calls. With only one exception, Thumbtack&#39;s API mirrors Pinboard&#39;s 1-to-1.</li>
-<li><strong>Client-side validation</strong><br>
-Pinboard has <a href="https://pinboard.in/api/#data">clearly defined rules about data types</a> and Thumbtack enforces them.</li>
-<li><strong>Ruby-isms</strong><br>
-Use regular Ruby types and let Thumbtack convert it to parameters acceptable to Pinboard (i.e. use <code>true</code>/<code>false</code> instead of <code>&#39;yes&#39;</code>/<code>&#39;no&#39;</code>).</li>
-<li><strong>Documentation</strong><br>
-Thorough documentation of the usage and API is a top priority for Thumbtack. No question should be unanswered.</li>
-</ul>
-
-<h2>Usage</h2>
+<h2 id="label-Usage">Usage</h2>
 
 <p>Initialize a client with your Pinboard username and API token</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>Thumbtack</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Thumbtack.html" title="Thumbtack (module)">Thumbtack</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Thumbtack/Client.html" title="Thumbtack::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Thumbtack/Client.html#initialize-instance_method" title="Thumbtack::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
 </code></pre>
 
 <p>Fetch the most recent time a bookmark was added, updated, or deleted</p>
@@ -172,74 +182,94 @@ Thorough documentation of the usage and API is a top priority for Thumbtack. No 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_notes'>notes</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>8e5d6964bb810e0050b0</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 </code></pre>
 
-<h2>The one inconsistency between Thumbtack and Pinboard</h2>
+<h2 id="label-The+one+inconsistency+between+Thumbtack+and+Pinboard">The one inconsistency between Thumbtack and Pinboard</h2>
 
-<p>Thumbtack tries hard to mimic the Pinboard API, <em>BUT</em>: Pinboard&#39;s notes have an attribute named <code>hash</code>. Unfortunately, this collides with a <a href="http://ruby-doc.org/core-2.1.3/Object.html#method-i-hash">special method in Ruby</a>. To work around this, Thumbtack renames the <code>hash</code> attribute to <code>digest</code> in the <code>Note</code> and <code>NoteSummary</code> objects returned from <code>Notes#list</code> and <code>Notes#get</code>.</p>
+<p>Thumbtack tries hard to mimic the Pinboard API, <em>BUT</em>:
+Pinboard&#39;s notes have an attribute named <code>hash</code>.
+Unfortunately, this collides with a <a
+href="http://ruby-doc.org/core-2.1.3/Object.html#method-i-hash">special
+method in Ruby</a>. To work around this, Thumbtack renames the
+<code>hash</code> attribute to <code>digest</code> in the <code>Note</code>
+and <code>NoteSummary</code> objects returned from <code>Notes#list</code>
+and <code>Notes#get</code>.</p>
 
-<h2>Requirements</h2>
+<h2 id="label-Requirements">Requirements</h2>
+<ul><li>
+<p>Ruby 2.3.6+, but you&#39;re already on 2.5+, right?</p>
+</li><li>
+<p>Nothing else. No gem dependencies, nothing.</p>
+</li></ul>
 
-<ul>
-<li>Ruby 1.9.3+, but you&#39;re already on 2.2+, right?</li>
-<li>Nothing else. No gem dependencies, nothing.</li>
-</ul>
-
-<h2>Installation</h2>
+<h2 id="label-Installation">Installation</h2>
 
 <p>The best way to install Thumbtack is with RubyGems:</p>
 
-<pre class="code ruby"><code class="ruby">$ [sudo] gem install thumbtack
-</code></pre>
+<pre class="code ruby"><code class="ruby">$ [sudo] gem install thumbtack</code></pre>
 
-<h2>API Documentation</h2>
+<h2 id="label-API+Documentation">API Documentation</h2>
 
-<p><a href="http://theinternate.com/thumbtack">http://theinternate.com/thumbtack</a></p>
+<p><a href="http://theinternate.com/thumbtack">theinternate.com/thumbtack</a></p>
 
-<h2>Contribute</h2>
+<h2 id="label-Contribute">Contribute</h2>
 
-<p>If you&#39;d like to make some changes to Thumbtack, start by forking the repo on GitHub:</p>
+<p>If you&#39;d like to make some changes to Thumbtack, start by forking the
+repo on GitHub:</p>
 
-<p><a href="http://github.com/nwjsmith/thumbtack">http://github.com/nwjsmith/thumbtack</a></p>
+<p><a
+href="http://github.com/nwjsmith/thumbtack">github.com/nwjsmith/thumbtack</a></p>
 
 <p>The best way to get contributions merged into Thumbtack:</p>
+<ol><li>
+<p>Clone down your fork.</p>
+</li><li>
+<p>Create a well-named topic branch for your change</p>
+</li><li>
+<p>Make your change.</p>
+</li><li>
+<p>Add tests and make sure everything passes (see the section on running the
+tests below).</p>
+</li><li>
+<p>If you are adding new functionality, document it in the README.</p>
+</li><li>
+<p>Do not change the version number.</p>
+</li><li>
+<p>If necessary, rebase your commits into logical chunks, with no failing
+commits.</p>
+</li><li>
+<p>Push the branch to GitHub.</p>
+</li><li>
+<p>Send a pull request to the nwjsmith/thumbtack project.</p>
+</li></ol>
 
-<ol>
-<li>Clone down your fork.</li>
-<li>Create a well-named topic branch for your change</li>
-<li>Make your change.</li>
-<li>Add tests and make sure everything passes (see the section on running the tests below).</li>
-<li>If you are adding new functionality, document it in the README.</li>
-<li>Do not change the version number.</li>
-<li>If necessary, rebase your commits into logical chunks, with no failing commits.</li>
-<li>Push the branch to GitHub.</li>
-<li>Send a pull request to the nwjsmith/thumbtack project.</li>
-</ol>
+<h2 id="label-Run+the+tests">Run the tests</h2>
 
-<h2>Run the tests</h2>
-
-<pre class="code bash"><code class="bash">$ bundle install
+<pre class="code ruby"><code class="ruby">$ bundle install
 
 # Run only the unit tests (no communication/authentication with Pinboard)
 $ bundle exec rake test:unit
 
 # Run the full test suite (will communicate with Pinboard)
-$ bundle exec rake test
+$ bundle exec rake test</code></pre>
+
+<p><strong>Note</strong> to run the full test suite, copy and paste your <a
+href="https://pinboard.in/settings/password">API Token</a> into the
+<code>test/auth_token.txt</code> file. It should look something like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_maciej'>maciej</span><span class='symbol'>:C9044F4047891CEA74FE</span>
 </code></pre>
 
-<p><strong>Note</strong> to run the full test suite, copy and paste your <a href="https://pinboard.in/settings/password">API Token</a> into the <code>test/auth_token.txt</code> file. It should look something like this:</p>
+<h2 id="label-License">License</h2>
 
-<pre class="code text"><code class="text">maciej:C9044F4047891CEA74FE
-</code></pre>
-
-<h2>License</h2>
-
-<p>Thumbtack is released under the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+<p>Thumbtack is released under the <a
+href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
 </div></div>
 
-    <div id="footer">
-  Generated on Tue Oct  4 13:45:10 2016 by
+      <div id="footer">
+  Generated on Tue Jan  2 11:48:28 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.9.12 (ruby-2.4.1).
 </div>
 
+    </div>
   </body>
 </html>

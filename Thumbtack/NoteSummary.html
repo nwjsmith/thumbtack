@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: Thumbtack::NoteSummary
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Thumbtack::NoteSummary";
   relpath = '../';
-  framesUrl = "../frames.html#!Thumbtack/NoteSummary.html";
 </script>
 
 
@@ -28,51 +27,48 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="../_index.html">Index (N)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Thumbtack.html" title="Thumbtack (module)">Thumbtack</a></span></span>
      &raquo; 
     <span class="title">NoteSummary</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="../class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="../method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="../file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Class: Thumbtack::NoteSummary
+      <div id="content"><h1>Class: Thumbtack::NoteSummary
   
   
   
 </h1>
-
-<dl class="box">
+<div class="box_info">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
       <span class="inheritName">Object</span>
       
         <ul class="fullTree">
@@ -83,21 +79,25 @@
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
       
-      </dd>
-    
+    </dd>
+  </dl>
   
-  
-    
-  
-    
+
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/thumbtack/note_summary.rb</dd>
   
-</dl>
-<div class="clear"></div>
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/thumbtack/note_summary.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -119,11 +119,10 @@
 
 </div>
   <h2>Constant Summary</h2>
-  
-    <dl class="constants">
-      
-        <dt id="ATTRIBUTES-constant" class="">ATTRIBUTES =
-          <div class="docstring">
+  <dl class="constants">
+    
+      <dt id="ATTRIBUTES-constant" class="">ATTRIBUTES =
+        <div class="docstring">
   <div class="discussion">
     <p class="note private">
   <strong>This constant is part of a private API.</strong>
@@ -139,29 +138,28 @@
   
 
 </div>
-        </dt>
-        <dd><pre class="code"><span class='lbracket'>[</span>
-  <span class='symbol'>:id</span><span class='comma'>,</span>
-  <span class='symbol'>:title</span><span class='comma'>,</span>
-  <span class='symbol'>:digest</span><span class='comma'>,</span>
-  <span class='symbol'>:created_at</span><span class='comma'>,</span>
-  <span class='symbol'>:updated_at</span><span class='comma'>,</span>
-  <span class='symbol'>:length</span>
-<span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
-      
-    </dl>
-  
+      </dt>
+      <dd><pre class="code"><span class='qsymbols_beg'>%i[
+</span><span class='tstring_content'>  id</span><span class='words_sep'>
+</span><span class='tstring_content'>  title</span><span class='words_sep'>
+</span><span class='tstring_content'>  digest</span><span class='words_sep'>
+</span><span class='tstring_content'>  created_at</span><span class='words_sep'>
+</span><span class='tstring_content'>  updated_at</span><span class='words_sep'>
+</span><span class='tstring_content'>  length</span><span class='words_sep'>
+</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+    
+  </dl>
 
 
 
 
-  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
   <ul class="summary">
     
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#digest-instance_method" title="#digest (instance method)">- (String) <strong>digest</strong> </a>
+      <a href="#digest-instance_method" title="#digest (instance method)">#<strong>digest</strong>  &#x21d2; String </a>
     
 
     
@@ -190,7 +188,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#id-instance_method" title="#id (instance method)">- (String) <strong>id</strong> </a>
+      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; String </a>
     
 
     
@@ -219,7 +217,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#length-instance_method" title="#length (instance method)">- (Integer) <strong>length</strong> </a>
+      <a href="#length-instance_method" title="#length (instance method)">#<strong>length</strong>  &#x21d2; Integer </a>
     
 
     
@@ -248,7 +246,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#title-instance_method" title="#title (instance method)">- (String) <strong>title</strong> </a>
+      <a href="#title-instance_method" title="#title (instance method)">#<strong>title</strong>  &#x21d2; String </a>
     
 
     
@@ -282,7 +280,7 @@
   
     <h2>
       Class Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -290,7 +288,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#from_hash-class_method" title="from_hash (class method)">+ (NoteSummary) <strong>from_hash</strong>(hash) </a>
+      <a href="#from_hash-class_method" title="from_hash (class method)">.<strong>from_hash</strong>(hash)  &#x21d2; NoteSummary </a>
     
 
     
@@ -315,7 +313,7 @@
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -323,7 +321,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#created_at-instance_method" title="#created_at (instance method)">- (DateTime) <strong>created_at</strong> </a>
+      <a href="#created_at-instance_method" title="#created_at (instance method)">#<strong>created_at</strong>  &#x21d2; Time </a>
     
 
     
@@ -347,7 +345,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (NoteSummary) <strong>initialize</strong>(attrs = EMPTY_HASH) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(attrs = EMPTY_HASH)  &#x21d2; NoteSummary </a>
     
 
     
@@ -373,7 +371,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#updated_at-instance_method" title="#updated_at (instance method)">- (DateTime) <strong>updated_at</strong> </a>
+      <a href="#updated_at-instance_method" title="#updated_at (instance method)">#<strong>updated_at</strong>  &#x21d2; Time </a>
     
 
     
@@ -403,7 +401,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Thumbtack::NoteSummary (class)">NoteSummary</a></span></tt>) <strong>initialize</strong>(attrs = EMPTY_HASH) 
+    #<strong>initialize</strong>(attrs = EMPTY_HASH)  &#x21d2; <tt><span class='object_link'><a href="" title="Thumbtack::NoteSummary (class)">NoteSummary</a></span></tt> 
   
 
   
@@ -461,8 +459,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/thumbtack/note_summary.rb', line 104</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_attrs'>attrs</span> <span class='op'>=</span> <span class='const'>EMPTY_HASH</span><span class='rparen'>)</span>
-  <span class='const'>ATTRIBUTES</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_attribute'>attribute</span><span class='op'>|</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_attrs'>attrs</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Thumbtack.html#EMPTY_HASH-constant" title="Thumbtack::EMPTY_HASH (constant)">EMPTY_HASH</a></span></span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="#ATTRIBUTES-constant" title="Thumbtack::NoteSummary::ATTRIBUTES (constant)">ATTRIBUTES</a></span></span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_attribute'>attribute</span><span class='op'>|</span>
     <span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_attribute'>attribute</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_attrs'>attrs</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_attribute'>attribute</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -481,7 +479,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="digest-instance_method">
   
-    - (<tt>String</tt>) <strong>digest</strong>  <span class="extras">(readonly)</span>
+    #<strong>digest</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -545,7 +543,7 @@
       <div class="method_details ">
   <h3 class="signature " id="id-instance_method">
   
-    - (<tt>String</tt>) <strong>id</strong>  <span class="extras">(readonly)</span>
+    #<strong>id</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -609,7 +607,7 @@
       <div class="method_details ">
   <h3 class="signature " id="length-instance_method">
   
-    - (<tt>Integer</tt>) <strong>length</strong>  <span class="extras">(readonly)</span>
+    #<strong>length</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -673,7 +671,7 @@
       <div class="method_details ">
   <h3 class="signature " id="title-instance_method">
   
-    - (<tt>String</tt>) <strong>title</strong>  <span class="extras">(readonly)</span>
+    #<strong>title</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -742,7 +740,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="from_hash-class_method">
   
-    + (<tt><span class='object_link'><a href="" title="Thumbtack::NoteSummary (class)">NoteSummary</a></span></tt>) <strong>from_hash</strong>(hash) 
+    .<strong>from_hash</strong>(hash)  &#x21d2; <tt><span class='object_link'><a href="" title="Thumbtack::NoteSummary (class)">NoteSummary</a></span></tt> 
   
 
   
@@ -817,7 +815,7 @@
       <pre class="code"><span class="info file"># File 'lib/thumbtack/note_summary.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_hash'>from_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>SymbolizeKeys</span><span class='period'>.</span><span class='id identifier rubyid_symbolize'>symbolize</span><span class='lparen'>(</span><span class='const'>HashToDigest</span><span class='period'>.</span><span class='id identifier rubyid_rename'>rename</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="SymbolizeKeys.html" title="Thumbtack::SymbolizeKeys (class)">SymbolizeKeys</a></span></span><span class='period'>.</span><span class='id identifier rubyid_symbolize'><span class='object_link'><a href="SymbolizeKeys.html#symbolize-class_method" title="Thumbtack::SymbolizeKeys.symbolize (method)">symbolize</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="HashToDigest.html" title="Thumbtack::HashToDigest (class)">HashToDigest</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rename'><span class='object_link'><a href="HashToDigest.html#rename-class_method" title="Thumbtack::HashToDigest.rename (method)">rename</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -833,7 +831,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="created_at-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>created_at</strong> 
+    #<strong>created_at</strong>  &#x21d2; <tt>Time</tt> 
   
 
   
@@ -853,7 +851,7 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_note'>note</span><span class='period'>.</span><span class='id identifier rubyid_created_at'>created_at</span>  <span class='comment'># =&gt; #&lt;DateTime: 2014-08-13T19:53:16+00:00...</span></code></pre>
+      <pre class="example code"><code><span class='id identifier rubyid_note'>note</span><span class='period'>.</span><span class='id identifier rubyid_created_at'>created_at</span>  <span class='comment'># =&gt; 2014-08-13 19:53:16 +0000</span></code></pre>
     
   </div>
 
@@ -863,7 +861,7 @@
     <li>
       
       
-        <span class='type'>(<tt>DateTime</tt>)</span>
+        <span class='type'>(<tt>Time</tt>)</span>
       
       
       
@@ -885,7 +883,7 @@
       <pre class="code"><span class="info file"># File 'lib/thumbtack/note_summary.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
-  <span class='const'>Types</span><span class='op'>::</span><span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_deserialize_from_note'>deserialize_from_note</span><span class='lparen'>(</span><span class='ivar'>@created_at</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Types.html" title="Thumbtack::Types (module)">Types</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Types/Time.html" title="Thumbtack::Types::Time (class)">Time</a></span></span><span class='period'>.</span><span class='id identifier rubyid_deserialize_from_note'><span class='object_link'><a href="Types/Time.html#deserialize_from_note-class_method" title="Thumbtack::Types::Time.deserialize_from_note (method)">deserialize_from_note</a></span></span><span class='lparen'>(</span><span class='ivar'>@created_at</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -895,7 +893,7 @@
       <div class="method_details ">
   <h3 class="signature " id="updated_at-instance_method">
   
-    - (<tt>DateTime</tt>) <strong>updated_at</strong> 
+    #<strong>updated_at</strong>  &#x21d2; <tt>Time</tt> 
   
 
   
@@ -915,7 +913,7 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_note'>note</span><span class='period'>.</span><span class='id identifier rubyid_updated_at'>updated_at</span>  <span class='comment'># =&gt; #&lt;DateTime: 2014-08-13T19:53:16+00:00...</span></code></pre>
+      <pre class="example code"><code><span class='id identifier rubyid_note'>note</span><span class='period'>.</span><span class='id identifier rubyid_updated_at'>updated_at</span>  <span class='comment'># =&gt; 2014-08-13 19:53:16 +0000</span></code></pre>
     
   </div>
 
@@ -925,7 +923,7 @@
     <li>
       
       
-        <span class='type'>(<tt>DateTime</tt>)</span>
+        <span class='type'>(<tt>Time</tt>)</span>
       
       
       
@@ -947,7 +945,7 @@
       <pre class="code"><span class="info file"># File 'lib/thumbtack/note_summary.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_updated_at'>updated_at</span>
-  <span class='const'>Types</span><span class='op'>::</span><span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_deserialize_from_note'>deserialize_from_note</span><span class='lparen'>(</span><span class='ivar'>@updated_at</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="Types.html" title="Thumbtack::Types (module)">Types</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Types/Time.html" title="Thumbtack::Types::Time (class)">Time</a></span></span><span class='period'>.</span><span class='id identifier rubyid_deserialize_from_note'><span class='object_link'><a href="Types/Time.html#deserialize_from_note-class_method" title="Thumbtack::Types::Time.deserialize_from_note (method)">deserialize_from_note</a></span></span><span class='lparen'>(</span><span class='ivar'>@updated_at</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -958,11 +956,12 @@
 
 </div>
 
-    <div id="footer">
-  Generated on Tue Oct  4 13:45:11 2016 by
+      <div id="footer">
+  Generated on Tue Jan  2 11:48:29 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.1).
+  0.9.12 (ruby-2.4.1).
 </div>
 
+    </div>
   </body>
 </html>
