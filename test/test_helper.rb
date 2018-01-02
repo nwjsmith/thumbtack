@@ -20,4 +20,4 @@ def mock_client_action(url, params)
   client
 end
 
-include Thumbtack
+Minitest::Test.include Thumbtack
