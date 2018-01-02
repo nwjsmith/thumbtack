@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'thumbtack/version'
@@ -17,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
   spec.name = 'thumbtack'
   spec.require_paths = ['lib']
-  spec.required_ruby_version = '>= 1.9.3'
+  spec.required_ruby_version = '>= 2.3.6'
   spec.summary = 'The best Pinboard API client'
   spec.test_files = Dir.glob('test/**/*.rb')
   spec.version = Thumbtack::VERSION
