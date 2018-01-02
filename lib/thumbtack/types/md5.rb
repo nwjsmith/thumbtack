@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   module Types
@@ -9,7 +9,7 @@ module Thumbtack
       # The length of an MD5 value
       LENGTH = 32
       # The valid characters in an MD5 value
-      CHARACTERS = '0123456789abcdf'.freeze
+      CHARACTERS = '0123456789abcdf'
 
       # Validate a string is a valid MD5 parameter
       #
@@ -22,8 +22,8 @@ module Thumbtack
       #   if the value is not a 32 character hexadecimal MD5 hash
       def self.validate(value)
         unless valid_md5?(value)
-          fail ValidationError,
-               "#{value} must be a 32 character hexadecimal MD5 hash"
+          raise ValidationError,
+                "#{value} must be a 32 character hexadecimal MD5 hash"
         end
         self
       end

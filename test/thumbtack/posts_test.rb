@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'test_helper'
 
@@ -40,7 +40,7 @@ class PostsTest < Minitest::Test
                  posts.add(
                    'http://example.org',
                    'example.org',
-                   tags: %w(thumbtack test)
+                   tags: %w[thumbtack test]
                  )
     client.verify
   end
@@ -103,8 +103,8 @@ class PostsTest < Minitest::Test
       '/posts/suggest',
       { url: 'http://blog.com' },
       [
-        { 'popular' => %w(blog blogs people) },
-        { 'recommended' => %w(blog writing weblog) }
+        { 'popular' => %w[blog blogs people] },
+        { 'recommended' => %w[blog writing weblog] }
       ]
     )
     posts = Posts.new(client)

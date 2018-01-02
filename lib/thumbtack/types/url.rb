@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   module Types
@@ -7,7 +7,7 @@ module Thumbtack
     # @api private
     class URL < Identity
       # Valid URL schemes
-      VALID_SCHEMES = %w(http https javascript mailto ftp file feed).freeze
+      VALID_SCHEMES = %w[http https javascript mailto ftp file feed].freeze
 
       # Validate a URL
       #
@@ -21,8 +21,8 @@ module Thumbtack
       #   file, or feed
       def self.validate(value)
         unless VALID_SCHEMES.include? URI(value).scheme
-          fail ValidationError,
-               "scheme must be one of #{VALID_SCHEMES.join(', ')}"
+          raise ValidationError,
+                "scheme must be one of #{VALID_SCHEMES.join(', ')}"
         end
         self
       end

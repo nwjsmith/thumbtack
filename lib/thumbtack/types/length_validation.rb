@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   module Types
@@ -19,8 +19,8 @@ module Thumbtack
       #   if the value is not less or equal to the maximum length
       def self.validate(value, maximum_length)
         unless value.length <= maximum_length
-          fail ValidationError,
-               "#{value} cannot be greater than #{maximum_length} characters"
+          raise ValidationError,
+                "#{value} cannot be greater than #{maximum_length} characters"
         end
         self
       end

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'test_helper'
 
@@ -10,7 +10,8 @@ class SpecificationTest < Minitest::Test
 
     assert_equal(
       { key: 'parameterized' },
-      Specification.new(key: type_handler).parameters(key: 'value'))
+      Specification.new(key: type_handler).parameters(key: 'value')
+    )
     type_handler.verify
   end
 end

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   # Represents a bookmark
@@ -8,16 +8,16 @@ module Thumbtack
     # The attributes for a Post
     #
     # @api private
-    ATTRIBUTES = [
-      :href,
-      :description,
-      :extended,
-      :meta,
-      :digest,
-      :time,
-      :shared,
-      :toread,
-      :tags
+    ATTRIBUTES = %i[
+      href
+      description
+      extended
+      meta
+      digest
+      time
+      shared
+      toread
+      tags
     ].freeze
 
     # The url of the post

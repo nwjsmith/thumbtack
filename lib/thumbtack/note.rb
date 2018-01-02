@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   # Represents a note
@@ -8,14 +8,14 @@ module Thumbtack
     # The attributes for a Note
     #
     # @api private
-    ATTRIBUTES = [
-      :id,
-      :title,
-      :created_at,
-      :updated_at,
-      :digest,
-      :text,
-      :length
+    ATTRIBUTES = %i[
+      id
+      title
+      created_at
+      updated_at
+      digest
+      text
+      length
     ].freeze
 
     # The identifier for the note

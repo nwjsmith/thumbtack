@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   # Represents a note summary as returned from Notes#list.
@@ -9,13 +9,13 @@ module Thumbtack
     # The attributes for a NoteSummary
     #
     # @api private
-    ATTRIBUTES = [
-      :id,
-      :title,
-      :digest,
-      :created_at,
-      :updated_at,
-      :length
+    ATTRIBUTES = %i[
+      id
+      title
+      digest
+      created_at
+      updated_at
+      length
     ].freeze
 
     # The identifier for the note

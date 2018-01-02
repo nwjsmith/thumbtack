@@ -1,23 +1,23 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   module Adapters
     # A basic adapter using Ruby's builtin HTTP and JSON parsing libraries
     class BasicAdapter
       # The status code for rate limited responses from the Pinboard API
-      TOO_MANY_REQUESTS_CODE = '429'.freeze
+      TOO_MANY_REQUESTS_CODE = '429'
 
       # The response format requested from the Pinboard API
-      RESPONSE_FORMAT = 'json'.freeze
+      RESPONSE_FORMAT = 'json'
 
       # The base Pinboard API URL.
-      BASE_URL = 'https://api.pinboard.in/v1'.freeze
+      BASE_URL = 'https://api.pinboard.in/v1'
 
       # A secure version of SSL
-      SSL_VERSION = 'TLSv1_2'.freeze
+      SSL_VERSION = 'TLSv1_2'
 
       # Secure cipher list
-      SSL_CIPHERS = 'TLSv1.2:!aNULL:!eNULL'.freeze
+      SSL_CIPHERS = 'TLSv1.2:!aNULL:!eNULL'
 
       # Initialize a BasicAdapter
       #
@@ -68,7 +68,7 @@ module Thumbtack
       def http_response(uri)
         request = Net::HTTP::Get.new(uri)
         connection(uri.host, uri.port).request(request).tap do |response|
-          fail RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
+          raise RateLimitError if response.code == TOO_MANY_REQUESTS_CODE
         end
       end
 

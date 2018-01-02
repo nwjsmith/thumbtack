@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   module Types
@@ -22,8 +22,8 @@ module Thumbtack
       #   if the value is not within the range
       def self.validate(value, range)
         unless range.cover?(value)
-          fail ValidationError,
-               "#{value} must be between #{range.begin} and #{range.end}"
+          raise ValidationError,
+                "#{value} must be between #{range.begin} and #{range.end}"
         end
         self
       end

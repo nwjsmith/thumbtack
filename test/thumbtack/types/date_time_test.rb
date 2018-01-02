@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'test_helper'
 
@@ -18,7 +18,8 @@ class DateTimeTest < Minitest::Test
   def test_serialize
     assert_equal '2010-12-11T19:48:02Z',
                  Types::DateTime.serialize(
-                   ::DateTime.new(2010, 12, 11, 19, 48, 2))
+                   ::DateTime.new(2010, 12, 11, 19, 48, 2)
+                 )
   end
 
   def test_deserialize

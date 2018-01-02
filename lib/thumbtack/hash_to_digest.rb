@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   # Handles renaming the hash attribute to digest from response hashes. This is
@@ -6,8 +6,8 @@ module Thumbtack
   #
   # @api private
   class HashToDigest
-    HASH = 'hash'.freeze
-    DIGEST = 'digest'.freeze
+    HASH = 'hash'
+    DIGEST = 'digest'
 
     # Rename any attribute called hash to digest
     #

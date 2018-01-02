@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'test_helper'
 
@@ -19,11 +19,11 @@ class TagsTest < Minitest::Test
 
   def test_serialize
     assert_equal 'one', Types::Tags.serialize('one')
-    assert_equal 'one two', Types::Tags.serialize(%w(one two))
+    assert_equal 'one two', Types::Tags.serialize(%w[one two])
     assert_equal 'padding', Types::Tags.serialize([' padding '])
   end
 
   def test_deserialize
-    assert_equal %w(one two), Types::Tags.deserialize('one two')
+    assert_equal %w[one two], Types::Tags.deserialize('one two')
   end
 end

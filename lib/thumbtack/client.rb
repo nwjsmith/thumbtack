@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   # Wraps each interaction with the Pinboard API
@@ -91,7 +91,7 @@ module Thumbtack
     def action(path, params)
       response = @adapter.get(path, params)
       unless response['result_code'] == 'done'
-        fail ResultError, response['result_code']
+        raise ResultError, response['result_code']
       end
       self
     end

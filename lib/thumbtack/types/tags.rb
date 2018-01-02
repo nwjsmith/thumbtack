@@ -1,4 +1,4 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 module Thumbtack
   module Types
@@ -10,9 +10,9 @@ module Thumbtack
       # The maximum tag length
       MAXIMUM_LENGTH = 255
       # Tags cannot have commas
-      INVALID_CHARACTER = ','.freeze
+      INVALID_CHARACTER = ','
       # Tag parameters are separated by spaces
-      SEPARATOR = ' '.freeze
+      SEPARATOR = ' '
 
       # Validate a tags value
       #
@@ -26,8 +26,8 @@ module Thumbtack
       def self.validate(value)
         Array(value).each do |tag|
           unless tag_valid?(tag)
-            fail ValidationError,
-                 "#{tag} cannot contain commas or be longer than 255 characters"
+            raise ValidationError,
+                  "#{tag} cannot contain commas or be longer than 255 characters"
           end
         end
         self
