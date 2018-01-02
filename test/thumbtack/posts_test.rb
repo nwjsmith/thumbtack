@@ -11,7 +11,7 @@ class PostsTest < Minitest::Test
     )
     posts = Posts.new(client)
 
-    assert_equal DateTime.new(2014, 6, 26, 19, 1, 33), posts.update
+    assert_equal Time.new(2014, 6, 26, 19, 1, 33), posts.update
     client.verify
   end
 

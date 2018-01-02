@@ -73,13 +73,13 @@ module Thumbtack
     # The time at which the post was created
     #
     # @example
-    #   post.time  # => #<DateTime: 2014-09-17T13:45:27+00:00...
+    #   post.time  # => 2014-08-13 19:53:16 +0000
     #
-    # @return [DateTime]
+    # @return [Time]
     #
     # @api public
     def time
-      Types::DateTime.deserialize(@time)
+      Types::Time.deserialize(@time)
     end
 
     # If true, this post is public

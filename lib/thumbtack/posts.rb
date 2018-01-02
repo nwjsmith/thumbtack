@@ -18,14 +18,14 @@ module Thumbtack
     # @example
     #   update_time = posts.update
     #
-    # @return [DateTime]
+    # @return [Time]
     #
     # @api public
     #
     # @see https://pinboard.in/api/#posts_update
     def update
       response = @client.get('/posts/update')
-      Types::DateTime.deserialize response.fetch('update_time')
+      Types::Time.deserialize response.fetch('update_time')
     end
 
     # Add a bookmark
@@ -43,7 +43,7 @@ module Thumbtack
     #   a description of the bookmark
     # @option options [Array[String]] :tags
     #   a list of up to 100 tags
-    # @option options [DateTime] :dt
+    # @option options [Time] :dt
     #   the creation time for this bookmark
     # @option options [Boolean] :replace
     #   if true, replace any existing bookmark with the same URL
@@ -63,7 +63,7 @@ module Thumbtack
         description: Types::Text,
         extended: Types::Text,
         tags: Types::Tags,
-        dt: Types::DateTime,
+        dt: Types::Time,
         replace: Types::Boolean,
         shared: Types::Boolean,
         toread: Types::Boolean
@@ -100,7 +100,7 @@ module Thumbtack
     #   options to filter the results by
     # @option options [Array<String>] :tag
     #   up to three tags to filter by
-    # @option options [DateTime] :dt
+    # @option options [Time] :dt
     #   which day the results were bookmarked
     # @option options [String] :url
     #   the URL for this bookmark
@@ -115,7 +115,7 @@ module Thumbtack
     def get(options = EMPTY_HASH)
       parameters = Specification.new(
         tag: Types::Tags,
-        dt: Types::DateTime,
+        dt: Types::Time,
         url: Types::URL,
         meta: Types::Boolean
       ).parameters(options)
@@ -160,9 +160,9 @@ module Thumbtack
     #   an offset value
     # @option options [Array<String>] :results
     #   number of results to return
-    # @option options [DateTime] :fromdt
+    # @option options [Time] :fromdt
     #   limit results to those created after this time
-    # @option options [DateTime] :todt
+    # @option options [Time] :todt
     #   limit results to those created before this time
     # @option options [Boolean] :meta
     #   if true, include the change detection signature in the results
@@ -177,8 +177,8 @@ module Thumbtack
         tag: Types::Tags,
         start: Types::Integer,
         results: Types::Integer,
-        fromdt: Types::DateTime,
-        todt: Types::DateTime,
+        fromdt: Types::Time,
+        todt: Types::Time,
         meta: Types::Boolean
       ).parameters(options)
       results = @client.get('/posts/all', parameters)

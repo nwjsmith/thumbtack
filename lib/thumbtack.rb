@@ -20,21 +20,21 @@ module Thumbtack
   EMPTY_ARRAY = [].freeze
 end
 
-require 'date'
 require 'json'
 require 'net/http'
+require 'time'
 require 'uri'
 
 require 'thumbtack/types/range_validation'
 require 'thumbtack/types/length_validation'
 require 'thumbtack/types/boolean'
 require 'thumbtack/types/date'
-require 'thumbtack/types/date_time'
 require 'thumbtack/types/identity'
 require 'thumbtack/types/integer'
 require 'thumbtack/types/md5'
 require 'thumbtack/types/tags'
 require 'thumbtack/types/text'
+require 'thumbtack/types/time'
 require 'thumbtack/types/title'
 require 'thumbtack/types/url'
 require 'thumbtack/specification'

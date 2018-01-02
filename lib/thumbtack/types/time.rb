@@ -2,15 +2,15 @@
 
 module Thumbtack
   module Types
-    # Handles conversion and validation of DateTimes to parameters supported by
+    # Handles conversion and validation of Times to parameters supported by
     # Pinboard
     #
     # @api private
-    class DateTime
+    class Time
       # The earliest allowable time
-      EARLIEST = ::DateTime.new(1, 1, 1)
+      EARLIEST = ::Time.new(1, 1, 1, 0, 0, 0, 0)
       # The latest allowable time
-      LATEST = ::DateTime.new(2100, 1, 1)
+      LATEST = ::Time.new(2100, 1, 1, 0, 0, 0, 0)
       # Pinboard's date time format
       FORMAT = '%Y-%m-%dT%H:%M:%SZ'
       # Pinboard's date time format for notes
@@ -18,7 +18,7 @@ module Thumbtack
 
       # Validate a time
       #
-      # @param [DateTime] value
+      # @param [Time] value
       #   The time to validate
       #
       # @return [self]
@@ -32,7 +32,7 @@ module Thumbtack
 
       # Convert a time to a parameter acceptable to Pinboard
       #
-      # @param [DateTime] value
+      # @param [Time] value
       #   the time to convert
       #
       # @return [String]
@@ -46,9 +46,9 @@ module Thumbtack
       # @param [String] parameter
       #   the time formatted yyyy-mm-ddTHH:MM:SSZ
       #
-      # @return [DateTime]
+      # @return [Time]
       def self.deserialize(parameter)
-        ::DateTime.strptime(parameter)
+        ::Time.strptime(parameter, FORMAT)
       end
 
       # Convert a parameter from Pinboard's notes to a datetime value
@@ -56,9 +56,9 @@ module Thumbtack
       # @param [String] parameter
       #   the time formatted yyyy-mm-dd HH:MM:SS
       #
-      # @return [DateTime]
+      # @return [Time]
       def self.deserialize_from_note(parameter)
-        ::DateTime.strptime(parameter, NOTE_FORMAT)
+        ::Time.strptime(parameter, NOTE_FORMAT)
       end
     end
   end

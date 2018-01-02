@@ -41,25 +41,25 @@ module Thumbtack
     # The time at which the note was created
     #
     # @example
-    #   note.created_at  # => #<DateTime: 2014-08-13T19:53:16+00:00...
+    #   note.created_at  # => 2014-08-13 19:53:16 +0000
     #
-    # @return [DateTime]
+    # @return [Time]
     #
     # @api public
     def created_at
-      Types::DateTime.deserialize_from_note(@created_at)
+      Types::Time.deserialize_from_note(@created_at)
     end
 
     # The time at which the note was last updated
     #
     # @example
-    #   note.updated_at  # => #<DateTime: 2014-08-13T19:53:16+00:00...
+    #   note.updated_at  # => 2014-08-13 19:53:16 +0000
     #
-    # @return [DateTime]
+    # @return [Time]
     #
     # @api public
     def updated_at
-      Types::DateTime.deserialize_from_note(@updated_at)
+      Types::Time.deserialize_from_note(@updated_at)
     end
 
     # 20 character hexadecimal SHA1 hash of the note text
