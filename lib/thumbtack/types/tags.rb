@@ -25,10 +25,9 @@ module Thumbtack
       #   if any tags contain commas or are longer than 255 characters
       def self.validate(value)
         Array(value).each do |tag|
-          unless tag_valid?(tag)
-            raise ValidationError,
-                  "#{tag} cannot contain commas or be longer than 255 characters"
-          end
+          next unless tag_valid?(tag)
+          raise ValidationError,
+                "#{tag} cannot contain commas or be longer than 255 characters"
         end
         self
       end

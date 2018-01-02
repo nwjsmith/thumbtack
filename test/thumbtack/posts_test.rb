@@ -89,7 +89,11 @@ class PostsTest < Minitest::Test
   end
 
   def test_all
-    client = mock_client_get('/posts/all', { tag: 'webdev' }, [example_post_hash])
+    client = mock_client_get(
+      '/posts/all',
+      { tag: 'webdev' },
+      [example_post_hash]
+    )
     posts = Posts.new(client)
     response = posts.all(tag: 'webdev')
 
@@ -123,9 +127,7 @@ class PostsTest < Minitest::Test
       'tag' => 'argentina',
       'dates' => {
         '2010-11-29' => '5',
-        '2010-11-28' => '15',
         '2010-11-25' => '2',
-        '2010-11-23' => '7',
         '2010-11-22' => '20',
         '2010-11-21' => '16',
         '2010-11-19' => '4'
@@ -137,9 +139,7 @@ class PostsTest < Minitest::Test
     assert_equal(
       {
         Date.new(2010, 11, 29) => 5,
-        Date.new(2010, 11, 28) => 15,
         Date.new(2010, 11, 25) => 2,
-        Date.new(2010, 11, 23) => 7,
         Date.new(2010, 11, 22) => 20,
         Date.new(2010, 11, 21) => 16,
         Date.new(2010, 11, 19) => 4
