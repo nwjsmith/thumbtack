@@ -4,8 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org).
 
 ## [Unreleased]
 
+## [2.0.0] - 2019-03-05
+
 ### Changed
 - Ensure secure connection is used to the Pinboard API
+- Drop support for Ruby 2.3
 
 ## [1.1.1] - 2015-10-15
 ### Changed
@@ -33,6 +36,7 @@ This project adheres to [Semantic Versioning](http://semver.org).
 
 ## 1.0.0 - 2015-10-02
 
-[Unreleased]: https://github.com/nwjsmith/thumbtack/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/nwjsmith/thumbtack/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/nwjsmith/thumbtack/compare/v1.1.1...v2.0.0
 [1.1.1]: https://github.com/nwjsmith/thumbtack/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/nwjsmith/thumbtack/compare/v1.0.0...v1.1.0
