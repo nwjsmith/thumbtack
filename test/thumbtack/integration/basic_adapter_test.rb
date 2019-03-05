@@ -5,7 +5,7 @@ require 'test_helper'
 module Integration
   class BasicAdapterTest < Minitest::Test
     def setup
-      path = File.expand_path('../../../auth_token.txt', __FILE__)
+      path = File.expand_path('../../auth_token.txt', __dir__)
       auth_token = File.open(path).read.strip
       @username, @token = auth_token.split(':')
       @adapter = Adapters::BasicAdapter.new(@username, @token)

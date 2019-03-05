@@ -93,6 +93,7 @@ module Thumbtack
       unless response['result_code'] == 'done'
         raise ResultError, response['result_code']
       end
+
       self
     end
 
