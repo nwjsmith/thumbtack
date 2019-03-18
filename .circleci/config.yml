@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.3.6
+      - image: circleci/ruby:2.6.2
     steps:
       - checkout
       - run:
@@ -21,3 +21,9 @@ jobs:
             ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code ${EXIT_CODE}
           environment:
             COVERAGE: 'true'
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - build
