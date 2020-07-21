@@ -6,11 +6,11 @@ require 'thumbtack/version'
 
 Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'irb', '1.0.0'
-  spec.add_development_dependency 'minitest', '5.11.3'
-  spec.add_development_dependency 'rake', '12.3.2'
-  spec.add_development_dependency 'simplecov', '0.16.1'
-  spec.add_development_dependency 'yard', '0.9.18'
+  spec.add_development_dependency 'irb', '1.2.4'
+  spec.add_development_dependency 'minitest', '5.14.1'
+  spec.add_development_dependency 'rake', '13.0.1'
+  spec.add_development_dependency 'simplecov', '0.18.5'
+  spec.add_development_dependency 'yard', '0.9.25'
   spec.authors = ['Nate Smith']
   spec.description = 'Thumbtack is a simple client for the Pinboard API'
   spec.email = ['nwjsmith@gmail.com']
