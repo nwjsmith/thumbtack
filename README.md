@@ -1,6 +1,6 @@
 # Thumbtack - The best Pinboard API client for Ruby
 
-[![GitHub Actions badge](https://github.com/nwjsmith/thumbtack/workflows/Test/badge.svg)]
+[![GitHub Actions badge](https://github.com/nwjsmith/thumbtack/workflows/Test/badge.svg)](https://github.com/nwjsmith/thumbtack/actions?query=workflow%3ATest+branch%3Amaster)
 [![Codecov](https://codecov.io/gh/nwjsmith/thumbtack/branch/master/graph/badge.svg)](https://codecov.io/gh/nwjsmith/thumbtack)
 [![Inline Docs](http://inch-ci.org/github/nwjsmith/thumbtack.svg?branch=master)](http://inch-ci.org/github/nwjsmith/thumbtack)
 
