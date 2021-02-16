@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org).
 
 ## [Unreleased]
 
+### Changed
+- Ensure secure connection is used to the Pinboard API
+- Drop support for Ruby 2.4
+
 ## [2.0.0] - 2019-03-05
 
 ### Changed
