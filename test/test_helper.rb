@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 if ENV.fetch('COVERAGE', false)
+  require 'codecov'
   require 'simplecov'
-  SimpleCov.start { add_filter 'test/' }
+  SimpleCov.start do
+    add_filter 'test/'
+    formatter SimpleCov::Formatter::MultiFormatter.new([
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCov::Formatter::Codecov
+    ])
+  end
 end
 
 require 'thumbtack'
