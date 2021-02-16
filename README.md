@@ -1,8 +1,7 @@
 # Thumbtack - The best Pinboard API client for Ruby
 
-[![Circle CI](https://circleci.com/gh/nwjsmith/thumbtack.svg?style=svg)](https://circleci.com/gh/nwjsmith/thumbtack)
-[![Code Climate](https://codeclimate.com/github/nwjsmith/thumbtack/badges/gpa.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
-[![Test Coverage](https://codeclimate.com/github/nwjsmith/thumbtack/badges/coverage.svg)](https://codeclimate.com/github/nwjsmith/thumbtack)
+[![GitHub Actions badge](https://github.com/nwjsmith/thumbtack/workflows/Test/badge.svg)]
+[![Codecov](https://codecov.io/gh/nwjsmith/thumbtack/branch/master/graph/badge.svg)](https://codecov.io/gh/nwjsmith/thumbtack)
 [![Inline Docs](http://inch-ci.org/github/nwjsmith/thumbtack.svg?branch=master)](http://inch-ci.org/github/nwjsmith/thumbtack)
 
 ## Description
