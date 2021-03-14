@@ -5,7 +5,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'thumbtack/version'
 
 Gem::Specification.new do |spec|
-  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'minitest-autotest', '1.1.1'
+  spec.add_development_dependency 'bundler', '2.2.14'
   spec.add_development_dependency 'codecov', '0.5.1'
   spec.add_development_dependency 'irb', '1.3.4'
   spec.add_development_dependency 'minitest', '5.14.4'
