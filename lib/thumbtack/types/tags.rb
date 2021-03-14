@@ -10,9 +10,9 @@ module Thumbtack
       # The maximum tag length
       MAXIMUM_LENGTH = 255
       # Tags cannot have commas
-      INVALID_CHARACTER = ','
+      INVALID_CHARACTER = ","
       # Tag parameters are separated by spaces
-      SEPARATOR = ' '
+      SEPARATOR = " "
 
       # Validate a tags value
       #
@@ -28,7 +28,7 @@ module Thumbtack
           next if tag_valid?(tag)
 
           raise ValidationError,
-                "#{tag} cannot contain commas or be longer than 255 characters"
+            "#{tag} cannot contain commas or be longer than 255 characters"
         end
         self
       end

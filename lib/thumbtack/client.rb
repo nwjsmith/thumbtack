@@ -90,8 +90,8 @@ module Thumbtack
     # @see https://pinboard.in/api/#errors
     def action(path, params)
       response = @adapter.get(path, params)
-      unless response['result_code'] == 'done'
-        raise ResultError, response['result_code']
+      unless response["result_code"] == "done"
+        raise ResultError, response["result_code"]
       end
 
       self

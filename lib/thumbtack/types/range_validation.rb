@@ -23,7 +23,7 @@ module Thumbtack
       def self.validate(value, range)
         unless range.cover?(value)
           raise ValidationError,
-                "#{value} must be between #{range.begin} and #{range.end}"
+            "#{value} must be between #{range.begin} and #{range.end}"
         end
         self
       end

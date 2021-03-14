@@ -26,8 +26,8 @@ module Thumbtack
     #
     # @see https://pinboard.in/api/#posts_update
     def update
-      response = client.get('/posts/update')
-      Types::Time.deserialize response.fetch('update_time')
+      response = client.get("/posts/update")
+      Types::Time.deserialize response.fetch("update_time")
     end
 
     # Add a bookmark
@@ -69,8 +69,8 @@ module Thumbtack
         replace: Types::Boolean,
         shared: Types::Boolean,
         toread: Types::Boolean
-      ).parameters({ url: url, description: description }.merge(options))
-      client.action('/posts/add', parameters)
+      ).parameters({url: url, description: description}.merge(options))
+      client.action("/posts/add", parameters)
       self
     end
 
@@ -89,7 +89,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#posts_delete
     def delete(url)
       parameters = Specification.new(url: Types::URL).parameters(url: url)
-      client.action('/posts/delete', parameters)
+      client.action("/posts/delete", parameters)
       self
     end
 
@@ -121,7 +121,7 @@ module Thumbtack
         url: Types::URL,
         meta: Types::Boolean
       ).parameters(options)
-      posts_from client.get('/posts/get', parameters)
+      posts_from client.get("/posts/get", parameters)
     end
 
     # List the most recent bookmarks
@@ -146,7 +146,7 @@ module Thumbtack
         tag: Types::Tags,
         count: Types::Integer
       ).parameters(options)
-      posts_from client.get('/posts/recent', parameters)
+      posts_from client.get("/posts/recent", parameters)
     end
 
     # List all bookmarks
@@ -183,7 +183,7 @@ module Thumbtack
         todt: Types::Time,
         meta: Types::Boolean
       ).parameters(options)
-      results = client.get('/posts/all', parameters)
+      results = client.get("/posts/all", parameters)
       results.map { |post_hash| Post.from_hash(post_hash) }
     end
 
@@ -205,7 +205,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#posts_suggest
     def suggest(url)
       parameters = Specification.new(url: Types::URL).parameters(url: url)
-      Suggestion.from_array(client.get('/posts/suggest', parameters))
+      Suggestion.from_array(client.get("/posts/suggest", parameters))
     end
 
     # List dates with the number of bookmarks created on each
@@ -227,7 +227,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#posts_dates
     def dates(options = EMPTY_HASH)
       parameters = Specification.new(tag: Types::Tags).parameters(options)
-      response = client.get('/posts/dates', parameters)
+      response = client.get("/posts/dates", parameters)
       dates_with_counts_from(response)
     end
 
@@ -239,7 +239,7 @@ module Thumbtack
     #
     # @api private
     def posts_from(response)
-      response.fetch('posts', EMPTY_ARRAY).map do |post_hash|
+      response.fetch("posts", EMPTY_ARRAY).map do |post_hash|
         Post.from_hash(post_hash)
       end
     end
@@ -250,7 +250,7 @@ module Thumbtack
     #
     # @api private
     def dates_with_counts_from(response)
-      entries = response.fetch('dates', EMPTY_HASH).map do |date, count|
+      entries = response.fetch("dates", EMPTY_HASH).map do |date, count|
         [Types::Date.deserialize(date), count.to_i]
       end
       Hash[entries]

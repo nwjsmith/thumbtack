@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class NoteSummaryTest < Minitest::Test
   def test_from_array
     array = [
-      { 'popular' => %w[ifttt] },
-      { 'recommended' => %w[ifttt twitter] }
+      {"popular" => %w[ifttt]},
+      {"recommended" => %w[ifttt twitter]}
     ]
     suggestion = Suggestion.from_array(array)
 

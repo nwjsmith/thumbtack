@@ -35,9 +35,9 @@ module Thumbtack
       def self.serialize(value)
         case value
         when TrueClass
-          'yes'
+          "yes"
         when FalseClass
-          'no'
+          "no"
         end
       end
 
@@ -49,9 +49,9 @@ module Thumbtack
       # @return [Boolean]
       def self.deserialize(parameter)
         case parameter
-        when 'yes'
+        when "yes"
           true
-        when 'no'
+        when "no"
           false
         end
       end

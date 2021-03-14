@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class ClientTest < Minitest::Test
   def setup
@@ -30,24 +30,24 @@ class ClientTest < Minitest::Test
 
   def test_get
     @adapter.expect(:get,
-                    { 'posts' => [] },
-                    ['/posts/recent', { tag: 'thumbtack' }])
-    @client.get('/posts/recent', tag: 'thumbtack')
+      {"posts" => []},
+      ["/posts/recent", {tag: "thumbtack"}])
+    @client.get("/posts/recent", tag: "thumbtack")
     @adapter.verify
   end
 
   def test_action
-    @adapter.expect(:get, { 'result_code' => 'done' }, ['/posts/update', {}])
-    @client.action('/posts/update', {})
+    @adapter.expect(:get, {"result_code" => "done"}, ["/posts/update", {}])
+    @client.action("/posts/update", {})
     @adapter.verify
   end
 
   def test_action_result_error
     assert_raises ResultError do
       @adapter.expect(:get,
-                      { 'result_code' => 'notdone' },
-                      ['/posts/update', {}])
-      @client.action('/posts/update', {})
+        {"result_code" => "notdone"},
+        ["/posts/update", {}])
+      @client.action("/posts/update", {})
     end
   end
 end

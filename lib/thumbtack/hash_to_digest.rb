@@ -6,8 +6,8 @@ module Thumbtack
   #
   # @api private
   class HashToDigest
-    HASH = 'hash'
-    DIGEST = 'digest'
+    HASH = "hash"
+    DIGEST = "digest"
 
     # Rename any attribute called hash to digest
     #

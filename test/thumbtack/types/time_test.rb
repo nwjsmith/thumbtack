@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class TimeTest < Minitest::Test
   def test_validate
@@ -16,17 +16,17 @@ class TimeTest < Minitest::Test
   end
 
   def test_serialize
-    assert_equal '2010-12-11T19:48:02Z',
-                 Types::Time.serialize(::Time.new(2010, 12, 11, 19, 48, 2))
+    assert_equal "2010-12-11T19:48:02Z",
+      Types::Time.serialize(::Time.new(2010, 12, 11, 19, 48, 2))
   end
 
   def test_deserialize
     assert_equal ::Time.new(2010, 12, 11, 19, 48, 2),
-                 Types::Time.deserialize('2010-12-11T19:48:02Z')
+      Types::Time.deserialize("2010-12-11T19:48:02Z")
   end
 
   def test_deserialize_from_note
     assert_equal ::Time.new(2010, 12, 11, 19, 48, 2),
-                 Types::Time.deserialize_from_note('2010-12-11 19:48:02')
+      Types::Time.deserialize_from_note("2010-12-11 19:48:02")
   end
 end

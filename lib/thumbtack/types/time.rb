@@ -12,9 +12,9 @@ module Thumbtack
       # The latest allowable time
       LATEST = ::Time.new(2100, 1, 1, 0, 0, 0, 0)
       # Pinboard's date time format
-      FORMAT = '%Y-%m-%dT%H:%M:%SZ'
+      FORMAT = "%Y-%m-%dT%H:%M:%SZ"
       # Pinboard's date time format for notes
-      NOTE_FORMAT = '%Y-%m-%d %H:%M:%S'
+      NOTE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
       # Validate a time
       #

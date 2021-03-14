@@ -22,7 +22,7 @@ module Thumbtack
       def self.validate(value)
         unless VALID_SCHEMES.include? URI(value).scheme
           raise ValidationError,
-                "scheme must be one of #{VALID_SCHEMES.join(', ')}"
+            "scheme must be one of #{VALID_SCHEMES.join(", ")}"
         end
         self
       end

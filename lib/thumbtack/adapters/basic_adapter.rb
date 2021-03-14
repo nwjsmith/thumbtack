@@ -5,19 +5,19 @@ module Thumbtack
     # A basic adapter using Ruby's builtin HTTP and JSON parsing libraries
     class BasicAdapter
       # The status code for rate limited responses from the Pinboard API
-      TOO_MANY_REQUESTS_CODE = '429'
+      TOO_MANY_REQUESTS_CODE = "429"
 
       # The response format requested from the Pinboard API
-      RESPONSE_FORMAT = 'json'
+      RESPONSE_FORMAT = "json"
 
       # The base Pinboard API URL.
-      BASE_URL = 'https://api.pinboard.in/v1'
+      BASE_URL = "https://api.pinboard.in/v1"
 
       # A secure version of SSL
-      SSL_VERSION = 'TLSv1_2'
+      SSL_VERSION = "TLSv1_2"
 
       # Secure cipher list
-      SSL_CIPHERS = 'TLSv1.2:!aNULL:!eNULL'
+      SSL_CIPHERS = "TLSv1.2:!aNULL:!eNULL"
 
       # Initialize a BasicAdapter
       #
@@ -99,8 +99,8 @@ module Thumbtack
       #
       # @api private
       def extend_parameters(parameters)
-        base_params = { auth_token: "#{@username}:#{@token}",
-                        format: RESPONSE_FORMAT }
+        base_params = {auth_token: "#{@username}:#{@token}",
+                       format: RESPONSE_FORMAT}
         URI.encode_www_form(parameters.merge(base_params))
       end
     end

@@ -20,7 +20,7 @@ module Thumbtack
       def self.validate(value, maximum_length)
         unless value.length <= maximum_length
           raise ValidationError,
-                "#{value} cannot be greater than #{maximum_length} characters"
+            "#{value} cannot be greater than #{maximum_length} characters"
         end
         self
       end

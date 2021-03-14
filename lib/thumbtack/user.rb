@@ -26,7 +26,7 @@ module Thumbtack
     #
     # @see https://pinboard.in/api/#user_secret
     def secret
-      client.get('/user/secret').fetch('result')
+      client.get("/user/secret").fetch("result")
     end
 
     # Fetch the API token for making calls without a password
@@ -40,7 +40,7 @@ module Thumbtack
     #
     # @see https://pinboard.in/api/#user_api_token
     def api_token
-      client.get('/user/api_token').fetch('result')
+      client.get("/user/api_token").fetch("result")
     end
   end
 end

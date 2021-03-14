@@ -8,12 +8,12 @@ module Thumbtack
     # The key associated with popular tags
     #
     # @api private
-    POPULAR_KEY = 'popular'
+    POPULAR_KEY = "popular"
 
     # The key associated with suggested tags
     #
     # @api private
-    RECOMMENDED_KEY = 'recommended'
+    RECOMMENDED_KEY = "recommended"
 
     # A list of popular tags for URL
     #

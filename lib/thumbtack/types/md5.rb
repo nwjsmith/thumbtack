@@ -9,7 +9,7 @@ module Thumbtack
       # The length of an MD5 value
       LENGTH = 32
       # The valid characters in an MD5 value
-      CHARACTERS = '0123456789abcdf'
+      CHARACTERS = "0123456789abcdf"
 
       # Validate a string is a valid MD5 parameter
       #
@@ -23,7 +23,7 @@ module Thumbtack
       def self.validate(value)
         unless valid_md5?(value)
           raise ValidationError,
-                "#{value} must be a 32 character hexadecimal MD5 hash"
+            "#{value} must be a 32 character hexadecimal MD5 hash"
         end
         self
       end
