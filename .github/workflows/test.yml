@@ -28,6 +28,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
       - run: |
           bin/yard
           git fetch origin gh-pages
