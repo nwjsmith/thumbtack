@@ -3,6 +3,8 @@
 module Thumbtack
   # Wraps API calls related to notes
   class Notes
+    attr_reader :client
+
     # Initialize a Notes
     #
     # @param [Client] client
@@ -24,7 +26,7 @@ module Thumbtack
     #
     # @see https://pinboard.in/api/#notes_list
     def list
-      response = @client.get('/notes/list')
+      response = client.get('/notes/list')
       response.fetch('notes', EMPTY_ARRAY).map do |note_hash|
         NoteSummary.from_hash(note_hash)
       end
@@ -44,7 +46,7 @@ module Thumbtack
     #
     # @see https://pinboard.in/api/#notes_id
     def get(id)
-      Note.from_hash @client.get("/notes/#{id}")
+      Note.from_hash client.get("/notes/#{id}")
     end
   end
 end

@@ -3,6 +3,8 @@
 module Thumbtack
   # Wraps API calls related to tags
   class Tags
+    attr_reader :client
+
     # Initialize a Tags
     #
     # @param [Client] client
@@ -25,7 +27,7 @@ module Thumbtack
     #
     # @see https://pinboard.in/api/#tags_get
     def get
-      response = @client.get('/tags/get')
+      response = client.get('/tags/get')
       Hash[response.map { |tag, count| [tag, count.to_i] }]
     end
 
@@ -44,7 +46,7 @@ module Thumbtack
     # @see https://pinboard.in/api/#tags_delete
     def delete(tag)
       parameters = Specification.new(tag: Types::Tags).parameters(tag: tag)
-      @client.action('/tags/delete', parameters)
+      client.action('/tags/delete', parameters)
       self
     end
 
@@ -68,7 +70,7 @@ module Thumbtack
         old: Types::Tags,
         new: Types::Tags
       ).parameters(old: old, new: new)
-      @client.action('/tags/rename', parameters)
+      client.action('/tags/rename', parameters)
       self
     end
   end
