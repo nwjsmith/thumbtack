@@ -17,7 +17,7 @@ namespace :test do
   end
 end
 
-desc "Start and IRB console with Thumbtack loaded"
+desc "Start an IRB console with Thumbtack loaded"
 task :console do
   exec "irb -Ilib -rthumbtack"
 end
