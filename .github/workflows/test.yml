@@ -24,20 +24,21 @@ jobs:
           files: ./coverage/codecov-result.json
   documentation:
     needs: test
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: 3.0.0
           bundler-cache: true
       - run: |
-          bin/yard
           git fetch origin gh-pages
+          bin/yard
           git checkout gh-pages
-          git clean --force --exclude=doc
+          git clean --force --exclude doc
           git ls-files | xargs git rm
           mv docs/* .
           git add .
           git commit -m "Update documentation"
-          git push
+          git push origin gh-pages
