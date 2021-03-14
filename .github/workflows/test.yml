@@ -19,8 +19,18 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
       - run: COVERAGE=1 bundle exec rake test:unit
+      - uses: codecov/codecov-action@v1
+        with:
+          files: ./coverage/codecov-result.json
+  documentation:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
       - run: |
           bin/yard
+          git fetch origin gh-pages
           git checkout gh-pages
           git clean --force --exclude=doc
           git ls-files | xargs git rm
@@ -28,6 +38,3 @@ jobs:
           git add .
           git commit -m "Update documentation"
           git push
-      - uses: codecov/codecov-action@v1
-        with:
-          files: ./coverage/codecov-result.json
