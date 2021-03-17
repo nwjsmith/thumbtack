@@ -128,7 +128,7 @@ module Thumbtack
     # @api private
     # @see Client#get
     def self.from_hash(hash)
-      new(SymbolizeKeys.symbolize(HashToDigest.rename(hash)))
+      new(HashToDigest.rename(hash).transform_keys(&:to_sym))
     end
 
     # Initialize a Post
