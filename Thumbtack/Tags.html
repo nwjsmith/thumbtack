@@ -6,15 +6,15 @@
 <title>
   Class: Thumbtack::Tags
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Thumbtack::Tags";
   relpath = '../';
 </script>
@@ -113,6 +113,40 @@
 </div>
 
 
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#client-instance_method" title="#client (instance method)">#<strong>client</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute client.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
@@ -279,12 +313,12 @@
       <pre class="lines">
 
 
-12
-13
-14</pre>
+14
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -295,6 +329,54 @@
 </div>
   
 </div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="client-instance_method">
+  
+    #<strong>client</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
+  <span class='ivar'>@client</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -375,18 +457,18 @@
       <pre class="lines">
 
 
-45
-46
 47
 48
-49</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_tag'>tag</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Specification.html" title="Thumbtack::Specification (class)">Specification</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Specification.html#initialize-instance_method" title="Thumbtack::Specification#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>tag:</span> <span class='const'><span class='object_link'><a href="Types.html" title="Thumbtack::Types (module)">Types</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Types/Tags.html" title="Thumbtack::Types::Tags (class)">Tags</a></span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parameters'><span class='object_link'><a href="Specification.html#parameters-instance_method" title="Thumbtack::Specification#parameters (method)">parameters</a></span></span><span class='lparen'>(</span><span class='label'>tag:</span> <span class='id identifier rubyid_tag'>tag</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tags/delete</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tags/delete</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -453,16 +535,16 @@
       <pre class="lines">
 
 
-27
-28
 29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tags/get</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tags/get</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='const'>Hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_tag'>tag</span><span class='comma'>,</span> <span class='id identifier rubyid_count'>count</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='id identifier rubyid_tag'>tag</span><span class='comma'>,</span> <span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -560,24 +642,24 @@
       <pre class="lines">
 
 
-66
-67
 68
 69
 70
 71
 72
-73</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/thumbtack/tags.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rename'>rename</span><span class='lparen'>(</span><span class='id identifier rubyid_old'>old</span><span class='comma'>,</span> <span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Specification.html" title="Thumbtack::Specification (class)">Specification</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Specification.html#initialize-instance_method" title="Thumbtack::Specification#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>old:</span> <span class='const'><span class='object_link'><a href="Types.html" title="Thumbtack::Types (module)">Types</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Types/Tags.html" title="Thumbtack::Types::Tags (class)">Tags</a></span></span><span class='comma'>,</span>
     <span class='label'>new:</span> <span class='const'><span class='object_link'><a href="Types.html" title="Thumbtack::Types (module)">Types</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Types/Tags.html" title="Thumbtack::Types::Tags (class)">Tags</a></span></span>
   <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_parameters'><span class='object_link'><a href="Specification.html#parameters-instance_method" title="Thumbtack::Specification#parameters (method)">parameters</a></span></span><span class='lparen'>(</span><span class='label'>old:</span> <span class='id identifier rubyid_old'>old</span><span class='comma'>,</span> <span class='label'>new:</span> <span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tags/rename</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_action'>action</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tags/rename</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_parameters'>parameters</span><span class='rparen'>)</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -590,9 +672,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jan  2 11:48:28 2018 by
+  Generated on Wed Mar 17 01:52:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.12 (ruby-2.4.1).
+  0.9.26 (ruby-3.0.0).
 </div>
 
     </div>

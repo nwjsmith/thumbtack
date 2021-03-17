@@ -1,0 +1,20 @@
+current directory: /home/runner/work/thumbtack/thumbtack/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.9/ext/io/console
+/opt/hostedtoolcache/Ruby/3.0.0/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/3.0.0/x64/lib/ruby/3.0.0 -r ./siteconf20210317-1748-fi5i2p.rb extconf.rb
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... no
+checking for rb_scheduler_timeout()... no
+creating Makefile
+
+current directory: /home/runner/work/thumbtack/thumbtack/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.9/ext/io/console
+make "DESTDIR=" clean
+
+current directory: /home/runner/work/thumbtack/thumbtack/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.9/ext/io/console
+make "DESTDIR="
+compiling console.c
+linking shared-object io/console.so
+
+current directory: /home/runner/work/thumbtack/thumbtack/vendor/bundle/ruby/3.0.0/gems/io-console-0.5.9/ext/io/console
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 console.so ./.gem.20210317-1748-lsvvad/io

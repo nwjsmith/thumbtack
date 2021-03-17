@@ -1,0 +1,52 @@
+=== 1.1.1 / 2019-05-29
+
+* 1 bug fix:
+
+  * Fixed missing dependency on path_expander. (blowmage)
+
+=== 1.1.0 / 2019-05-26
+
+* 4 minor enhancements:
+
+  * Added --focus mode that lets you only monitor/test specified files.
+  * Move Autotest.parse_options from bin/autotest to Autotest.run.
+  * Push options down to instance variable. No globals. Passed to #initialize.
+  * Use path_expander to process cmdline args.
+
+* 2 bug fixes:
+
+  * Filter out non-files (eg "(eval)") to avoid spurious errors.
+  * Remove explicit -rubygems flag. Broken in ruby 2.5 for some reason.
+
+=== 1.0.3 / 2016-05-02
+
+* 2 bug fixes:
+
+  * Added example_dot_autotest.rb and rake rule to regenerate it.
+  * Fix single quotes in test names for regexp used on cmdline.
+
+=== 1.0.2 / 2015-12-15
+
+* 1 bug fix:
+
+  * Fix autotest/restart to stop the server in between. (deivid-rodriguez)
+
+=== 1.0.1 / 2015-04-13
+
+* 2 bug fixes:
+
+  * Default died hook needs to be last. (bhenderson)
+  * Remove unused hooks (some may come back at some point). (bhenderson)
+
+=== 1.0.0 / 2014-12-30
+
+* 1 bug fix:
+
+  * Fixed cmdline build to use --server, not dead -a. (halostatue)
+
+=== 1.0.0.b.1 / 2014-09-16
+
+* 1 major enhancement
+
+  * Birthday!
+

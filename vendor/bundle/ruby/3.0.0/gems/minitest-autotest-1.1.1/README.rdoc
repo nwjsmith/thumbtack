@@ -1,0 +1,121 @@
+= minitest-autotest
+
+home :: https://github.com/seattlerb/minitest-autotest
+rdoc :: http://docs.seattlerb.org/minitest-autotest
+
+== DESCRIPTION:
+
+autotest is a continous testing facility meant to be used during
+development. As soon as you save a file, autotest will run the
+corresponding dependent tests.
+
+minitest-autotest is the latest incarnation of the venerable and wise
+autotest. This time, it talks to minitest via minitest-server. As a
+result, there is no output parsing. There are no regexps to tweak.
+There's no cruft or overhead.
+
+== FEATURES/PROBLEMS:
+
+* Continually and intelligently test only those files you change with autotest.
+
+== SYNOPSIS:
+
+  % autotest
+  # ... tests run ...
+
+== AUTOTEST TIPS
+
+Setting up your project with a custom setup is easily done by creating
+a ".autotest" file in your project. Here is an example of adding some
+plugins, using minitest as your test library, and running rcov on full
+passes:
+
+    require 'autotest/restart'
+
+    Autotest.add_hook :initialize do |at|
+      at.testlib = "minitest/autorun"
+    end
+
+    Autotest.add_hook :all_good do |at|
+      system "rake rcov_info"
+    end if ENV['RCOV']
+
+Do note, since minitest ships with ruby 1.9, if you want to use the
+latest minitest gem you need to ensure that the gem activation occurs!
+To do this, add the gem activation and the proper require to a
+separate file (like ".minitest.rb" or even a test helper if you have
+one) and use that for your testlib instead:
+
+.minitest.rb:
+
+    gem "minitest"
+    require "minitest/autorun"
+
+.autotest:
+
+    Autotest.add_hook :initialize do |at|
+      at.testlib = ".minitest"
+    end
+
+If you prefer to suffix test files with "_test.rb" (instead of the
+default which prefixes test files with "test_") you can change the
+mapping by installing the autotest-suffix plugin. To do this first
+install the autotest-suffix gem:
+
+    $ gem install autotest-suffix
+
+Then add the following to the ".autotest" file:
+
+    require "autotest/suffix"
+
+If you prefer minitest/spec to minitest/unit, you can still use autotest
+by installing the autotest-spec plugin.
+To do this first install the autotest-spec gem:
+
+    $ gem install autotest-spec
+
+Then add the following to the ".autotest" file:
+
+    require "autotest/spec"
+
+If you use autotest/bundler, include minitest-autotest in your Gemfile:
+
+    gem "minitest-autotest"
+
+Otherwise, you may get this error message when running autotest:
+
+    invalid option: --server
+
+== REQUIREMENTS:
+
+* minitest 5+
+* minitest-server
+
+== INSTALL:
+
+* sudo gem install minitest-autotest
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) Ryan Davis, seattle.rb
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

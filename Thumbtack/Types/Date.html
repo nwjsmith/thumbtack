@@ -6,15 +6,15 @@
 <title>
   Class: Thumbtack::Types::Date
   
-    &mdash; Documentation by YARD 0.9.12
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Thumbtack::Types::Date";
   relpath = '../../';
 </script>
@@ -106,8 +106,7 @@
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
 
-<p>Handles conversion and validation of Dates to parameters supported by
-Pinboard</p>
+<p>Handles conversion and validation of Dates to parameters supported by Pinboard</p>
 
 
   </div>
@@ -116,11 +115,16 @@ Pinboard</p>
   
 
 </div>
-  <h2>Constant Summary</h2>
-  <dl class="constants">
-    
-      <dt id="EARLIEST-constant" class="">EARLIEST =
-        <div class="docstring">
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="EARLIEST-constant" class="">EARLIEST =
+          <div class="docstring">
   <div class="discussion">
     <p class="note private">
   <strong>This constant is part of a private API.</strong>
@@ -136,11 +140,11 @@ Pinboard</p>
   
 
 </div>
-      </dt>
-      <dd><pre class="code"><span class='op'>::</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span></pre></dd>
-    
-      <dt id="LATEST-constant" class="">LATEST =
-        <div class="docstring">
+        </dt>
+        <dd><pre class="code"><span class='op'>::</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="LATEST-constant" class="">LATEST =
+          <div class="docstring">
   <div class="discussion">
     <p class="note private">
   <strong>This constant is part of a private API.</strong>
@@ -156,10 +160,11 @@ Pinboard</p>
   
 
 </div>
-      </dt>
-      <dd><pre class="code"><span class='op'>::</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2100</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span></pre></dd>
-    
-  </dl>
+        </dt>
+        <dd><pre class="code"><span class='op'>::</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2100</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -507,7 +512,7 @@ Pinboard</p>
       <pre class="code"><span class="info file"># File 'lib/thumbtack/types/date.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="RangeValidation.html" title="Thumbtack::Types::RangeValidation (class)">RangeValidation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_validate'><span class='object_link'><a href="RangeValidation.html#validate-class_method" title="Thumbtack::Types::RangeValidation.validate (method)">validate</a></span></span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#EARLIEST-constant" title="Thumbtack::Types::Date::EARLIEST (constant)">EARLIEST</a></span></span><span class='op'>..</span><span class='const'><span class='object_link'><a href="#LATEST-constant" title="Thumbtack::Types::Date::LATEST (constant)">LATEST</a></span></span>
+  <span class='const'><span class='object_link'><a href="RangeValidation.html" title="Thumbtack::Types::RangeValidation (class)">RangeValidation</a></span></span><span class='period'>.</span><span class='id identifier rubyid_validate'><span class='object_link'><a href="RangeValidation.html#validate-class_method" title="Thumbtack::Types::RangeValidation.validate (method)">validate</a></span></span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#EARLIEST-constant" title="Thumbtack::Types::Date::EARLIEST (constant)">EARLIEST</a></span></span><span class='op'>..</span><span class='const'>LATEST</span>
   <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -520,9 +525,9 @@ Pinboard</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Jan  2 11:48:28 2018 by
+  Generated on Wed Mar 17 01:52:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.12 (ruby-2.4.1).
+  0.9.26 (ruby-3.0.0).
 </div>
 
     </div>
