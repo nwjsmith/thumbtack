@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "5.14.4"
   spec.add_development_dependency "minitest-autotest", "1.1.1"
   spec.add_development_dependency "rake", "13.0.3"
+  spec.add_development_dependency "sorbet", "0.5.6346"
   spec.add_development_dependency "standardrb", "1.0.0"
   spec.add_development_dependency "simplecov", "0.21.2"
   spec.add_development_dependency "yard", "0.9.26"
