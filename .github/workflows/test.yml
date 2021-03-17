@@ -38,7 +38,7 @@ jobs:
           git checkout gh-pages
           git clean --force --exclude doc
           git ls-files | xargs git rm
-          mv docs/* .
+          find doc -mindepth 1 -maxdepth 1 -exec mv -t . -- {} +
           git add .
-          git commit -m "Update documentation"
+          git commit --message "Update documentation"
           git push origin gh-pages
