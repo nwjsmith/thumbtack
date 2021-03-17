@@ -40,5 +40,7 @@ jobs:
           git ls-files | xargs git rm
           find doc -mindepth 1 -maxdepth 1 -exec mv -t . -- {} +
           git add .
+          git config user.email "nate.smith@hey.com"
+          git config user.name "Nate Smith"
           git commit --message "Update documentation"
           git push origin gh-pages
